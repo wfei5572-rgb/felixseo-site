@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts } from '../../lib/posts';
+
+const posts = await getPosts('en');
+const featured = posts.filter((p) => p.data.featured);
+const latest = posts.filter((p) => !p.data.featured).slice(0, 8);
+const fallback = posts.slice(0, 5);
+---
+<Base
+  lang="en"
+  title="Felix's Field Notes | B2B Go-Global SEO, GEO & Growth"
+  description="Field notes from the frontline of B2B go-global marketing: SEO, GEO, independent sites, paid ads and social — only what we've done and verified."
+>
+  <section class="hero">
+    <div class="kicker">Field Notes · B2B Go-Global Marketing</div>
+    <h1>Go-Global Marketing, Written From the Field</h1>
+    <p class="lede">Real playbooks on SEO, GEO, independent sites, paid ads and social. Only methods we've shipped and verified.</p>
+  </section>
+
+  {featured.length > 0 && (
+    <section class="section">
+      <div class="section-head"><span class="num">01</span><h2>Featured</h2></div>
+      <PostList lang="en" posts={featured} />
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-head"><span class="num">02</span><h2>Latest</h2></div>
+    <PostList lang="en" posts={latest.length > 0 ? latest : fallback} withExcerpt={false} />
+    <a class="more-link" href="/en/archive/">View all articles →</a>
+  </section>
+</Base>

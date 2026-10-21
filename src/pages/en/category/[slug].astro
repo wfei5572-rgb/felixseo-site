@@ -1,0 +1,28 @@
+---
+import { getPosts } from '../../../lib/posts';
+import { CATEGORIES } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const posts = await getPosts('en');
+  return Object.keys(CATEGORIES).map((slug) => ({
+    params: { slug },
+    props: { posts: posts.filter((p) => p.data.category === slug) },
+  }));
+}
+
+import Base from '../../../layouts/Base.astro';
+import PostList from '../../../components/PostList.astro';
+const { posts } = Astro.props;
+const { slug } = Astro.params;
+const name = CATEGORIES[slug as keyof typeof CATEGORIES].en;
+---
+<Base lang="en" title={`${name} | Felix's Field Notes`}>
+  <section class="hero">
+    <div class="kicker">Category</div>
+    <h1>{name}</h1>
+    <p class="lede">{posts.length} articles.</p>
+  </section>
+  <section class="section">
+    <PostList lang="en" posts={posts} withExcerpt={false} />
+  </section>
+</Base>

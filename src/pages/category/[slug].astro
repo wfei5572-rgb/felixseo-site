@@ -1,0 +1,28 @@
+---
+import { getPosts } from '../../lib/posts';
+import { CATEGORIES } from '../../i18n';
+
+export async function getStaticPaths() {
+  const posts = await getPosts('zh');
+  return Object.keys(CATEGORIES).map((slug) => ({
+    params: { slug },
+    props: { posts: posts.filter((p) => p.data.category === slug) },
+  }));
+}
+
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+const { posts } = Astro.props;
+const { slug } = Astro.params;
+const name = CATEGORIES[slug as keyof typeof CATEGORIES].zh;
+---
+<Base lang="zh" title={`${name} | Felix 出海营销实战笔记`}>
+  <section class="hero">
+    <div class="kicker">Category</div>
+    <h1>{name}</h1>
+    <p class="lede">共 {posts.length} 篇。</p>
+  </section>
+  <section class="section">
+    <PostList lang="zh" posts={posts} withExcerpt={false} />
+  </section>
+</Base>

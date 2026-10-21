@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import { getPosts } from '../lib/posts';
+
+const posts = await getPosts('zh');
+---
+<Base lang="zh" title="全部文章 | Felix 出海营销实战笔记" description="所有关于 B2B 出海 SEO、GEO、独立站、广告与社媒的实战文章。">
+  <section class="hero">
+    <div class="kicker">Archive</div>
+    <h1>全部文章</h1>
+    <p class="lede">共 {posts.length} 篇。按时间倒序排列。</p>
+  </section>
+  <section class="section">
+    <PostList lang="zh" posts={posts} withExcerpt={false} />
+  </section>
+</Base>

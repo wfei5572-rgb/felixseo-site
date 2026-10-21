@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import { getPosts } from '../lib/posts';
+
+const posts = await getPosts('zh');
+const featured = posts.filter((p) => p.data.featured);
+const latest = posts.filter((p) => !p.data.featured).slice(0, 8);
+const enLatest = posts.slice(0, 5);
+---
+<Base
+  lang="zh"
+  title="Felix 出海营销实战笔记 | B2B SEO、GEO、独立站与广告复盘"
+  description="一线 B2B 出海营销操盘手的真实复盘：SEO、GEO、独立站、广告投放与社媒运营，只讲做过、验证过的方法。"
+>
+  <section class="hero">
+    <div class="kicker">Field Notes · B2B 出海营销</div>
+    <h1>出海营销实战笔记</h1>
+    <p class="lede">写 SEO、GEO、独立站、广告与社媒的真实复盘。只讲做过、验证过的方法。</p>
+  </section>
+
+  {featured.length > 0 && (
+    <section class="section">
+      <div class="section-head"><span class="num">01</span><h2>精选文章</h2></div>
+      <PostList lang="zh" posts={featured} />
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-head"><span class="num">02</span><h2>最新文章</h2></div>
+    <PostList lang="zh" posts={latest.length > 0 ? latest : enLatest} withExcerpt={false} />
+    <a class="more-link" href="/archive/">查看全部文章 →</a>
+  </section>
+</Base>
