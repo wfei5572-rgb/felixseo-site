@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑 | Felix 出海营销实战笔记</title>
+<meta name="description" content="同一个问题，三类引擎的取源路径完全不同。">
+<link rel="canonical" href="https://felixseo.com/article/how-ai-engines-pick-sources/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑 | Felix 出海营销实战笔记">
+<meta property="og:description" content="同一个问题，三类引擎的取源路径完全不同。">
+<meta property="og:url" content="https://felixseo.com/article/how-ai-engines-pick-sources/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/how-ai-engines-pick-sources.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑 | Felix 出海营销实战笔记">
+<meta name="twitter:description" content="同一个问题，三类引擎的取源路径完全不同。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/how-ai-engines-pick-sources.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑", "description": "同一个问题，三类引擎的取源路径完全不同。", "datePublished": "2026-09-30", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/how-ai-engines-pick-sources/", "image": "https://felixseo.com/assets/og-default.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "GEO", "item": "https://felixseo.com/category/geo/"}, {"@type": "ListItem", "position": 3, "name": "AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI 引擎的引用来源和谷歌排名是一回事吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是一回事。Ahrefs 基于 86.3 万个关键词的研究显示，AI Overviews 引用页同时进自然前 10 的比例，从 2025 年 7 月的 76% 降到 2026 年的 38%。排名仍是入场券，但决定被不被引用的，是段落本身写得能不能被整段摘走。"}}, {"@type": "Question", "name": "ChatGPT 用的是谷歌的索引吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是。OpenAI 官方文档说明，ChatGPT Search 用自家的 OAI-SearchBot 建索引，检索时还会把一个问题扇出成多条子查询。这意味着 robots 里只放行 Googlebot 远远不够，这只爬虫被拦住，你在 ChatGPT 的答案里就是不存在。"}}, {"@type": "Question", "name": "排到自然第一就一定会被 AI 引用吗？", "acceptedAnswer": {"@type": "Answer", "text": "不一定。AirOps 2026 年的分析显示，自然第 1 名被 ChatGPT 引用的概率是前 20 名之外页面的 3.5 倍，这是概率被抬高，不是拿到通行证。被检索到的页面里最终只有约 15% 会被引用，剩下的差距要靠段落质量去补。"}}, {"@type": "Question", "name": "Perplexity 为什么总在引用 Reddit 和 LinkedIn？", "acceptedAnswer": {"@type": "Answer", "text": "第三方抽样研究观察到，它引用最多的是 Reddit、LinkedIn、NIH 这类站点，原因是这些站内容结构清晰、又被反复交叉印证。对出海企业的启发是：只靠官网自述很难挤进这个名单，得让第三方渠道也在说你。"}}, {"@type": "Question", "name": "这些引用比例的数字，能写进给老板的汇报里吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以写，但必须标明是第三方抽样研究并附上日期。这类数字逐月漂移，Semrush 就观察到一个搜索参数调整之后，Reddit 的引用份额一夜腰斩。把它当方向没问题，当成承诺或者考核指标，早晚要出事。"}}, {"@type": "Question", "name": "三类引擎要分别做三套优化吗？", "acceptedAnswer": {"@type": "Answer", "text": "不用三套，底座是同一套。爬虫放行、静态内容可读、段落能被单独摘走，这三件事三类引擎都吃。差别只在验收的侧重：Google 看索引与内容质量，ChatGPT 看段落粒度，Perplexity 看首屏给不给得出事实。"}}]}]</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记<br><em>FIELD NOTES</em></span></a>
+    <nav class="nav"><a href="/category/seo/" class="">SEO</a><a href="/category/geo/" class="on">GEO</a><a href="/category/website/" class="">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <div class="header-right">
+      <a class="btn-primary" href="/consulting/">预约咨询</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.031 · GEO · 2026.09.30 · 11 MIN READ</p>
+  <h1 class="art-title">AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑</h1>
+  <figure class="art-hero"><img src="/assets/covers/how-ai-engines-pick-sources.jpg" alt="AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">同一个问题，三类引擎的取源路径完全不同。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>三类引擎的取源路径不一样：Google AI Overviews 用的是标准搜索索引，ChatGPT Search 先用自己的爬虫建索引再扇出多条子查询，Perplexity 与 Claude 则靠实时抓取页面。所以被不被引用，要按引擎分开看，不能只盯自然排名。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>先说结论：自然排名和被 AI 引用，已经不是一回事</h2>
+<p>排名还是入场券，但它不再等于被引用。三类引擎各有各的取源路径，你得分开对账。</p>
+<p>Ahrefs 基于 86.3 万个关键词的研究显示，AI Overviews 引用页同时位于自然前 10 的比例，从 2025 年 7 月的 76% 降到 2026 年的 38%。一年时间腰斩。</p>
+<p>Moz 2026 年 2 月对约 4 万条查询的分析给出的数字更极端：88% 的 AI Mode 引用 URL 不在自然前 10。</p>
+<p>我拿客户站实测过几轮，感受跟这两组数字一致。有的词排在第一页，AI 答案里一次没出现；也有页面排名平平，却被 Perplexity 反复引用。</p>
+<h2 class="sec"><span class="sec-bar"></span>Google AIO 与 AI Mode：同一套索引，但检索方式是扇出式的</h2>
+<p>给 Google 的 AI 功能做优化，没有第二个入口——它用的就是标准 Google 索引，加上核心排名与质量系统。</p>
+<p>这一点官方在 <a href="https://blog.google/products/search/generative-ai-search/">Google 生成式搜索公告</a> 里讲得很清楚：AI 答案是建在既有搜索基建上的。所以抓取、索引、内容质量这些老功课，一件都省不掉。</p>
+<p>真正变了的是检索方式。AI Mode 走扇出式检索，一个问题被拆成多条子查询分别去找答案，再合成一段话。Moz 2026 年 2 月的研究显示，88% 的引用不在自然前 10，来源就在这里——它压根不是从你那条词的结果页里挑的。</p>
+<p>对出海企业的含义很直接：钱页排名依然要做，但把预算全押在几个大词上，覆盖不到扇出出来的那些子问题。</p>
+<h2 class="sec"><span class="sec-bar"></span>ChatGPT Search：先扇出子查询，再从检索到的页面里挑约 15%</h2>
+<p>ChatGPT 不共用 Google 的索引，它有自己的爬虫。<a href="https://platform.openai.com/docs/bots">OpenAI 爬虫文档</a>把负责建搜索索引的那一只写作 OAI-SearchBot——robots 或 WAF 把它拦住，你在 ChatGPT 里就是不存在。</p>
+<p>检索时同样扇出。AirOps 2026 年的分析显示，ChatGPT 对 89.6% 的提问会生成 2 条以上子查询；而被检索到的页面里，最终只有约 15% 会被引用。</p>
+<p>排名在这一路仍然有用。同一份 AirOps 2026 年的分析里，自然第 1 名被 ChatGPT 引用的概率，是前 20 名之外页面的 3.5 倍。</p>
+<p>所以我对客户的说法一直是：排名是概率，不是通行证。第 1 名只把概率抬高 3.5 倍（AirOps 2026 年数据），能不能被摘走，还要看那一段写没写成可引用的样子。</p>
+<h2 class="sec"><span class="sec-bar"></span>Perplexity 与 Claude：实时抓取，首屏读不到就换一家</h2>
+<p>这两类引擎既有自建索引，也在用户提问时实时抓取页面。实时抓取意味着它没有耐心——首屏给不出事实，就换一个来源。</p>
+<p>第三方抽样研究给出的判断是，实时抓取型引擎对页面首屏可读性最敏感。这跟我在客户站上看到的情况一致：把参数表折叠到第三屏的页面，几乎不会被这类引擎引用。</p>
+<p>同一批抽样还指出，Perplexity 引用最多的域名集中在 Reddit、LinkedIn、NIH 这类站点。这条对出海企业不算好消息——官网天然不在这个名单里，得靠第三方渠道在说你。</p>
+<p>落到动作上就一句话：把关键事实写进首屏，别藏在折叠区里。</p>
+<h2 class="sec"><span class="sec-bar"></span>三类引擎对照表：可以直接转给做网站的同事</h2>
+<p>把上面三段压成一张表，方便对照着排优先级。</p>
+<div class="table-wrap"><table><thead><tr><th>引擎</th><th>答案来源（官方文档口径）</th><th>引用偏好（第三方抽样研究）</th><th>对页面最要命的一条</th></tr></thead><tbody><tr><td>Google AIO / AI Mode</td><td>标准 Google 索引 + 核心排名与质量系统</td><td>AI Mode 扇出式检索，88% 引用不在自然前 10，引用最多的域名是 LinkedIn、YouTube、Reddit</td><td>索引与内容质量的基本功，缺一样全线不通</td></tr><tr><td>ChatGPT Search</td><td>OAI-SearchBot 建索引，检索时扇出多条子查询，仅引用约 15% 被检索到的页面</td><td>自然第 1 名被引概率是前 20 名外的 3.5 倍，Reddit、Wikipedia 长期是被引最多的两个域名</td><td>段落能不能被单独摘走</td></tr><tr><td>Perplexity / Claude</td><td>自建索引 + 用户提问时实时抓取</td><td>引用最多的是 Reddit、LinkedIn、NIH 等权威站</td><td>首屏可读性</td></tr></tbody></table></div>
+<p>注意第三列的措辞。那是第三方抽样研究的观察，不是平台公布的规则，两者不能混着说。</p>
+<h2 class="sec"><span class="sec-bar"></span>这些引用偏好逐月漂移，只能用来定方向，不能用来做承诺</h2>
+<p>上面那张表的第三列，有效期很短。引用偏好来自第三方抽样研究，逐月漂移，用它定方向可以，用它做承诺不行。</p>
+<p>一个例子很能说明问题：Semrush 的观察显示，Google 取消 num=100 参数之后，Reddit 的引用份额一夜腰斩。一个搜索参数的调整，就能把「AI 最爱引用谁」的答案改写一遍。</p>
+<p>所以我从不说「把内容发到某个平台就一定会被引用」。能承诺的只有动作，以及固定问题集口径下的月度对比。</p>
+<p>AI 平台没有官方排名。任何工具给出的「AI 排名」都是抽样结果，看趋势可以，当考核数字要小心。</p>
+<h2 class="sec"><span class="sec-bar"></span>按这个顺序对账，比闷头补内容有用</h2>
+<ol class="steps"><li><strong>先对 Google 这一路</strong>抓取、索引、内容质量按老规矩验收一遍。这一路不通，后面两路做了也白做，因为 AIO 与 Gemini 都建在同一套索引上。</li><li><strong>再对 ChatGPT 这一路</strong>确认 OAI-SearchBot 没有被 robots 或 WAF 拦住，然后把产品页和指南页的每个 H2 改成能单独摘走的段落。</li><li><strong>最后对实时抓取这一路</strong>禁用 JS 看一遍首屏，关键数字、规格表、联系方式必须出现在静态内容的前 30% 里。</li><li><strong>每月用同一组问题复测</strong>同一份问题集、同一个地区与设备口径，每月各跑一次三类引擎，只看趋势不看单次结果。</li></ol>
+<p>这三路的共同底座，其实还是<a href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">谷歌 SEO 服务</a>那一套，只是验收多了一道。我们在<a href="https://www.hudoo-tech.com/cases/">客户案例</a>里能明显看到，基本功没补齐的站，GEO 动作做再多也起不来。</p>
+<p>如果你想把 SEO 与 GEO 的节奏一次排好，可以参考<a href="https://www.hudoo-tech.com/solutions/b2b-solution/">B2B 出海解决方案</a>的拆法，别把它们当两个项目立。</p>
+<blockquote><cite>— FELIX</cite></blockquote>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>AI 引擎的引用来源和谷歌排名是一回事吗？</h3>
+<p>不是一回事。Ahrefs 基于 86.3 万个关键词的研究显示，AI Overviews 引用页同时进自然前 10 的比例，从 2025 年 7 月的 76% 降到 2026 年的 38%。排名仍是入场券，但决定被不被引用的，是段落本身写得能不能被整段摘走。</p>
+<h3>ChatGPT 用的是谷歌的索引吗？</h3>
+<p>不是。OpenAI 官方文档说明，ChatGPT Search 用自家的 OAI-SearchBot 建索引，检索时还会把一个问题扇出成多条子查询。这意味着 robots 里只放行 Googlebot 远远不够，这只爬虫被拦住，你在 ChatGPT 的答案里就是不存在。</p>
+<h3>排到自然第一就一定会被 AI 引用吗？</h3>
+<p>不一定。AirOps 2026 年的分析显示，自然第 1 名被 ChatGPT 引用的概率是前 20 名之外页面的 3.5 倍，这是概率被抬高，不是拿到通行证。被检索到的页面里最终只有约 15% 会被引用，剩下的差距要靠段落质量去补。</p>
+<h3>Perplexity 为什么总在引用 Reddit 和 LinkedIn？</h3>
+<p>第三方抽样研究观察到，它引用最多的是 Reddit、LinkedIn、NIH 这类站点，原因是这些站内容结构清晰、又被反复交叉印证。对出海企业的启发是：只靠官网自述很难挤进这个名单，得让第三方渠道也在说你。</p>
+<h3>这些引用比例的数字，能写进给老板的汇报里吗？</h3>
+<p>可以写，但必须标明是第三方抽样研究并附上日期。这类数字逐月漂移，Semrush 就观察到一个搜索参数调整之后，Reddit 的引用份额一夜腰斩。把它当方向没问题，当成承诺或者考核指标，早晚要出事。</p>
+<h3>三类引擎要分别做三套优化吗？</h3>
+<p>不用三套，底座是同一套。爬虫放行、静态内容可读、段落能被单独摘走，这三件事三类引擎都吃。差别只在验收的侧重：Google 看索引与内容质量，ChatGPT 看段落粒度，Perplexity 看首屏给不给得出事实。</p>
+<div class="cta-box"><p class="eyebrow">HUDOO-TECH · SINCE 2018</p><p>想知道自己在三类引擎里有没有被引用？先看互旦的 GEO 优化服务说明。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/geo/">查看互旦 GEO 服务 →</a></div></div>
+<p class="eyebrow">相关文章</p>
+<div class="row"><div class="row-idx">No.002</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/what-is-geo/">什么是GEO？</a></h3>
+<p class="wp-block-paragraph">买家问 AI 要名单，不被引用就等于不存在。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.021</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/ai-search-changes-buyer-entry/">海外买家的第一入口正在换掉</a></h3>
+<p class="wp-block-paragraph">从翻十页链接到问一次 AI，我看到入口正在换代。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.028</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/linkedin-algorithm-2026/">LinkedIn 2026 算法怎么决定谁能看到你的帖子</a></h3>
+<p class="wp-block-paragraph">粉丝数已经不决定触达，读得懂正文的模型在决定。</p>
+</div></div></div>
+<p class="note"><strong>专栏延伸与诊断专案：</strong>本文收录于 <a href="/category/geo/">GEO 生成式搜索专栏</a>。进阶排查建议对照阅读：<a href="/archive/">B2B 外贸企业做 GEO 找谁做？服务商评估标准与报价拆解</a> · <a href="/article/b2b-comparison-pages-for-geo-citation/">外贸独立站怎么写「替代方案 / 对比选型页（Alternatives &amp; vs）」</a>。</p>
+  </div>
+  <div class="author-box">
+  <div class="author-mark">F</div>
+  <div class="author-info">
+    <p class="eyebrow">作者</p>
+    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
+    <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
+  </div>
+</div>
+  <section class="related"><h2 class="related-h">继续阅读 · GEO</h2><div class="rel-grid"><a class="rel-card" href="/article/ai-brand-entity/"><span class="rel-num">01</span><span class="rel-title">如何在 ChatGPT、Perplexity 等 AI 搜索里建立品牌实体</span></a><a class="rel-card" href="/article/ai-crawlers-static-html/"><span class="rel-num">02</span><span class="rel-title">AI 爬虫读不到什么：静态 HTML 与 JS 的分野</span></a><a class="rel-card" href="/article/ai-search-changes-buyer-entry/"><span class="rel-num">03</span><span class="rel-title">海外买家找供应商的第一步，正在从谷歌搜索换成问 AI</span></a></div></section>
+  <div class="prev-next"><a class="pn pn-prev" href="/article/b2b-seo-topic-cluster/"><span>上一篇</span>B2B SEO 内容发布节奏：如何搭建主题集群和内链地图</a><a class="pn pn-next" href="/article/ai-supplier-recommendation/"><span>下一篇</span>海外买家问 AI 找供应商时，什么内容更容易被推荐</a></div>
+  <section class="latest">
+  <p class="eyebrow">LATEST</p>
+  <h2 class="sec"><span class="sec-bar"></span>最新文章</h2>
+  <ul class="lat-list"><li><a href="/article/anchor-text-distribution/"><span class="lat-num">No.087</span>外链锚文本该怎么配比：五组区间和一条不能碰的红线</a><span class="lat-date">2026.10.19</span></li><li><a href="/article/b2b-case-study-framework/"><span class="lat-num">No.086</span>B2B 出海案例研究怎么写，才能同时获得排名和信任</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/first-paragraph-direct-answer/"><span class="lat-num">No.085</span>首段直答三种写法：让 AI 直接摘走你的答案</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="lat-num">No.084</span>非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</a><span class="lat-date">2026.10.18</span></li></ul>
+</section>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      <a href="/hudoo/">找互旦</a>
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>

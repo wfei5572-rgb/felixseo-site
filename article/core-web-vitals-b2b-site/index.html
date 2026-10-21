@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Web Vitals：B2B 独立站该达到的三条线 | Felix 出海营销实战笔记</title>
+<meta name="description" content="官方只认三个指标，第四条是我们自己按住的补充线。">
+<link rel="canonical" href="https://felixseo.com/article/core-web-vitals-b2b-site/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="Core Web Vitals：B2B 独立站该达到的三条线 | Felix 出海营销实战笔记">
+<meta property="og:description" content="官方只认三个指标，第四条是我们自己按住的补充线。">
+<meta property="og:url" content="https://felixseo.com/article/core-web-vitals-b2b-site/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/core-web-vitals-b2b-site.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Core Web Vitals：B2B 独立站该达到的三条线 | Felix 出海营销实战笔记">
+<meta name="twitter:description" content="官方只认三个指标，第四条是我们自己按住的补充线。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/core-web-vitals-b2b-site.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Core Web Vitals：B2B 独立站该达到的三条线", "description": "官方只认三个指标，第四条是我们自己按住的补充线。", "datePublished": "2026-10-12", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/core-web-vitals-b2b-site/", "image": "https://felixseo.com/assets/og-default.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "独立站", "item": "https://felixseo.com/category/website/"}, {"@type": "ListItem", "position": 3, "name": "Core Web Vitals：B2B 独立站该达到的三条线"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "LCP、INP、CLS 和 TTFB 到底哪几个才是官方的 Core Web Vitals？", "acceptedAnswer": {"@type": "Answer", "text": "官方只认三个：LCP、INP、CLS。TTFB 不在官方定义的 Core Web Vitals 名单里，是我们自己加的第四条阈值，因为它决定前三项能不能达标。四个都要测，但对外只能说前三个叫 Core Web Vitals——混着说、把 TTFB 也算进官方三项，是审计报告里最容易被内行追问出破绽的一句。"}}, {"@type": "Question", "name": "INP 和它取代的旧指标有什么区别？", "acceptedAnswer": {"@type": "Answer", "text": "旧指标只测页面第一次交互的响应速度，INP 测的是整个访问过程里所有交互里最差的那一次。首屏很快、但表单提交卡顿的页面，以前能蒙混过关，现在过不了。"}}, {"@type": "Question", "name": "field data 和 lab data 差在哪，该信哪个？", "acceptedAnswer": {"@type": "Answer", "text": "field data 来自真实访客的 Chrome 匿名数据，按网址分组，反映的是大盘情况；lab data 是单次模拟测试，适合定位具体页面的具体问题。排优先级看 field data，查病因看 lab data，两者配合用，不是二选一。"}}, {"@type": "Question", "name": "Core Web Vitals 不达标，排名一定会掉吗？", "acceptedAnswer": {"@type": "Answer", "text": "不一定。它是页面体验信号，但很少是排名波动的首要原因，技术底座的 P0 级故障才是。三项全绿是内部目标，不是满分要求，先确认底座没有 P0 故障，再来抠 CWV 更合理。"}}, {"@type": "Question", "name": "B2B 独立站最该优先修哪个指标？", "acceptedAnswer": {"@type": "Answer", "text": "没有统一答案，取决于站的病灶：图片站多半先卡 LCP，交互复杂的筛选和表单页多半卡 INP。用 Search Console 的分组报告先找出哪一类页面集中不过线，再决定优先级，不要凭感觉猜。"}}, {"@type": "Question", "name": "没有专门的技术团队，怎么低成本先测一遍？", "acceptedAnswer": {"@type": "Answer", "text": "打开 PageSpeed Insights，输入首页和一个典型产品页的网址就能看到四项数据和具体建议——这是 lab data，单次模拟测试，马上就有结果。有 Search Console 权限的话，再看 CWV 报告里的分组结果，那是 field data，反映的是真实访客的大盘情况，两步搭配着看才靠谱。"}}]}]</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记<br><em>FIELD NOTES</em></span></a>
+    <nav class="nav"><a href="/category/seo/" class="">SEO</a><a href="/category/geo/" class="">GEO</a><a href="/category/website/" class="on">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <div class="header-right">
+      <a class="btn-primary" href="/consulting/">预约咨询</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.058 · 独立站 · 2026.10.12 · 9 MIN READ</p>
+  <h1 class="art-title">Core Web Vitals：B2B 独立站该达到的三条线</h1>
+  <figure class="art-hero"><img src="/assets/covers/core-web-vitals-b2b-site.jpg" alt="Core Web Vitals：B2B 独立站该达到的三条线" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">官方只认三个指标，第四条是我们自己按住的补充线。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>Core Web Vitals 官方只定义三个指标：LCP ≤2.5 秒、INP ≤200 毫秒、CLS ≤0.1；TTFB ≤800 毫秒不在官方名单里，是我们自己加的第四条内部阈值。B2B独立站先保三项全绿，TTFB是前面三项的地基，地基不稳，三项大概率也绿不了。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>先说结论：官方定义的是三条线，我们多盯的是第四条</h2>
+<p>谷歌官方的 Core Web Vitals 只有三个指标：最大内容绘制 LCP、交互到下一次绘制 INP、累计布局偏移 CLS。<a href="https://developers.google.com/search/docs/appearance/core-web-vitals">谷歌官方文档</a>把这三项称作 Core Web Vitals 本体，首字节时间 TTFB 不在这个名单里。</p>
+<p>互旦的技术SEO底座标准里，TTFB 也有一条硬阈值，只是它不算官方三条线。原因不复杂：TTFB 是前面三项的地基，服务器吐出第一个字节都要 800 毫秒以上，LCP 和 INP 大概率也好不了。</p>
+<p>四条线放在一张表里看最直观，第四列专门标出官方地位，免得对外措辞时把 TTFB 也说成 Core Web Vitals 的一部分。</p>
+<p>这个区分不是抠字眼。给客户或老板汇报时，把 TTFB 说成官方 Core Web Vitals 的一部分，一旦对方去查文档，专业度直接掉分——这也是为什么审计报告里，我坚持四条线分两栏写，一栏标官方，一栏标互旦内部补充。</p>
+<p>见过不少服务商的报告把四条线混在一起说「Core Web Vitals 四项指标」，读起来没毛病，一被追问哪三项是官方定义就露怯。这种细节判断力，比任何一张漂亮的图表都更能说明写报告的人有没有亲手做过审计。</p>
+<div class="table-wrap"><table><thead><tr><th>指标</th><th>阈值</th><th>官方是否算 Core Web Vitals</th><th>衡量什么</th></tr></thead><tbody><tr><td>LCP（最大内容绘制）</td><td>≤2.5 秒</td><td>是</td><td>首屏最大元素画完要多久</td></tr><tr><td>INP（交互到下一次绘制）</td><td>≤200 毫秒</td><td>是</td><td>点一下之后，多久能看到反应</td></tr><tr><td>CLS（累计布局偏移）</td><td>≤0.1</td><td>是</td><td>加载过程里，元素跳来跳去有多厉害</td></tr><tr><td>TTFB（首字节时间）</td><td>≤800 毫秒</td><td>否，互旦内部补充阈值</td><td>服务器收到请求后，多久吐出第一个字节</td></tr></tbody></table></div>
+<h2 class="sec"><span class="sec-bar"></span>LCP ≤2.5 秒：B2B 产品页最容易被这三样拖垮</h2>
+<p>LCP 卡在移动端首屏那个最大的元素上，B2B独立站几乎都是同一批凶手：没压缩的工厂实拍大图、自动播放的产品演示视频、加载慢的 PDF 规格书缩略图。</p>
+<p>这条我在《<a href="/article/cms-requirements-and-antipatterns/">独立站CMS怎么选</a>》里从系统能力角度提过一次——图片能不能自动压缩 WebP 是 CMS 的硬要求之一。换个角度看：就算 CMS 达标，运营团队自己传的原图不压缩，照样能把 LCP 拖慢两三秒。</p>
+<p>第三方脚本也常被忽略：在线客服插件、访客分析代码，只要挂在首屏渲染路径上，都会把 LCP 往后拖。把这类脚本的加载时机改到主要内容画完之后，比换一台更贵的服务器管用得多。</p>
+<p>这类性能项我们做<a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a>时会直接列进验收清单，不留给上线之后再补课。</p>
+<p>排查顺序我一般固定：先用 Lighthouse 的 LCP 元素定位功能看清楚拖后腿的到底是哪一张图或哪一段视频，再决定是压缩、延迟加载，还是干脆换成静态封面图加点击播放。</p>
+<p>不看清元素就直接全站压图，经常压错地方。</p>
+<p>首屏之内能看到的图片，我一般要求控制在 3 张以内，多出来的全部延迟加载。</p>
+<h2 class="sec"><span class="sec-bar"></span>INP ≤200 毫秒：表单和筛选器才是真正的测试场</h2>
+<p>INP 测的是页面对任意一次交互的反应速度，不只是第一次点击——这是它和被取代的那个旧指标最大的区别：旧指标只看第一次交互，INP 看的是整个访问过程里最差的那一次。</p>
+<p>B2B 站最容易在三个动作上翻车：提交询盘表单时的卡顿、产品分类筛选器点了没反应、切换语言或币种时页面冻住半秒。买家在这几个动作上等得越久，放弃询盘的概率越高。</p>
+<p>病因也比较集中：一次性加载的大体积 JS、没有拆分优先级的第三方脚本，客服、热力图、广告像素全挤在同一时间段执行。诊断时先看这几类脚本占了多少主线程时间，比盲目升级服务器更对症。</p>
+<p>多步骤询盘表单还有一个容易被漏掉的雷：每敲一个字就触发一次实时校验或联想搜索，主线程被这些校验函数占满，买家打字都会感觉到卡顿。</p>
+<p>给校验函数加一点防抖延迟，每输入停顿后再校验一次而不是逐字触发，往往比重写整个表单组件见效更快。</p>
+<p>B2B 独立站还有一个国内团队容易忽略的交互场景：多语言切换和多币种选择器。</p>
+<p>海外买家进站第一件事经常是先换语言或换币种确认价格区间，这两个控件卡顿，等于在买家做决定之前先劝退了一批人。</p>
+<h2 class="sec"><span class="sec-bar"></span>CLS ≤0.1：产品图库和 Cookie 通知条最常犯规</h2>
+<p>CLS 测的是加载过程中页面元素有没有莫名其妙跳一下。B2B 站有两个位置最容易犯规：没有预设尺寸的产品图库，和加载完页面才弹出来的 Cookie 通知条。</p>
+<p>图片不提前声明宽高，浏览器要等图片下载完才知道该留多大空间，页面因此先挤一下再展开。促销浮层、Cookie 通知条这类迟到的元素，同样会把下面的内容顶开。</p>
+<p>自托管字体是另一个容易被忽略的因素：网页字体没加载完时先用系统字体撑着，字体到位后行宽变了，文字跟着重排。工业品站常用的衬线字体标题，这个问题尤其明显。</p>
+<p>排查这一项不用猜，浏览器开发者工具的性能面板里能直接看到被标红的布局偏移区域，点开就知道是哪个元素在跳。比起事后靠感觉找，这比对着页面盯半天有效得多。</p>
+<p>广告位和推荐商品浮层同样容易犯这个错：内容先渲染出来，浮层再异步加载进场，页面被硬生生顶下去一截。</p>
+<p>解决办法不复杂，提前给这些区域预留固定高度的占位容器，元素到位时填进去就行，不会引发二次跳动。</p>
+<h2 class="sec"><span class="sec-bar"></span>怎么测：field data 和 lab data，B2B 决策者该看哪个</h2>
+<p>搜索控制台的 Core Web Vitals 报告用的是 field data——<a href="https://support.google.com/webmasters/answer/9205520">谷歌官方帮助文档</a>把它描述为真实用户的匿名性能数据，来自 Chrome 用户实际访问时的采集。PageSpeed Insights 这类工具给的是 lab data，是模拟环境里跑出来的单次测试结果。</p>
+<p>两者用途不一样：field data 按网址分组，告诉你这一类页面整体过没过线，适合拿来排优先级；lab data 针对单个网址，适合上线前逐页排查具体是哪个元素拖了后腿。</p>
+<p>很多团队只盯 lab data 就上线，是因为它反馈快、看着直观，但它测的是单次模拟环境，跟真实访客在自己手机、自己网络下打开时的体验可能有落差。</p>
+<p>两组数据对不上时，我更信 field data，它才是买家真实感受到的那个版本。</p>
+<p>落到执行上，我一般每月固定抽查 5 个典型页面：首页、两个流量最大的产品页、一个筛选结果页、一个询盘表单页，四项指标一次性截图存档，方便按月对比趋势，而不是等出问题才想起来查。</p>
+<div class="table-wrap"><table><thead><tr><th>数据类型</th><th>代表工具</th><th>样本来源</th><th>B2B 决策该怎么用</th></tr></thead><tbody><tr><td>Field data</td><td>Search Console CWV 报告</td><td>真实访客的 Chrome 匿名数据</td><td>按网址分组，找问题最集中的那一类页面</td></tr><tr><td>Lab data</td><td>PageSpeed Insights</td><td>单次模拟测试</td><td>逐页诊断，定位具体是哪个元素拖慢</td></tr></tbody></table></div>
+<p>我的做法是倒着用：先看 Search Console 的分组报告，挑出没过线的那一类页面，再用 PageSpeed Insights 逐个诊断。反过来先测单页再猜整体，容易被个例带偏。</p>
+<p>检查节奏也值得固定下来：field data 是滚动窗口内真实访客数据的汇总，改完代码不会立刻反映在报告里，要等新一批真实访问数据积累够了才看得出趋势。</p>
+<p>上线当天就去查 Search Console 说「改完还是不达标」，多半是数据还没更新，不是修复没生效。</p>
+<p>这四条线本身不产生询盘，但决定内容能不能被完整看到——技术底座没清完不投内容的判断逻辑，我在《<a href="/article/technical-seo-five-pillars/">技术底座五项</a>》里写过一次，CWV 是清完底座之后的下一关。</p>
+<p>把它和内容排期放进同一张表，是互旦<a href="https://www.hudoo-tech.com/solutions/b2b-solution/">B2B 出海解决方案</a>里最省钱的一个动作。</p>
+<blockquote><cite>— FELIX</cite></blockquote>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>LCP、INP、CLS 和 TTFB 到底哪几个才是官方的 Core Web Vitals？</h3>
+<p>官方只认三个：LCP、INP、CLS。TTFB 不在官方定义的 Core Web Vitals 名单里，是我们自己加的第四条阈值，因为它决定前三项能不能达标。四个都要测，但对外只能说前三个叫 Core Web Vitals——混着说、把 TTFB 也算进官方三项，是审计报告里最容易被内行追问出破绽的一句。</p>
+<h3>INP 和它取代的旧指标有什么区别？</h3>
+<p>旧指标只测页面第一次交互的响应速度，INP 测的是整个访问过程里所有交互里最差的那一次。首屏很快、但表单提交卡顿的页面，以前能蒙混过关，现在过不了。</p>
+<h3>field data 和 lab data 差在哪，该信哪个？</h3>
+<p>field data 来自真实访客的 Chrome 匿名数据，按网址分组，反映的是大盘情况；lab data 是单次模拟测试，适合定位具体页面的具体问题。排优先级看 field data，查病因看 lab data，两者配合用，不是二选一。</p>
+<h3>Core Web Vitals 不达标，排名一定会掉吗？</h3>
+<p>不一定。它是页面体验信号，但很少是排名波动的首要原因，技术底座的 P0 级故障才是。三项全绿是内部目标，不是满分要求，先确认底座没有 P0 故障，再来抠 CWV 更合理。</p>
+<h3>B2B 独立站最该优先修哪个指标？</h3>
+<p>没有统一答案，取决于站的病灶：图片站多半先卡 LCP，交互复杂的筛选和表单页多半卡 INP。用 Search Console 的分组报告先找出哪一类页面集中不过线，再决定优先级，不要凭感觉猜。</p>
+<h3>没有专门的技术团队，怎么低成本先测一遍？</h3>
+<p>打开 PageSpeed Insights，输入首页和一个典型产品页的网址就能看到四项数据和具体建议——这是 lab data，单次模拟测试，马上就有结果。有 Search Console 权限的话，再看 CWV 报告里的分组结果，那是 field data，反映的是真实访客的大盘情况，两步搭配着看才靠谱。</p>
+<div class="cta-box"><p class="eyebrow">HUDOO-TECH · SINCE 2018</p><p>想先摸底自己独立站的 Core Web Vitals 现状？看看互旦的谷歌 SEO 服务怎么做技术审计。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">查看互旦 SEO 服务 →</a></div></div>
+<p class="eyebrow">相关文章</p>
+<div class="row"><div class="row-idx">No.004</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/independent-site-building-mistakes/">外贸独立站建站，中小企业最容易踩的10个坑</a></h3>
+<p class="wp-block-paragraph">地基级的坑不是丑，是海外打不开、Google 读不懂、询盘接不住。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.028</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/linkedin-algorithm-2026/">LinkedIn 2026 算法怎么决定谁能看到你的帖子</a></h3>
+<p class="wp-block-paragraph">粉丝数已经不决定触达，读得懂正文的模型在决定。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.001</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/how-to-choose-google-seo-agency/">外贸企业如何选谷歌SEO服务商？</a></h3>
+<p class="wp-block-paragraph">看案例、看报价拆项、看谈不谈 GEO，三步过滤掉大部分坑。</p>
+</div></div></div>
+<p class="note"><strong>专栏延伸与诊断专案：</strong>本文收录于 <a href="/category/website/">外贸独立站专栏</a>。进阶排查建议对照阅读：<a href="/article/alibaba-to-b2b-independent-site-roadmap/">传统制造工厂从阿里国际站/展会转独立站：90天冷启动路线图</a> · <a href="/article/audit-b2b-website-delivery-and-seo-reports/">外贸建站验收标准与 SEO 月报真伪核查表</a>。</p>
+  </div>
+  <div class="author-box">
+  <div class="author-mark">F</div>
+  <div class="author-info">
+    <p class="eyebrow">作者</p>
+    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
+    <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
+  </div>
+</div>
+  <section class="related"><h2 class="related-h">继续阅读 · 独立站</h2><div class="rel-grid"><a class="rel-card" href="/article/b2b-inquiry-funnel/"><span class="rel-num">01</span><span class="rel-title">B2B 出海询盘漏斗怎么搭：从搜索到成交的完整路径</span></a><a class="rel-card" href="/article/b2b-site-no-inquiry/"><span class="rel-num">02</span><span class="rel-title">为什么有流量却没有询盘：B2B 独立站转化排查表</span></a><a class="rel-card" href="/article/cms-requirements-and-antipatterns/"><span class="rel-num">03</span><span class="rel-title">独立站 CMS 怎么选？15 条硬要求与 6 个反模式</span></a></div></section>
+  <div class="prev-next"><a class="pn pn-prev" href="/article/geo-audit-checklist/"><span>上一篇</span>GEO 实操审计清单：如何让 AI 更容易引用你的公司</a><a class="pn pn-next" href="/article/ai-brand-entity/"><span>下一篇</span>如何在 ChatGPT、Perplexity 等 AI 搜索里建立品牌实体</a></div>
+  <section class="latest">
+  <p class="eyebrow">LATEST</p>
+  <h2 class="sec"><span class="sec-bar"></span>最新文章</h2>
+  <ul class="lat-list"><li><a href="/article/anchor-text-distribution/"><span class="lat-num">No.087</span>外链锚文本该怎么配比：五组区间和一条不能碰的红线</a><span class="lat-date">2026.10.19</span></li><li><a href="/article/b2b-case-study-framework/"><span class="lat-num">No.086</span>B2B 出海案例研究怎么写，才能同时获得排名和信任</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/first-paragraph-direct-answer/"><span class="lat-num">No.085</span>首段直答三种写法：让 AI 直接摘走你的答案</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="lat-num">No.084</span>非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</a><span class="lat-date">2026.10.18</span></li></ul>
+</section>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      <a href="/hudoo/">找互旦</a>
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>

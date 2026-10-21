@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术底座五项：robots、sitemap、canonical、hreflang、301 | Felix 出海营销实战笔记</title>
+<meta name="description" content="底座没清干净，内容投再多也是往漏桶里倒水。">
+<link rel="canonical" href="https://felixseo.com/article/technical-seo-five-pillars/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="技术底座五项：robots、sitemap、canonical、hreflang、301 | Felix 出海营销实战笔记">
+<meta property="og:description" content="底座没清干净，内容投再多也是往漏桶里倒水。">
+<meta property="og:url" content="https://felixseo.com/article/technical-seo-five-pillars/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/technical-seo-five-pillars.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="技术底座五项：robots、sitemap、canonical、hreflang、301 | Felix 出海营销实战笔记">
+<meta name="twitter:description" content="底座没清干净，内容投再多也是往漏桶里倒水。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/technical-seo-five-pillars.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "技术底座五项：robots、sitemap、canonical、hreflang、301", "description": "底座没清干净，内容投再多也是往漏桶里倒水。", "datePublished": "2026-10-08", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/technical-seo-five-pillars/", "image": "https://felixseo.com/assets/og-default.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "独立站", "item": "https://felixseo.com/category/website/"}, {"@type": "ListItem", "position": 3, "name": "技术底座五项：robots、sitemap、canonical、hreflang、301"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "robots.txt 要不要放行 AI 爬虫？", "acceptedAnswer": {"@type": "Answer", "text": "检索型的建议放行，否则答案引擎取不到页面，被引用无从谈起。做法是给检索型 UA 建白名单逐个实测，返回码必须是 200；训练型爬虫按自己的意愿决定。绝对不要为了放行而整体关掉 WAF 防护。"}}, {"@type": "Question", "name": "提交了 sitemap 为什么还不收录？", "acceptedAnswer": {"@type": "Answer", "text": "因为 sitemap 是申报清单，不是收录保证。它只帮搜索引擎更快发现地址，是否收录仍取决于页面质量、入链和整站信任度。先检查页面有没有至少 2 条站内入链，再检查内容是不是和已有页面高度重复。"}}, {"@type": "Question", "name": "canonical 指错了会怎样？", "acceptedAnswer": {"@type": "Answer", "text": "最常见的后果是页面被并到别的地址上，自己不再单独出现在搜索结果里。整站 canonical 指向首页是最严重的一种，等于声明全站只有一页。改完之后要重新抓取，恢复通常需要几周。"}}, {"@type": "Question", "name": "只做英文站需要 hreflang 吗？", "acceptedAnswer": {"@type": "Answer", "text": "不需要。hreflang 用来声明同一内容的不同语言或地区版本，单语种站点配了也没有意义。反过来说，做了多语种却漏配回链或指向空壳页面，比不配更糟，所以按市场优先级一个一个上线更稳。"}}, {"@type": "Question", "name": "改版时 301 要做到什么程度？", "acceptedAnswer": {"@type": "Answer", "text": "要做到旧地址一对一指向内容对应的新页，而不是全部指向首页。跳转链控制在两跳以内，映射表在上线前准备好并逐条抽验。拿不出这张表就不要改版，旧地址的信任一旦断掉没有补救窗口。"}}, {"@type": "Question", "name": "Core Web Vitals 不达标会掉排名吗？", "acceptedAnswer": {"@type": "Answer", "text": "它是页面体验层面的信号，但通常不是排名波动的首要原因，P0 级故障才是。阈值可以按最大内容绘制 2.5 秒、累计布局偏移 0.1 这条线去盯，目标是三项达标而不是满分。所谓综合评分制未经官方确认，别写进报告。"}}]}]</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记<br><em>FIELD NOTES</em></span></a>
+    <nav class="nav"><a href="/category/seo/" class="">SEO</a><a href="/category/geo/" class="">GEO</a><a href="/category/website/" class="on">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <div class="header-right">
+      <a class="btn-primary" href="/consulting/">预约咨询</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.049 · 独立站 · 2026.10.08 · 10 MIN READ</p>
+  <h1 class="art-title">技术底座五项：robots、sitemap、canonical、hreflang、301</h1>
+  <figure class="art-hero"><img src="/assets/covers/technical-seo-five-pillars.jpg" alt="技术底座五项：robots、sitemap、canonical、hreflang、301" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">底座没清干净，内容投再多也是往漏桶里倒水。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>技术底座只有五项：robots.txt、XML Sitemap、canonical、hreflang 和改版 301。其中检索型 AI 爬虫被 403 挡在门外属于 P0 级故障，重复收录算 P1，拿不出旧新地址映射表就不许改版。审计顺序固定是 Technical、Onpage、Content、Backlink，P0 一天没清完，就一天不投内容。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>先说结论：五项底座，顺序不能乱</h2>
+<p>技术底座只有五项：robots.txt、XML Sitemap、canonical、hreflang、改版 301。它们不产生流量，但任何一项出事，上面所有内容投入都会打折甚至归零。</p>
+<p>审计顺序也是固定的：Technical、Onpage、Content、Backlink。P0 级故障没清完，不投内容——这是我这几年最不肯让步的一条纪律。</p>
+<p>原因不复杂。内容是被读到才有价值的东西，robots 一行配置写错，几十篇稿子对搜索引擎和答案引擎来说压根不存在。</p>
+<div class="table-wrap"><table><thead><tr><th>底座项</th><th>它解决什么</th><th>典型故障</th><th>分级</th></tr></thead><tbody><tr><td>robots.txt</td><td>决定谁能抓、能抓哪里</td><td>检索型 AI 爬虫被 403 挡在门外</td><td>P0</td></tr><tr><td>XML Sitemap</td><td>把想被收录的地址一次申报清楚</td><td>里面全是 404 和已重定向的旧地址</td><td>常规巡检</td></tr><tr><td>Canonical</td><td>指认哪一个地址是正主</td><td>同一内容多地址重复收录</td><td>P1</td></tr><tr><td>hreflang</td><td>让多语言版本互相认亲</td><td>声明了却没有回链，或指向不存在的版本</td><td>错配比不配更糟</td></tr><tr><td>改版 301</td><td>把旧地址攒下的信任搬到新地址</td><td>改版直接上线，旧地址集体 404</td><td>P0，无 301 禁止改版</td></tr></tbody></table></div>
+<h2 class="sec"><span class="sec-bar"></span>robots.txt：AI 爬虫被 403，是最贵的一行配置</h2>
+<p>robots.txt 决定谁能抓你的站。现在它比前几年更关键，因为除了搜索引擎，还有一批检索型 AI 爬虫要进门——它们被 403 挡住，你在 AI 答案里就是不存在。</p>
+<p>这属于 P0 级故障，和首页打不开是同一档。麻烦的是它不报错、不掉排名，后台什么异常都看不到，只有主动去测才发现。</p>
+<p>语法本身不难，<a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro">Google 的 robots.txt 官方说明</a> 讲得很清楚。真正的坑在 robots 之外：很多站是 WAF 或 CDN 的安全规则把爬虫拦了，robots 文件写得再漂亮也没用。</p>
+<p>我的做法是逐个 UA 去实测，返回码必须是 200。顺带一句：为了放行 AI 爬虫而整体关掉防护是不行的，只放行检索型 UA 白名单就够了。</p>
+<p>还有一种更隐蔽的挡法：CDN 的地区策略把某些海外节点的请求直接拒了。站在国内看一切正常，中东或南美的买家打开却是一片空白，这种问题只能靠异地实测才暴露出来。</p>
+<h2 class="sec"><span class="sec-bar"></span>XML Sitemap：它不是收录保证，是一份申报清单</h2>
+<p>Sitemap 的作用是申报，不是担保。提交了不等于会被收录，但不提交，新页被发现的速度会明显更慢，尤其是入链还不够的深层产品页。</p>
+<p>它最常见的病是「陈旧」：里面躺着一批 404、一批已经 301 走了的旧地址、还有一批根本不希望被收录的筛选页。这种清单等于自己给自己制造噪音。</p>
+<p>验收只看两点：新发一页，它能不能自动进清单；随机抽 10 条地址，返回码是不是都 200。做不到自动维护的系统，我会直接把它算进建站验收的不合格项。</p>
+<p>清单里该放什么也要想清楚：只放你希望被收录、且确实想让买家看到的地址。筛选页、内部搜索结果页、带追踪参数的地址都不该进去，它们进来一条，清单的可信度就掉一分。</p>
+<p>站点规模大的话按类型拆分：产品一份、方案一份、博客一份，再用索引文件串起来。出问题时你能一眼看出是哪一类内容没被发现，而不是对着一份上万行的清单干瞪眼。</p>
+<h2 class="sec"><span class="sec-bar"></span>Canonical：重复收录是 P1，不是无所谓</h2>
+<p>canonical 的任务只有一个：在几个都能打开的地址里，指认哪一个是正主。参数、大小写、带不带斜杠、分页，都会让同一篇内容拥有好几个地址。</p>
+<p>重复收录是 P1，比 P0 缓一级，但它是慢性病：权重被拆散，搜索引擎替你随便挑一个当正主，你精心优化的那一版可能根本没进候选。</p>
+<p><a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls">Google 关于规范网址的文档</a> 里有一条常被忽略——canonical 是强烈建议而不是指令。所以别指望它兜底，能从源头不生成重复地址，就不要靠标签去救。</p>
+<p>还有一个反面案例我见过好几次：整站 canonical 全部指向首页。这种配置等于告诉搜索引擎「我只有一页」，产品页全部人间蒸发。</p>
+<p>日常最容易生成重复地址的是三处：广告和邮件带的追踪参数、列表页的排序与筛选、内容同时挂在两个分类下。前两处交给 canonical 收敛，第三处最好在信息架构上就避开。</p>
+<h2 class="sec"><span class="sec-bar"></span>hreflang：错配比不配更糟</h2>
+<p>hreflang 的判断标准和其他四项不一样：不做只是少一个信号，做错会主动制造问题。所以只做英语一个版本的站，不必勉强上。</p>
+<p>错配有三种常见形态：声明了却没有回链、指向的语言版本根本不存在、语言代码和地区代码写反。三种都会让声明关系失效，还可能把流量导到错误的版本。</p>
+<p>更隐蔽的一种是「多语言半成品」：hreflang 声明了阿拉伯语版本，点进去内容还是英文。这种页面对买家和机器都是负分。</p>
+<p>英文出海站真要做多语种，我的建议是按市场优先级一个一个上线，每上线一个把回链补齐，而不是一次性把五个语种的空壳目录全建出来。</p>
+<p>落地时还有一个容易漏的细节：每个版本都要声明自己。少了这一条，整组声明在一些解析实现里会直接失效，等于白做。</p>
+<h2 class="sec"><span class="sec-bar"></span>改版 301：没有 301 就不许改版</h2>
+<p>这一条我说得很绝对：拿不出旧新地址映射表，改版就不要上线。旧地址上攒了几年的信任和入链，是 301 这一步搬过去的，不是自动继承的。</p>
+<p><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects">Google 的 301 重定向文档</a> 把做法写得很细，难点从来不在技术，在工程管理：几千条地址一一对应，谁来出这张表、谁来验收。</p>
+<p>我验收 301 只看三件事：旧地址访问后是不是 301 到内容对应的新页，有没有一批被粗暴地全部指向首页，跳转链有没有超过两跳。</p>
+<p>改版这件事的完整清单不止 301，还牵涉模板和字段能不能改，这部分和 <a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a> 的验收口径是同一套，最好在立项时就合并成一张表。</p>
+<h2 class="sec"><span class="sec-bar"></span>P0 故障图鉴：审计永远先查这六项</h2>
+<p>接一个新站，我永远先查这 6 项。它们的共同点是：命中任何一项，做再多内容和外链都是白费。</p>
+<div class="table-wrap"><table><thead><tr><th>P0 故障</th><th>怎么自查</th><th>为什么必须先修</th></tr></thead><tbody><tr><td>改版不做 301</td><td>拿 3 条旧地址直接访问，看是不是 404</td><td>旧地址攒的信任清零，且没有补救窗口</td></tr><tr><td>根路径 404</td><td>直接打开主域名首页</td><td>首页就打不开，后面所有优化没有载体</td></tr><tr><td>SSL 证书过期</td><td>看浏览器地址栏是否报不安全</td><td>海外买家看到警告页会直接关掉</td></tr><tr><td>AI 爬虫被 403</td><td>用检索型爬虫的 UA 去请求首页</td><td>答案引擎连页面都取不到，谈不上被引用</td></tr><tr><td>软 404</td><td>抽一批空分类页，看返回码是不是 200</td><td>大量空页面以 200 进索引，稀释整站质量</td></tr><tr><td>全站无 H1</td><td>随机抽 5 页数 h1 数量</td><td>每页都少一个最基本的主题信号</td></tr></tbody></table></div>
+<p>这 6 项里，SSL 证书过期是最容易被忽略的一项——它不是 SEO 问题，是生意问题，整站在到期那一刻对所有访客不可用，询盘也会跟着断。更多故障排查案例见 <a href="https://www.hudoo-tech.com/cases/">客户案例</a>。</p>
+<h2 class="sec"><span class="sec-bar"></span>CWV 阈值：官方三项 + 内部一项，和一个不该写进报告的说法</h2>
+<p>底座清完，才轮到性能。Core Web Vitals 官方只定义三个指标：最大内容绘制 ≤2.5 秒、交互到下一次绘制 ≤200 毫秒、累计布局偏移 ≤0.1；首字节时间 ≤800 毫秒不在官方名单里，是互旦交付标准里补充的第四条内部阈值。</p>
+<p>内部目标我按三项全绿来定，不追求满分。交互响应现在只看 INP；那个已经被 INP 取代的旧交互响应指标，不要再出现在任何报告里，写了等于自曝知识没更新。</p>
+<p>还有一个说法要单独提醒：所谓「CWV 综合评分制」属于第三方观察、未经官方确认，我不会把它写进任何正式报告或方案里。</p>
+<p>顺序我再强调一次：P0 未清不投内容。把底座和内容节奏放进同一张排期表，是 <a href="https://www.hudoo-tech.com/solutions/b2b-solution/">B2B 出海解决方案</a> 里最省钱的一个动作。</p>
+<blockquote><cite>— FELIX</cite></blockquote>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>robots.txt 要不要放行 AI 爬虫？</h3>
+<p>检索型的建议放行，否则答案引擎取不到页面，被引用无从谈起。做法是给检索型 UA 建白名单逐个实测，返回码必须是 200；训练型爬虫按自己的意愿决定。绝对不要为了放行而整体关掉 WAF 防护。</p>
+<h3>提交了 sitemap 为什么还不收录？</h3>
+<p>因为 sitemap 是申报清单，不是收录保证。它只帮搜索引擎更快发现地址，是否收录仍取决于页面质量、入链和整站信任度。先检查页面有没有至少 2 条站内入链，再检查内容是不是和已有页面高度重复。</p>
+<h3>canonical 指错了会怎样？</h3>
+<p>最常见的后果是页面被并到别的地址上，自己不再单独出现在搜索结果里。整站 canonical 指向首页是最严重的一种，等于声明全站只有一页。改完之后要重新抓取，恢复通常需要几周。</p>
+<h3>只做英文站需要 hreflang 吗？</h3>
+<p>不需要。hreflang 用来声明同一内容的不同语言或地区版本，单语种站点配了也没有意义。反过来说，做了多语种却漏配回链或指向空壳页面，比不配更糟，所以按市场优先级一个一个上线更稳。</p>
+<h3>改版时 301 要做到什么程度？</h3>
+<p>要做到旧地址一对一指向内容对应的新页，而不是全部指向首页。跳转链控制在两跳以内，映射表在上线前准备好并逐条抽验。拿不出这张表就不要改版，旧地址的信任一旦断掉没有补救窗口。</p>
+<h3>Core Web Vitals 不达标会掉排名吗？</h3>
+<p>它是页面体验层面的信号，但通常不是排名波动的首要原因，P0 级故障才是。阈值可以按最大内容绘制 2.5 秒、累计布局偏移 0.1 这条线去盯，目标是三项达标而不是满分。所谓综合评分制未经官方确认，别写进报告。</p>
+<div class="cta-box"><p class="eyebrow">HUDOO-TECH · SINCE 2018</p><p>想先把技术底座和 P0 故障排查一遍？看看互旦的谷歌 SEO 服务怎么做审计。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">查看互旦 SEO 服务 →</a></div></div>
+<p class="eyebrow">相关文章</p>
+<div class="row"><div class="row-idx">No.004</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/independent-site-building-mistakes/">外贸独立站建站，中小企业最容易踩的10个坑</a></h3>
+<p class="wp-block-paragraph">地基级的坑不是丑，是海外打不开、Google 读不懂、询盘接不住。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.028</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/linkedin-algorithm-2026/">LinkedIn 2026 算法怎么决定谁能看到你的帖子</a></h3>
+<p class="wp-block-paragraph">粉丝数已经不决定触达，读得懂正文的模型在决定。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.001</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/how-to-choose-google-seo-agency/">外贸企业如何选谷歌SEO服务商？</a></h3>
+<p class="wp-block-paragraph">看案例、看报价拆项、看谈不谈 GEO，三步过滤掉大部分坑。</p>
+</div></div></div>
+<p class="note"><strong>专栏延伸与诊断专案：</strong>本文收录于 <a href="/category/website/">外贸独立站专栏</a>。进阶排查建议对照阅读：<a href="/article/alibaba-to-b2b-independent-site-roadmap/">传统制造工厂从阿里国际站/展会转独立站：90天冷启动路线图</a> · <a href="/article/audit-b2b-website-delivery-and-seo-reports/">外贸建站验收标准与 SEO 月报真伪核查表</a>。</p>
+  </div>
+  <div class="author-box">
+  <div class="author-mark">F</div>
+  <div class="author-info">
+    <p class="eyebrow">作者</p>
+    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
+    <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
+  </div>
+</div>
+  <section class="related"><h2 class="related-h">继续阅读 · 独立站</h2><div class="rel-grid"><a class="rel-card" href="/article/b2b-inquiry-funnel/"><span class="rel-num">01</span><span class="rel-title">B2B 出海询盘漏斗怎么搭：从搜索到成交的完整路径</span></a><a class="rel-card" href="/article/b2b-site-no-inquiry/"><span class="rel-num">02</span><span class="rel-title">为什么有流量却没有询盘：B2B 独立站转化排查表</span></a><a class="rel-card" href="/article/cms-requirements-and-antipatterns/"><span class="rel-num">03</span><span class="rel-title">独立站 CMS 怎么选？15 条硬要求与 6 个反模式</span></a></div></section>
+  <div class="prev-next"><a class="pn pn-prev" href="/article/choose-b2b-marketing-agency/"><span>上一篇</span>如何选择 B2B 出海营销服务商：报价、交付和结果的检查表</a><a class="pn pn-next" href="/article/ai-task-brief/"><span>下一篇</span>给 AI 布置任务，要像给新同事写任务单</a></div>
+  <section class="latest">
+  <p class="eyebrow">LATEST</p>
+  <h2 class="sec"><span class="sec-bar"></span>最新文章</h2>
+  <ul class="lat-list"><li><a href="/article/anchor-text-distribution/"><span class="lat-num">No.087</span>外链锚文本该怎么配比：五组区间和一条不能碰的红线</a><span class="lat-date">2026.10.19</span></li><li><a href="/article/b2b-case-study-framework/"><span class="lat-num">No.086</span>B2B 出海案例研究怎么写，才能同时获得排名和信任</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/first-paragraph-direct-answer/"><span class="lat-num">No.085</span>首段直答三种写法：让 AI 直接摘走你的答案</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="lat-num">No.084</span>非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</a><span class="lat-date">2026.10.18</span></li></ul>
+</section>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      <a href="/hudoo/">找互旦</a>
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>

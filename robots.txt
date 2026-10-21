@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://felixseo.com/sitemap.xml
+
+# v20261021

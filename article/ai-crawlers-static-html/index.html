@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 爬虫读不到什么：静态 HTML 与 JS 的分野 | Felix 出海营销实战笔记</title>
+<meta name="description" content="它们下载 JS，但从不执行。">
+<link rel="canonical" href="https://felixseo.com/article/ai-crawlers-static-html/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="AI 爬虫读不到什么：静态 HTML 与 JS 的分野 | Felix 出海营销实战笔记">
+<meta property="og:description" content="它们下载 JS，但从不执行。">
+<meta property="og:url" content="https://felixseo.com/article/ai-crawlers-static-html/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/ai-crawlers-static-html.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 爬虫读不到什么：静态 HTML 与 JS 的分野 | Felix 出海营销实战笔记">
+<meta name="twitter:description" content="它们下载 JS，但从不执行。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/ai-crawlers-static-html.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "AI 爬虫读不到什么：静态 HTML 与 JS 的分野", "description": "它们下载 JS，但从不执行。", "datePublished": "2026-10-02", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/ai-crawlers-static-html/", "image": "https://felixseo.com/assets/og-default.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "GEO", "item": "https://felixseo.com/category/geo/"}, {"@type": "ListItem", "position": 3, "name": "AI 爬虫读不到什么：静态 HTML 与 JS 的分野"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI 爬虫到底会不会执行 JavaScript？", "acceptedAnswer": {"@type": "Answer", "text": "大多数不会。Vercel 与 MERJ 的联合分析追踪了 5 亿次 GPTBot 抓取，发现 OpenAI、Anthropic、Perplexity 的爬虫会下载 JS 但从不执行，只有 Gemini 沿用 Googlebot 渲染。所以规划时按完全不执行来定标准最稳妥。"}}, {"@type": "Question", "name": "关键内容放在 PDF 里，AI 能读到吗？", "acceptedAnswer": {"@type": "Answer", "text": "别指望。AI 引用不了图片里的文字，PDF 同理属于高风险载体。正确做法是把产品参数、认证编号、交期这些关键信息在页面正文里原样重写一遍，PDF 只作为下载件保留，不承担唯一载体的角色。"}}, {"@type": "Question", "name": "怎么快速验证 AI 爬虫读到了什么？", "acceptedAnswer": {"@type": "Answer", "text": "两个动作就够：用 curl 拉一遍页面源码，或者在浏览器里禁用 JS 刷新首屏。在拿到的源码里搜你最想被引用的那三个数字，搜不到就是读不到。整个过程两分钟，不需要等任何审计报告。"}}, {"@type": "Question", "name": "对比表格做成截图为什么不行？", "acceptedAnswer": {"@type": "Answer", "text": "因为表格本来是最容易被抽取的结构，截图之后这个优势自己废掉了。不执行脚本的抓取器看到的只是一个图片标签，里面的参数对它来说是一片空白。参数表尤其不能贴图，必须用真表格标签。"}}, {"@type": "Question", "name": "Gemini 能读到，是不是就说明站没问题？", "acceptedAnswer": {"@type": "Answer", "text": "不能这么判断。Gemini 沿用 Googlebot 的渲染能力，重 JS 的站在它那里可能表现正常，但同一个页面在 ChatGPT 和 Perplexity 上可能一个数字都拿不到。测试必须按引擎分开做，标准按最保守的那一家定。"}}, {"@type": "Question", "name": "hreflang 配了但内容还没翻译，会怎么样？", "acceptedAnswer": {"@type": "Answer", "text": "属于多语言半成品，错配比不配更糟。声明了目标语种却给出英文内容，等于告诉引擎这一版不相关，目标市场的查询里很难被选中。正确顺序是先把内容译完校完，再上 hreflang 声明。"}}]}]</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记<br><em>FIELD NOTES</em></span></a>
+    <nav class="nav"><a href="/category/seo/" class="">SEO</a><a href="/category/geo/" class="on">GEO</a><a href="/category/website/" class="">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <div class="header-right">
+      <a class="btn-primary" href="/consulting/">预约咨询</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.037 · GEO · 2026.10.02 · 10 MIN READ</p>
+  <h1 class="art-title">AI 爬虫读不到什么：静态 HTML 与 JS 的分野</h1>
+  <figure class="art-hero"><img src="/assets/covers/ai-crawlers-static-html.jpg" alt="AI 爬虫读不到什么：静态 HTML 与 JS 的分野" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">它们下载 JS，但从不执行。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>AI 抓取器读的是静态 HTML，不是你在浏览器里看到的那个页面。第三方分析发现，OpenAI、Anthropic、Perplexity 的爬虫会下载 JS 但从不执行，只有 Gemini 沿用 Googlebot 渲染。关键数字必须写进静态首屏，否则等于不存在。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>先搞清一件事：AI 爬虫看到的页面，和你看到的不是同一个</h2>
+<p>你在浏览器里看到的是渲染后的结果，AI 抓取器拿到的是渲染前的静态 HTML。两者差多少，取决于你的站有多依赖 JS。</p>
+<p>Vercel 与 MERJ 的联合分析追踪了 5 亿次 GPTBot 抓取，结论很干脆：OpenAI、Anthropic、Perplexity 的爬虫会下载 JS，但从不执行。</p>
+<p>唯一的例外是 Gemini，它沿用 Googlebot 那套渲染能力。也就是说，四家里有三家看到的是你的「毛坯房」。</p>
+<p>这不是内容质量问题，是可读性问题。内容写得再好，读不到就不存在——这一关过不去，后面所有 GEO 动作都是空转。</p>
+<h2 class="sec"><span class="sec-bar"></span>读得到 vs 读不到：一张对照表</h2>
+<p>把常见的内容形态摆成两列，你的技术同事看一眼就知道该改哪里。</p>
+<div class="table-wrap"><table><thead><tr><th>内容形态</th><th>不执行 JS 的抓取器能不能读到</th><th>后果</th><th>怎么改</th></tr></thead><tbody><tr><td>写在 HTML 里的正文与规格表</td><td>能读到</td><td>可被整段摘走</td><td>保持现状，再往首屏前移</td></tr><tr><td>脚本生成的关键数字（计数器动画）</td><td>读不到</td><td>静态 HTML 里是 0，抓取器读到的公司规模就是零</td><td>数字直接写进 HTML，动画只做视觉效果</td></tr><tr><td>放在 PDF 或图片里的关键内容</td><td>读不到</td><td>AI 引用不了图片里的文字</td><td>把关键参数在页面正文里重写一遍</td></tr><tr><td>被截图化的表格</td><td>读不到</td><td>最容易抽取的结构被自己废掉</td><td>改回真表格标签</td></tr><tr><td>靠弹窗或懒加载后置的正文</td><td>读不到或读得很晚</td><td>落在页面后段，被摘走的概率大幅下降</td><td>正文默认展开，折叠只用于次要信息</td></tr><tr><td>多语言半成品（声明了 hreflang 但内容仍是英文）</td><td>读到的是英文</td><td>目标语种查询里被判为不相关</td><td>先译完再上 hreflang</td></tr></tbody></table></div>
+<p>这张表里的每一行都是客户站上会碰到的情况，其中第二行和第四行往往在同一个页面同时出现。</p>
+<h2 class="sec"><span class="sec-bar"></span>五类读不到的内容，我在客户站上见得最多</h2>
+<ol class="steps"><li><strong>计数器动画里的数字</strong>首页写着「服务 1000+ 客户」，但那个数字是脚本从 0 滚上去的。静态 HTML 里它就是 0，不执行 JS 的抓取器读到的公司规模是零。</li><li><strong>只在 PDF 里的规格</strong>产品参数全在一份可下载的 PDF 里，页面上只有一句「详见下载」。AI 引用不了它拿不到的东西。</li><li><strong>截图化的对比表</strong>设计师把表格做成一张精美的图片贴上去。人看着舒服，抓取器看到的是一个 img 标签。</li><li><strong>弹窗和懒加载后置的正文</strong>正文要点手风琴才展开，或者滚动到一半才加载。不执行脚本的抓取器不会替你点开。</li><li><strong>多语言半成品</strong>hreflang 声明了西班牙语版本，点进去内容还是英文。错配比不配更糟，这是技术底座里最容易埋雷的一项。</li></ol>
+<p>这五类有一个共同点：它们在人眼里都不算问题，只有在抓取器眼里才是问题。所以靠肉眼巡站永远发现不了。</p>
+<h2 class="sec"><span class="sec-bar"></span>位置同样重要：前 30% 决定了会不会被摘走</h2>
+<p>读得到只是及格线，读得早才是加分项。Growth Memo 2026 年对 120 万条 AI 搜索结果的分析显示，LLM 引用有 44.2% 来自页面前 30% 的文本。</p>
+<p>把这个数字和上一节连起来看：懒加载后置的正文即使最终能被读到，也已经掉出了那个 30% 的窗口。</p>
+<p>所以我给页面定的硬线是——关键数字、规格表、联系方式，必须出现在静态 HTML 的前 30% 里。不是「最好出现」，是必须。</p>
+<p>顺带一提，这条线对人也友好。买家在手机上能不能三秒看到交期和 MOQ，用的是同一个判断。</p>
+<h2 class="sec"><span class="sec-bar"></span>验收只要两条动作，不用等审计报告</h2>
+<p>这一关的好处是验收极其便宜：用 curl 拉一遍源码，或者在浏览器里禁用 JS 刷新首屏，两分钟出结果。</p>
+<p>curl 拿到的就是抓取器拿到的。在里面搜一下你最想被引用的那三个数字，搜不到就是读不到，没有中间状态。</p>
+<p>禁用 JS 那一遍更直观：页面塌成什么样，三家爬虫看到的就是什么样。我通常让客户的市场负责人自己点一次，比看十页报告管用。</p>
+<p>如果要往更深里查渲染问题，Google 官方的 <a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">JavaScript SEO 基础文档</a>把渲染队列和常见坑讲得最清楚，让技术同事直接对着改就行。</p>
+<h2 class="sec"><span class="sec-bar"></span>Gemini 是例外，但别把例外当规划前提</h2>
+<p>Gemini 沿用 Googlebot 的渲染能力，所以重 JS 的站在它那里可能表现正常。这恰恰是最容易误判的地方。</p>
+<p>我见过团队拿 Gemini 测了一轮，看到内容被正确读出，就认定站没问题。换到 ChatGPT 和 Perplexity 上一测，同样的页面拿不到任何数字。</p>
+<p>Moz 2026 年 2 月对约 4 万条查询的分析还提醒了另一件事：88% 的 AI Mode 引用 URL 不在自然前 10。排名正常不代表引用正常，渲染正常也不代表全部引擎都正常。</p>
+<p>测试要按引擎分开做。按最保守的那一家定标准，也就是按「完全不执行 JS」来定。</p>
+<h2 class="sec"><span class="sec-bar"></span>这一关过了，才轮到内容</h2>
+<p>顺序不能颠倒：先放行、再可读、才谈可引用。前面两关是配置活，一周内能清完；后面才是长期功课。</p>
+<p>放行这一步顺便要查 robots。Google 官方的 <a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro">robots.txt 说明</a>值得让技术同事重读一遍——检索型 AI 爬虫被整段拦掉，是我见过最贵也最容易修的错误。</p>
+<p>可读性这一课，最好在<a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a>阶段就定死模板，比上线后回头改便宜得多。我们在<a href="https://www.hudoo-tech.com/cases/">客户案例</a>里看到的返工，多半都出在模板层。</p>
+<p>等静态 HTML 这一关干净了，再去做<a href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">谷歌 SEO 服务</a>那一套内容工序，投入才不会打水漂。</p>
+<blockquote><cite>— FELIX</cite></blockquote>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>AI 爬虫到底会不会执行 JavaScript？</h3>
+<p>大多数不会。Vercel 与 MERJ 的联合分析追踪了 5 亿次 GPTBot 抓取，发现 OpenAI、Anthropic、Perplexity 的爬虫会下载 JS 但从不执行，只有 Gemini 沿用 Googlebot 渲染。所以规划时按完全不执行来定标准最稳妥。</p>
+<h3>关键内容放在 PDF 里，AI 能读到吗？</h3>
+<p>别指望。AI 引用不了图片里的文字，PDF 同理属于高风险载体。正确做法是把产品参数、认证编号、交期这些关键信息在页面正文里原样重写一遍，PDF 只作为下载件保留，不承担唯一载体的角色。</p>
+<h3>怎么快速验证 AI 爬虫读到了什么？</h3>
+<p>两个动作就够：用 curl 拉一遍页面源码，或者在浏览器里禁用 JS 刷新首屏。在拿到的源码里搜你最想被引用的那三个数字，搜不到就是读不到。整个过程两分钟，不需要等任何审计报告。</p>
+<h3>对比表格做成截图为什么不行？</h3>
+<p>因为表格本来是最容易被抽取的结构，截图之后这个优势自己废掉了。不执行脚本的抓取器看到的只是一个图片标签，里面的参数对它来说是一片空白。参数表尤其不能贴图，必须用真表格标签。</p>
+<h3>Gemini 能读到，是不是就说明站没问题？</h3>
+<p>不能这么判断。Gemini 沿用 Googlebot 的渲染能力，重 JS 的站在它那里可能表现正常，但同一个页面在 ChatGPT 和 Perplexity 上可能一个数字都拿不到。测试必须按引擎分开做，标准按最保守的那一家定。</p>
+<h3>hreflang 配了但内容还没翻译，会怎么样？</h3>
+<p>属于多语言半成品，错配比不配更糟。声明了目标语种却给出英文内容，等于告诉引擎这一版不相关，目标市场的查询里很难被选中。正确顺序是先把内容译完校完，再上 hreflang 声明。</p>
+<div class="cta-box"><p class="eyebrow">HUDOO-TECH · SINCE 2018</p><p>不确定自己的站被 AI 爬虫读到了多少？先看互旦的 GEO 优化服务说明。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/geo/">查看互旦 GEO 服务 →</a></div></div>
+<p class="eyebrow">相关文章</p>
+<div class="row"><div class="row-idx">No.002</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/what-is-geo/">什么是GEO？</a></h3>
+<p class="wp-block-paragraph">买家问 AI 要名单，不被引用就等于不存在。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.021</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/ai-search-changes-buyer-entry/">海外买家的第一入口正在换掉</a></h3>
+<p class="wp-block-paragraph">从翻十页链接到问一次 AI，我看到入口正在换代。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.028</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/linkedin-algorithm-2026/">LinkedIn 2026 算法怎么决定谁能看到你的帖子</a></h3>
+<p class="wp-block-paragraph">粉丝数已经不决定触达，读得懂正文的模型在决定。</p>
+</div></div></div>
+<p class="note"><strong>专栏延伸与诊断专案：</strong>本文收录于 <a href="/category/geo/">GEO 生成式搜索专栏</a>。进阶排查建议对照阅读：<a href="/archive/">B2B 外贸企业做 GEO 找谁做？服务商评估标准与报价拆解</a> · <a href="/article/b2b-comparison-pages-for-geo-citation/">外贸独立站怎么写「替代方案 / 对比选型页（Alternatives &amp; vs）」</a>。</p>
+  </div>
+  <div class="author-box">
+  <div class="author-mark">F</div>
+  <div class="author-info">
+    <p class="eyebrow">作者</p>
+    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
+    <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
+  </div>
+</div>
+  <section class="related"><h2 class="related-h">继续阅读 · GEO</h2><div class="rel-grid"><a class="rel-card" href="/article/ai-brand-entity/"><span class="rel-num">01</span><span class="rel-title">如何在 ChatGPT、Perplexity 等 AI 搜索里建立品牌实体</span></a><a class="rel-card" href="/article/ai-search-changes-buyer-entry/"><span class="rel-num">02</span><span class="rel-title">海外买家找供应商的第一步，正在从谷歌搜索换成问 AI</span></a><a class="rel-card" href="/article/ai-search-visibility-monitoring/"><span class="rel-num">03</span><span class="rel-title">AI 搜索可见性怎么监测：一套月度检查方法</span></a></div></section>
+  <div class="prev-next"><a class="pn pn-prev" href="/article/ai-first-step-export-team/"><span>上一篇</span>外贸团队学 AI，第一步先分清哪些活能交给它</a><a class="pn pn-next" href="/article/linkedin-b2b-content-templates/"><span>下一篇</span>LinkedIn B2B 获客内容模板：从观点到询盘的 12 种写法</a></div>
+  <section class="latest">
+  <p class="eyebrow">LATEST</p>
+  <h2 class="sec"><span class="sec-bar"></span>最新文章</h2>
+  <ul class="lat-list"><li><a href="/article/anchor-text-distribution/"><span class="lat-num">No.087</span>外链锚文本该怎么配比：五组区间和一条不能碰的红线</a><span class="lat-date">2026.10.19</span></li><li><a href="/article/b2b-case-study-framework/"><span class="lat-num">No.086</span>B2B 出海案例研究怎么写，才能同时获得排名和信任</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/first-paragraph-direct-answer/"><span class="lat-num">No.085</span>首段直答三种写法：让 AI 直接摘走你的答案</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="lat-num">No.084</span>非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</a><span class="lat-date">2026.10.18</span></li></ul>
+</section>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      <a href="/hudoo/">找互旦</a>
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>独立站 CMS 怎么选？15 条硬要求与 6 个反模式 | Felix 出海营销实战笔记</title>
+<meta name="description" content="能不能自己改 Title、canonical 和 301，比后台好不好看重要得多。">
+<link rel="canonical" href="https://felixseo.com/article/cms-requirements-and-antipatterns/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="独立站 CMS 怎么选？15 条硬要求与 6 个反模式 | Felix 出海营销实战笔记">
+<meta property="og:description" content="能不能自己改 Title、canonical 和 301，比后台好不好看重要得多。">
+<meta property="og:url" content="https://felixseo.com/article/cms-requirements-and-antipatterns/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/cms-requirements-and-antipatterns.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="独立站 CMS 怎么选？15 条硬要求与 6 个反模式 | Felix 出海营销实战笔记">
+<meta name="twitter:description" content="能不能自己改 Title、canonical 和 301，比后台好不好看重要得多。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/cms-requirements-and-antipatterns.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "独立站 CMS 怎么选？15 条硬要求与 6 个反模式", "description": "能不能自己改 Title、canonical 和 301，比后台好不好看重要得多。", "datePublished": "2026-10-07", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/cms-requirements-and-antipatterns/", "image": "https://felixseo.com/assets/og-default.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "独立站", "item": "https://felixseo.com/category/website/"}, {"@type": "ListItem", "position": 3, "name": "独立站 CMS 怎么选？15 条硬要求与 6 个反模式"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "主流建站系统能满足这 15 条吗？", "acceptedAnswer": {"@type": "Answer", "text": "大多数主流系统在这 15 条上的差别在实现方式，不在有没有。真正的坑通常出在模板和插件把字段写死上，跟系统牌子关系不大。判断方法不是看牌子，是拿一页真实内容进后台，逐条试着改一遍。"}}, {"@type": "Question", "name": "全站共用一条 Title 到底有多严重？", "acceptedAnswer": {"@type": "Answer", "text": "很严重，属于第一档反模式。所有页面在搜索结果里长得一样，点击率会被同质化拖垮，页面之间还会互相抢同一个词。它同时说明模板把字段写死了，后面每一条页面级优化都做不了。"}}, {"@type": "Question", "name": "URL 里能不能用中文路径？", "acceptedAnswer": {"@type": "Answer", "text": "英文出海站不要用。中文路径在分享、外链和统计后台里会变成一长串编码字符，既不可读也不好排查，还容易和参数混在一起生成重复地址。slug 用小写英文短词加连字符是最省事的做法。"}}, {"@type": "Question", "name": "canonical 和 301 有什么区别？", "acceptedAnswer": {"@type": "Answer", "text": "301 是搬家，旧地址不再提供内容，访问者和爬虫都被送到新地址；canonical 是认领，几个地址都还能打开，但你声明其中一个是正主。改版用 301，参数页和重复内容用 canonical，两者不能互相替代。"}}, {"@type": "Question", "name": "分页和筛选页为什么会生成垃圾页？", "acceptedAnswer": {"@type": "Answer", "text": "因为每一个筛选组合、排序方式、追踪参数都可能拼出一个新地址，而这些地址上的内容高度重复。系统默认让它们全部可收录时，成千上万条低质地址会挤占抓取预算，稀释真正想被收录的产品页。"}}, {"@type": "Question", "name": "站已经做完了才发现 meta 改不了，怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "先确认是模板写死还是权限没开，后者改配置就行。确实写死的话，优先争取一个能注入页面级字段的改造方案，而不是急着整站重做。同时把旧新地址映射表准备好，真要重建时才有 301 的依据。"}}]}]</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记<br><em>FIELD NOTES</em></span></a>
+    <nav class="nav"><a href="/category/seo/" class="">SEO</a><a href="/category/geo/" class="">GEO</a><a href="/category/website/" class="on">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <div class="header-right">
+      <a class="btn-primary" href="/consulting/">预约咨询</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.047 · 独立站 · 2026.10.07 · 10 MIN READ</p>
+  <h1 class="art-title">独立站 CMS 怎么选？15 条硬要求与 6 个反模式</h1>
+  <figure class="art-hero"><img src="/assets/covers/cms-requirements-and-antipatterns.jpg" alt="独立站 CMS 怎么选？15 条硬要求与 6 个反模式" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">能不能自己改 Title、canonical 和 301，比后台好不好看重要得多。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>选 CMS 只看三块能不能自己改：内容层面的 Title、H1、slug 与图片 Alt，技术层面的 canonical、hreflang、robots、301 与 Schema，性能与安全层面的 HTTPS、Core Web Vitals、移动端和埋点验证。任何一块被写死在模板里，后面所有页面级优化都做不了。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>选 CMS 的第一问：这三块是不是都能自己改</h2>
+<p>选建站系统，我只问一句：Title、canonical、301 这三样，做运营的人能不能自己改？能改，剩下的都好谈；不能改，界面再漂亮也得推翻重来。</p>
+<p>硬要求一共 15 条，分三块：内容可控 5 条、技术可控 5 条、性能与安全 5 条。它们不是 SEO 的加分项，是做 SEO 的前提——决定的是「能不能做」，不是「做得好不好」。</p>
+<p>为什么是这三块？把 <a href="https://developers.google.com/search/docs">Google 搜索文档</a> 从头翻一遍就明白：标题、规范网址、多语言版本、重定向、结构化数据，官方讲的每一件事都要求你在页面层面能改动。改不了，文档写得再清楚也与你无关。</p>
+<p>我见过太多出海企业，英文站上线两三年才发现这件事：想改一条 Meta Description，得回头找当初的建站公司排期。这种被动本身就是成本。</p>
+<h2 class="sec"><span class="sec-bar"></span>内容可控：每页的 Title、H1、slug、Alt 都要能单独改</h2>
+<p>内容可控的意思是「逐页可写」，不是「全站可配」。以下 5 条，任何一条做不到，页面级优化就只能做一半。</p>
+<ol class="steps"><li><strong>每页可自定义 Title 与 Meta Description</strong>不是全站一个模板变量套所有页。产品页、方案页、博客页的买家诉求完全不同，共用一条等于三页都没写。</li><li><strong>H1 可编辑且每页唯一</strong>H1 要能改，而且每页只留 1 个。英文站首页 H1 写纯公司名是最常见的浪费——海外买家搜的是品类和规格，不是你的商号。</li><li><strong>URL slug 可自定义、简洁可读</strong>地址要能自己写成 vacuum-pump-oem 这种形式，而不是一串自动编号。slug 改不了的站，后面做内链和分享都别扭。</li><li><strong>图片可加 Alt 并自动压缩 WebP</strong>工厂实拍、装柜照、验厂现场图是英文站最重的资源。后台要能填 Alt，也要能在上传时自动转 WebP，否则首屏几张原图就把移动端拖垮了。</li><li><strong>富文本不产生垃圾内联样式</strong>从 Word 里粘一段进去，出来一堆行内样式，这种编辑器会把每篇文章变成没人敢碰的 HTML。判断方法很简单：粘一段，切到源码视图看一眼。</li></ol>
+<h2 class="sec"><span class="sec-bar"></span>技术可控：canonical、hreflang、robots、301、Schema 五个开关</h2>
+<p>技术可控这 5 条，是把站交给搜索引擎和答案引擎时的交流通道。它们平时不产生流量，出问题的时候一次能让整站失声。</p>
+<ol class="steps"><li><strong>canonical 可配置</strong>同一篇内容被多个地址打开是常态，canonical 用来指认哪个是正主。这个字段必须能在页面级改，而不是全站硬编码指向首页。</li><li><strong>hreflang 多语言支持</strong>英语、西语、阿拉伯语几个版本要能互相声明并带回链。系统只支持「做几个语言目录」而不支持声明关系的，等于多语言只做了一半。</li><li><strong>robots.txt 与 XML sitemap 自动维护</strong>robots 要能自己编辑，sitemap 要在发布新页后自动更新。手工维护 sitemap 的站，三个月后里面一半是死地址。</li><li><strong>301 重定向可批量管理</strong>改版时要一次导入一批旧地址到新地址的映射，而不是让人在后台逐条手填。几千条映射靠手填，最后一定是漏掉一半。</li><li><strong>Schema（JSON-LD）可注入</strong>至少要能在模板级和页面级插入一段 JSON-LD，并在源码里看得到。这一条做不到，后面 Organization、Product 这些标记全都无从谈起。</li></ol>
+<p>这五个开关也是我判断一个站还能不能继续做 <a href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">谷歌 SEO 服务</a> 的分水岭：开关都在，再差的站也有救；开关都锁死，先谈重建更省钱。</p>
+<h2 class="sec"><span class="sec-bar"></span>性能与安全：HTTPS、Core Web Vitals、移动端、参数页、埋点</h2>
+<p>第三块是底线，不达标不是优化问题，是可用性问题。海外买家在移动端打开你的站，前 3 秒决定要不要留下。</p>
+<ol class="steps"><li><strong>全站 HTTPS，HTTP 用 301 跳转</strong>用 http 打开首页，必须 301 跳到 https。两套地址同时可访问，是重复收录最省事的制造方式。</li><li><strong>Core Web Vitals 可达标</strong>系统要给得出优化空间：图片能压、脚本能延后、字体能自托管。移动端首屏的最大内容绘制控制在 2.5 秒以内，是一条实打实的线。</li><li><strong>移动端响应式</strong>验收要用真机开产品页，不是看后台预览。中东和东南亚客户的移动端占比，通常比国内团队想象的高得多。</li><li><strong>无参数失控的重复页面</strong>筛选、排序、追踪参数一旦都能生成可收录地址，几千条低质地址会把抓取预算吃光。</li><li><strong>可接 GSC 与 GA4 验证</strong>能放验证文件或站点级代码，不必求人改模板。连验证都要排期的站，等于你永远看不到自己的真实数据。</li></ol>
+<h2 class="sec"><span class="sec-bar"></span>把 15 条硬要求做成一张验收清单</h2>
+<p>光列要求没用，要给每条配一个自己就能做的验收动作。下面这张表我会直接贴进建站验收附件里，逐条打勾。</p>
+<div class="table-wrap"><table><thead><tr><th>模块</th><th>硬要求</th><th>自己怎么验</th></tr></thead><tbody><tr><td>内容</td><td>每页可自定义 Title 与 Meta Description</td><td>随机挑 3 页看源码，标题是否只差一个后缀</td></tr><tr><td>内容</td><td>H1 可编辑且每页唯一</td><td>数页面里 h1 出现次数，必须是 1 次</td></tr><tr><td>内容</td><td>URL slug 可自定义、简洁可读</td><td>新建一页，把地址改成自定的英文短词</td></tr><tr><td>内容</td><td>图片可加 Alt 并自动压缩 WebP</td><td>上传一张高清工厂实拍，看输出格式与体积</td></tr><tr><td>内容</td><td>富文本不产生垃圾内联样式</td><td>从 Word 粘一段，切到源码视图看行内样式</td></tr><tr><td>技术</td><td>canonical 可配置</td><td>找一个带参数的地址，看 canonical 指回哪里</td></tr><tr><td>技术</td><td>hreflang 多语言支持</td><td>建两个语言版本，检查是否互相声明且有回链</td></tr><tr><td>技术</td><td>robots.txt 与 XML sitemap 自动维护</td><td>新发一页，看 sitemap 有没有自动带上它</td></tr><tr><td>技术</td><td>301 重定向可批量管理</td><td>要求演示一次批量导入，而不是逐条手填</td></tr><tr><td>技术</td><td>Schema（JSON-LD）可注入</td><td>插一段 JSON-LD，在页面源码里能不能找到</td></tr><tr><td>性能与安全</td><td>全站 HTTPS 且 HTTP 用 301 跳转</td><td>用 http 开首页，看是否跳到 https</td></tr><tr><td>性能与安全</td><td>Core Web Vitals 可达标</td><td>移动端实测首屏，最大内容绘制看 2.5 秒这条线</td></tr><tr><td>性能与安全</td><td>移动端响应式</td><td>用手机真机开产品页，不看后台预览</td></tr><tr><td>性能与安全</td><td>无参数失控的重复页面</td><td>站内搜一批带参数的地址，看有没有进索引</td></tr><tr><td>性能与安全</td><td>可接 GSC 与 GA4 验证</td><td>自己能不能放验证文件或站点级代码</td></tr></tbody></table></div>
+<p>这张表最好在付款节点之前用，而不是上线之后。上线后再发现某一条做不到，改造成本通常是重做一遍模板。</p>
+<h2 class="sec"><span class="sec-bar"></span>六个反模式：任何技术栈都禁止交付</h2>
+<p>下面这 6 个反模式，不分技术栈，不分预算档位，出现任何一个都属于不合格交付。它们的共同点是：单独看都像小毛病，叠在一起能让整站进不了索引。</p>
+<div class="table-wrap"><table><thead><tr><th>反模式</th><th>典型表现</th><th>直接后果</th></tr></thead><tbody><tr><td>全站共用一条 Title 与 Meta</td><td>首页、产品页、博客页标题只差一个后缀</td><td>每一页都在跟自己抢同一个词，点击率和相关性一起塌</td></tr><tr><td>URL 带无意义参数或中文路径</td><td>地址里是一串自动编号，或编码后的中文</td><td>分享出去变乱码，抓取预算浪费在重复地址上</td></tr><tr><td>无 canonical 导致重复收录</td><td>同一篇内容有三四个地址都能打开</td><td>权重被拆散，搜索引擎替你随机挑一个当正主</td></tr><tr><td>图片原图直出无压缩</td><td>单张实拍图几兆，一个产品页放十几张</td><td>移动端首屏拖到好几秒，海外访问更慢</td></tr><tr><td>分页与筛选页失控生成垃圾页</td><td>每个筛选组合都能生成一个可收录地址</td><td>成千上万条低质地址进索引，真正的钱页被稀释</td></tr><tr><td>meta 与 H1 写死在模板里</td><td>想改一条描述得找建站公司排期</td><td>所有页面级优化都做不了，第一步就停住</td></tr></tbody></table></div>
+<p>我在 <a href="https://www.hudoo-tech.com/cases/">客户案例</a> 里复盘过不止一次：同一批内容预算，投在开关齐全的站上能滚起来，投在这 6 条占了三条的站上，等于往漏桶里倒水。</p>
+<h2 class="sec"><span class="sec-bar"></span>签合同之前，我一定会做的三件事</h2>
+<p>结论是：把验收前置到签字之前。以下三件事花不了一天，能省掉后面两年的扯皮。</p>
+<ol class="steps"><li><strong>要一个能改东西的演示账号</strong>自己进后台改一页的 Title、slug 和 Alt，改完看源码。看演示视频不算，别人操作也不算。</li><li><strong>把 15 条写进验收附件</strong>验收标准要写成可勾选的动作，而不是「符合 SEO 规范」这种没法执行的表述。</li><li><strong>约定数据与映射表的交付方式</strong>内容能不能整站导出、改版时旧新地址映射表谁出，这两件事写进合同，换服务商时才不会被卡住。</li></ol>
+<p>如果站本身还要承接在线下单和多币种，选型口径会更复杂一些，可以顺带看看 <a href="https://www.hudoo-tech.com/services/ecommerce-solution/">跨境电商独立站</a> 那套要求，和这 15 条是叠加关系，不是替代关系。</p>
+<blockquote><cite>— FELIX</cite></blockquote>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>主流建站系统能满足这 15 条吗？</h3>
+<p>大多数主流系统在这 15 条上的差别在实现方式，不在有没有。真正的坑通常出在模板和插件把字段写死上，跟系统牌子关系不大。判断方法不是看牌子，是拿一页真实内容进后台，逐条试着改一遍。</p>
+<h3>全站共用一条 Title 到底有多严重？</h3>
+<p>很严重，属于第一档反模式。所有页面在搜索结果里长得一样，点击率会被同质化拖垮，页面之间还会互相抢同一个词。它同时说明模板把字段写死了，后面每一条页面级优化都做不了。</p>
+<h3>URL 里能不能用中文路径？</h3>
+<p>英文出海站不要用。中文路径在分享、外链和统计后台里会变成一长串编码字符，既不可读也不好排查，还容易和参数混在一起生成重复地址。slug 用小写英文短词加连字符是最省事的做法。</p>
+<h3>canonical 和 301 有什么区别？</h3>
+<p>301 是搬家，旧地址不再提供内容，访问者和爬虫都被送到新地址；canonical 是认领，几个地址都还能打开，但你声明其中一个是正主。改版用 301，参数页和重复内容用 canonical，两者不能互相替代。</p>
+<h3>分页和筛选页为什么会生成垃圾页？</h3>
+<p>因为每一个筛选组合、排序方式、追踪参数都可能拼出一个新地址，而这些地址上的内容高度重复。系统默认让它们全部可收录时，成千上万条低质地址会挤占抓取预算，稀释真正想被收录的产品页。</p>
+<h3>站已经做完了才发现 meta 改不了，怎么办？</h3>
+<p>先确认是模板写死还是权限没开，后者改配置就行。确实写死的话，优先争取一个能注入页面级字段的改造方案，而不是急着整站重做。同时把旧新地址映射表准备好，真要重建时才有 301 的依据。</p>
+<div class="cta-box"><p class="eyebrow">HUDOO-TECH · SINCE 2018</p><p>正在选建站系统或准备重做英文站？先看互旦的独立站建设说明与交付口径。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/website-solution/">查看互旦独立站建设 →</a></div></div>
+<p class="eyebrow">相关文章</p>
+<div class="row"><div class="row-idx">No.004</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/independent-site-building-mistakes/">外贸独立站建站，中小企业最容易踩的10个坑</a></h3>
+<p class="wp-block-paragraph">地基级的坑不是丑，是海外打不开、Google 读不懂、询盘接不住。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.028</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/linkedin-algorithm-2026/">LinkedIn 2026 算法怎么决定谁能看到你的帖子</a></h3>
+<p class="wp-block-paragraph">粉丝数已经不决定触达，读得懂正文的模型在决定。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.001</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/how-to-choose-google-seo-agency/">外贸企业如何选谷歌SEO服务商？</a></h3>
+<p class="wp-block-paragraph">看案例、看报价拆项、看谈不谈 GEO，三步过滤掉大部分坑。</p>
+</div></div></div>
+<p class="note"><strong>专栏延伸与诊断专案：</strong>本文收录于 <a href="/category/website/">外贸独立站专栏</a>。进阶排查建议对照阅读：<a href="/article/alibaba-to-b2b-independent-site-roadmap/">传统制造工厂从阿里国际站/展会转独立站：90天冷启动路线图</a> · <a href="/article/audit-b2b-website-delivery-and-seo-reports/">外贸建站验收标准与 SEO 月报真伪核查表</a>。</p>
+  </div>
+  <div class="author-box">
+  <div class="author-mark">F</div>
+  <div class="author-info">
+    <p class="eyebrow">作者</p>
+    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
+    <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
+  </div>
+</div>
+  <section class="related"><h2 class="related-h">继续阅读 · 独立站</h2><div class="rel-grid"><a class="rel-card" href="/article/b2b-inquiry-funnel/"><span class="rel-num">01</span><span class="rel-title">B2B 出海询盘漏斗怎么搭：从搜索到成交的完整路径</span></a><a class="rel-card" href="/article/b2b-site-no-inquiry/"><span class="rel-num">02</span><span class="rel-title">为什么有流量却没有询盘：B2B 独立站转化排查表</span></a><a class="rel-card" href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="rel-num">03</span><span class="rel-title">非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</span></a></div></section>
+  <div class="prev-next"><a class="pn pn-prev" href="/article/construction-machinery-content/"><span>上一篇</span>工程机械出海内容怎么做：从应用场景到采购询盘</a><a class="pn pn-next" href="/article/choose-b2b-marketing-agency/"><span>下一篇</span>如何选择 B2B 出海营销服务商：报价、交付和结果的检查表</a></div>
+  <section class="latest">
+  <p class="eyebrow">LATEST</p>
+  <h2 class="sec"><span class="sec-bar"></span>最新文章</h2>
+  <ul class="lat-list"><li><a href="/article/anchor-text-distribution/"><span class="lat-num">No.087</span>外链锚文本该怎么配比：五组区间和一条不能碰的红线</a><span class="lat-date">2026.10.19</span></li><li><a href="/article/b2b-case-study-framework/"><span class="lat-num">No.086</span>B2B 出海案例研究怎么写，才能同时获得排名和信任</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/first-paragraph-direct-answer/"><span class="lat-num">No.085</span>首段直答三种写法：让 AI 直接摘走你的答案</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="lat-num">No.084</span>非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</a><span class="lat-date">2026.10.18</span></li></ul>
+</section>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      <a href="/hudoo/">找互旦</a>
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>

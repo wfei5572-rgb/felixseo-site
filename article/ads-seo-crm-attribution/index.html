@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads、SEO 和 CRM 如何做询盘归因 | Felix 出海营销实战笔记</title>
+<meta name="description" content="规则型模型已下线：Google Ads 剩两种，GA4 剩三种，别纠结消失的选项。">
+<link rel="canonical" href="https://felixseo.com/article/ads-seo-crm-attribution/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="Google Ads、SEO 和 CRM 如何做询盘归因 | Felix 出海营销实战笔记">
+<meta property="og:description" content="规则型模型已下线：Google Ads 剩两种，GA4 剩三种，别纠结消失的选项。">
+<meta property="og:url" content="https://felixseo.com/article/ads-seo-crm-attribution/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/ads-seo-crm-attribution.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Ads、SEO 和 CRM 如何做询盘归因 | Felix 出海营销实战笔记">
+<meta name="twitter:description" content="规则型模型已下线：Google Ads 剩两种，GA4 剩三种，别纠结消失的选项。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/ads-seo-crm-attribution.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Google Ads、SEO 和 CRM 如何做询盘归因", "description": "规则型模型已下线：Google Ads 剩两种，GA4 剩三种，别纠结消失的选项。", "datePublished": "2026-10-05", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/ads-seo-crm-attribution/", "image": "https://felixseo.com/assets/og-default.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "广告投放", "item": "https://felixseo.com/category/ads/"}, {"@type": "ListItem", "position": 3, "name": "Google Ads、SEO 和 CRM 如何做询盘归因"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "B2B 应该用哪种归因模型？", "acceptedAnswer": {"@type": "Answer", "text": "没有统一答案。建议同时看首次、最后和辅助触点，再用 CRM 机会与成交结果做业务校验。Google Ads 后台技术上能选的只有数据驱动（默认）和最后点击两种，首次点击、线性、时间衰减、按位置四种旧模型已经下线，不用再纠结。"}}, {"@type": "Question", "name": "数据驱动归因需要多少数据才准？", "acceptedAnswer": {"@type": "Answer", "text": "官方给的建议量是 30 天内至少 200 次转化、2,000 次广告互动，模型才能较准确识别各触点贡献。账户量没到这个量，所有转化操作依然可以用数据驱动归因，只是判断的置信度会打折扣。"}}, {"@type": "Question", "name": "GA4 的归因模型和 Google Ads 一样吗？", "acceptedAnswer": {"@type": "Answer", "text": "不完全一样。GA4 官方文档显示，同批规则型模型已于 2023 年 11 月下线，目前保留数据驱动、付费与自然最后点击、谷歌付费渠道最后点击三种，转化发生后最多可以在 7 天内被重新归因。"}}, {"@type": "Question", "name": "2026 年离线转化导入是不是要重新配置？", "acceptedAnswer": {"@type": "Answer", "text": "要看上传方式。官方帮助文档显示，2026 年 6 月 15 日起只有「通过 Google Ads API 上传」离线转化和线索增强型转化的通道被阻断、迁移到 Data Manager API；用网站标签配置的现有用户不需要额外操作。走 API 上传且今年上半年没调用过的账户要尽快检查。"}}, {"@type": "Question", "name": "增强型转化真的有用吗？", "acceptedAnswer": {"@type": "Answer", "text": "官方给出的参照是，配合邮箱、电话等第一方数据做离线导入，转化量中位数比标准导入高 10%；这是全体广告主的统计，没按行业拆分，也没给样本量和统计时段，B2B 只能当方向参考。原理是对用户数据做单向哈希后，与登录谷歌账号匹配。"}}, {"@type": "Question", "name": "SEO 带来的自然流量怎么算进归因？", "acceptedAnswer": {"@type": "Answer", "text": "要分开看。Google Ads 自己的数据驱动归因只分配广告互动之间的贡献，不包括自然搜索点击；GA4 的「付费与自然最后点击」等模型才会把自然搜索纳入归因路径。想看 SEO 的作用，得看 GA4，而不是 Google Ads 后台。"}}]}]</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记<br><em>FIELD NOTES</em></span></a>
+    <nav class="nav"><a href="/category/seo/" class="">SEO</a><a href="/category/geo/" class="">GEO</a><a href="/category/website/" class="">独立站</a><a href="/category/ads/" class="on">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <div class="header-right">
+      <a class="btn-primary" href="/consulting/">预约咨询</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.044 · 广告投放 · 2026.10.05 · 9 MIN READ</p>
+  <h1 class="art-title">Google Ads、SEO 和 CRM 如何做询盘归因</h1>
+  <figure class="art-hero"><img src="/assets/covers/ads-seo-crm-attribution.jpg" alt="Google Ads、SEO 和 CRM 如何做询盘归因" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">规则型模型已下线：Google Ads 剩两种，GA4 剩三种，别纠结消失的选项。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>来源字段要一路带进 CRM 不丢失，再用多口径看趋势：平台转化、表单数和 CRM 成交不能直接相加，没有一个模型能解释所有决策，同时看首次、最后、辅助触点更可靠。Google Ads 后台能选的模型现在只剩数据驱动和最后点击两种，GA4 还留了三种。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>不要用一个模型解释所有决策</h2>
+<p>没有一个模型能替你解释所有决策。同时看首次触点、最后触点、辅助触点，才知道钱和内容分别在哪个阶段起作用——这条判断不会因为模型选项变少而过时。</p>
+<p>这跟 Google Ads 后台「选哪个归因模型」是两回事。<a href="https://support.google.com/google-ads/answer/6259715?hl=en">官方文档</a>确认，首次点击、线性、时间衰减、按位置四种规则型模型已经下线，技术上能选的只剩数据驱动（默认）和最后点击两种。</p>
+<p>但这只是账户里一个技术设置，不代表分析问题时只能看一个角度；首次、最后、辅助触点依然要一起看，它们是报表和 CRM 数据拼出来的分析角度，不是下拉菜单里的选项。</p>
+<p><a href="https://support.google.com/analytics/answer/10596866?hl=en">GA4 官方文档</a>显示，同批规则型模型已于 2023 年 11 月下线，GA4 目前保留三种：数据驱动、付费与自然最后点击、谷歌付费渠道最后点击——比 Google Ads 后台多一种。</p>
+<h2 class="sec"><span class="sec-bar"></span>数据驱动归因不是有数据就准，官方给了建议量</h2>
+<p><a href="https://support.google.com/google-ads/answer/6394265?hl=en">官方文档</a>写明，所有转化操作都有资格用数据驱动归因，不管转化量高低——这也是它和自然搜索无关的地方，它只分配 Google 广告互动之间的贡献。</p>
+<p>但要模型判断力足够，官方给的建议量是 30 天内至少 200 次转化、2,000 次广告互动。账户量没到这个量，模型依然能用，只是置信度打折扣。</p>
+<p>所以「几种角度看着都差不多」不一定是渠道真的一样重要，可能只是数据量还没到模型能分辨的程度——先把量做起来，比纠结模型选择更值。</p>
+<p>GA4 还有一条容易被忽略的规则：转化发生后最多可以在 7 天内被重新归因，这段窗口期内的数据看板可能回溯调整，不是系统出错。</p>
+<h2 class="sec"><span class="sec-bar"></span>一张表先把口径说清楚</h2>
+<div class="table-wrap"><table><thead><tr><th>口径</th><th>回答的问题</th><th>适合用途</th></tr></thead><tbody><tr><td>首次触点</td><td>谁带来新访客</td><td>渠道拓展</td></tr><tr><td>最后触点</td><td>什么促成行动</td><td>页面与 CTA</td></tr><tr><td>数据驱动（默认）</td><td>各触点实际贡献多少</td><td>预算分配主口径</td></tr><tr><td>CRM 机会</td><td>哪些线索值得跟进</td><td>销售判断</td></tr><tr><td>成交价值</td><td>哪些渠道带来收入</td><td>预算决策</td></tr></tbody></table></div>
+<p>先把数据表做小：日期、来源、首次页面、转化页面、产品、国家、销售状态、成交金额。每月用三种口径对比趋势，别争论某条线索到底该「归给谁」。</p>
+<p>平台转化、网站表单数和 CRM 成交是三个不同环节的计数，不能直接相加——一条线索可能既被平台记成转化，又进了表单，又在 CRM 里走完成交，加起来只会虚报规模。</p>
+<p>这套字段设计的思路，互旦<a href="https://www.hudoo-tech.com/solutions/b2b-solution/">B2B 出海解决方案</a>里也在用。</p>
+<h2 class="sec"><span class="sec-bar"></span>2026 年离线转化和增强型转化的通道变了</h2>
+<p><a href="https://support.google.com/google-ads/answer/16884284?hl=en">官方文档</a>给出三个独立时间点，容易被混着说。2026 年 4 月起，Google Ads 同时接受网站标签、Data Manager、API 三路用户提供数据。</p>
+<p>2026 年 6 月起，增强型转化的网站版和线索版合并成一个开关，账户里不再区分不同的配置方式；用网站标签配置的现有用户，官方原文写明不需要额外操作就会被自动迁移。</p>
+<p>2026 年 6 月 15 日起，离线转化导入和线索增强型转化的上传方式迁移到 Data Manager API，旧的 Google Ads API 上传通道被阻断——这条只影响用 API 上传的账户；2026 年 1-6 月完全没调用过的开发者令牌不再保留旧通道。本文发布时三件事都已生效。</p>
+<p><a href="https://support.google.com/google-ads/answer/2998031?hl=en">官方文档</a>给了一个效果参照：配合邮箱、电话等第一方数据做离线导入，转化量中位数比标准导入高 10%。</p>
+<p>这是谷歌对全体广告主的统计，没按行业拆分，也没给样本量和统计时段，B2B 只能当方向参考；多出来的是匹配回广告的转化，不等于多出询盘。</p>
+<p>如果你还没算清楚获客成本这笔账，可以先看我之前写的<a href="/article/b2b-cac-formula/">外贸企业获客成本怎么算</a>，归因口径和成本口径最好一起对齐，别各算各的。</p>
+<h2 class="sec"><span class="sec-bar"></span>按这个顺序落地</h2>
+<ol class="steps"><li><strong>第一步：统一命名</strong>统一 UTM 参数和来源命名规则，不同渠道、不同人建的标签先对齐。</li><li><strong>第二步：打通字段</strong>确认表单和 CRM 字段可以互传，尤其是 GCLID 这类用来匹配广告点击的标识。</li><li><strong>第三步：定义状态</strong>明确线索、机会、成交三级状态的判定标准，避免各部门口径不一。</li><li><strong>第四步：双口径对比</strong>用数据驱动和最后点击两种口径看渠道和内容；数据量不够 200 次转化时，先以最后点击辅助判断。</li><li><strong>第五步：季度修正</strong>每季度根据实际成交反馈，检查归因结论和销售判断是否对得上。</li></ol>
+<h2 class="sec"><span class="sec-bar"></span>最容易踩的坑</h2>
+<p>常见坑是平台之间重复计算转化，或把自然流量的「直接访问」当成没有来源，两者都会让预算判断失真。</p>
+<p>另一个坑是数据量不够就迷信数据驱动归因的结论。官方建议量是 30 天 200 次转化、2,000 次互动，没到这个量，模型置信度本身就低，别把它当铁律。</p>
+<p>这套排查思路我们在<a href="https://www.hudoo-tech.com/cases/">客户案例</a>里也反复验证过：先打通数据，再谈模型，顺序不能反。</p>
+<blockquote><cite>— FELIX</cite></blockquote>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>B2B 应该用哪种归因模型？</h3>
+<p>没有统一答案。建议同时看首次、最后和辅助触点，再用 CRM 机会与成交结果做业务校验。Google Ads 后台技术上能选的只有数据驱动（默认）和最后点击两种，首次点击、线性、时间衰减、按位置四种旧模型已经下线，不用再纠结。</p>
+<h3>数据驱动归因需要多少数据才准？</h3>
+<p>官方给的建议量是 30 天内至少 200 次转化、2,000 次广告互动，模型才能较准确识别各触点贡献。账户量没到这个量，所有转化操作依然可以用数据驱动归因，只是判断的置信度会打折扣。</p>
+<h3>GA4 的归因模型和 Google Ads 一样吗？</h3>
+<p>不完全一样。GA4 官方文档显示，同批规则型模型已于 2023 年 11 月下线，目前保留数据驱动、付费与自然最后点击、谷歌付费渠道最后点击三种，转化发生后最多可以在 7 天内被重新归因。</p>
+<h3>2026 年离线转化导入是不是要重新配置？</h3>
+<p>要看上传方式。官方帮助文档显示，2026 年 6 月 15 日起只有「通过 Google Ads API 上传」离线转化和线索增强型转化的通道被阻断、迁移到 Data Manager API；用网站标签配置的现有用户不需要额外操作。走 API 上传且今年上半年没调用过的账户要尽快检查。</p>
+<h3>增强型转化真的有用吗？</h3>
+<p>官方给出的参照是，配合邮箱、电话等第一方数据做离线导入，转化量中位数比标准导入高 10%；这是全体广告主的统计，没按行业拆分，也没给样本量和统计时段，B2B 只能当方向参考。原理是对用户数据做单向哈希后，与登录谷歌账号匹配。</p>
+<h3>SEO 带来的自然流量怎么算进归因？</h3>
+<p>要分开看。Google Ads 自己的数据驱动归因只分配广告互动之间的贡献，不包括自然搜索点击；GA4 的「付费与自然最后点击」等模型才会把自然搜索纳入归因路径。想看 SEO 的作用，得看 GA4，而不是 Google Ads 后台。</p>
+<div class="cta-box"><p class="eyebrow">HUDOO-TECH · SINCE 2018</p><p>来源字段和 CRM 状态还没打通？先看互旦的海外广告投放服务说明。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/ads-solution/">查看互旦广告投放服务 →</a></div></div>
+<p class="eyebrow">相关文章</p>
+<div class="row"><div class="row-idx">No.005</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/google-ads-vs-seo/">B2B出海：先做谷歌广告还是SEO？</a></h3>
+<p class="wp-block-paragraph">不是二选一：广告租流量救急，SEO 攒资产管长期。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.045</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/measure-ai-citation/">怎么测量自己有没有被 AI 引用</a></h3>
+<p class="wp-block-paragraph">不靠手感，靠一套固定问题集，每月重跑一次。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.044</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/offsite-signal-four-tiers/">站外信源四级渠道</a></h3>
+<p class="wp-block-paragraph">AI 不信你的自我介绍，它信别人怎么说你。</p>
+</div></div></div>
+<p class="note"><strong>专栏延伸与诊断专案：</strong>本文收录于 <a href="/category/ads/">海外广告投放专栏</a>。进阶排查建议对照阅读：<a href="/archive/">外贸 B2B 谷歌广告光烧钱没询盘？5 个漏钱开关诊断</a> · <a href="/article/stop-b2b-google-ads-spam-and-setup-oct/">Google Ads 垃圾询盘过滤与离线转化回传（OCT）实操</a>。</p>
+  </div>
+  <div class="author-box">
+  <div class="author-mark">F</div>
+  <div class="author-info">
+    <p class="eyebrow">作者</p>
+    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
+    <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
+  </div>
+</div>
+  <section class="related"><h2 class="related-h">继续阅读 · 广告投放</h2><div class="rel-grid"><a class="rel-card" href="/article/b2b-cac-formula/"><span class="rel-num">01</span><span class="rel-title">外贸企业获客成本怎么算：从点击到有效询盘的完整公式</span></a><a class="rel-card" href="/article/b2b-google-ads-landing-page/"><span class="rel-num">02</span><span class="rel-title">B2B Google Ads 落地页怎么做：采购商真正关心的 8 个模块</span></a><a class="rel-card" href="/article/b2b-lead-quality/"><span class="rel-num">03</span><span class="rel-title">B2B 广告如何判断线索质量，而不是只看表单数量</span></a></div></section>
+  <div class="prev-next"><a class="pn pn-prev" href="/article/b2b-seo-full-chain/"><span>上一篇</span>B2B 出海 SEO 全链路：排名之外，还有一场仗在打</a><a class="pn pn-next" href="/article/seo-six-red-lines-2026/"><span>下一篇</span>2026 年 SEO 的六条红线：说错就暴露不专业</a></div>
+  <section class="latest">
+  <p class="eyebrow">LATEST</p>
+  <h2 class="sec"><span class="sec-bar"></span>最新文章</h2>
+  <ul class="lat-list"><li><a href="/article/anchor-text-distribution/"><span class="lat-num">No.087</span>外链锚文本该怎么配比：五组区间和一条不能碰的红线</a><span class="lat-date">2026.10.19</span></li><li><a href="/article/b2b-case-study-framework/"><span class="lat-num">No.086</span>B2B 出海案例研究怎么写，才能同时获得排名和信任</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/first-paragraph-direct-answer/"><span class="lat-num">No.085</span>首段直答三种写法：让 AI 直接摘走你的答案</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="lat-num">No.084</span>非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</a><span class="lat-date">2026.10.18</span></li></ul>
+</section>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      <a href="/hudoo/">找互旦</a>
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>

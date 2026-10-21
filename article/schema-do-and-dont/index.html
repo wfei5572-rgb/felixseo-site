@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schema 该做哪些、不该做哪些：四必做、一可选、四禁做 | Felix 出海营销实战笔记</title>
+<meta name="description" content="先把四个必做的打齐，再决定 FAQPage 要不要留。">
+<link rel="canonical" href="https://felixseo.com/article/schema-do-and-dont/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="Schema 该做哪些、不该做哪些：四必做、一可选、四禁做 | Felix 出海营销实战笔记">
+<meta property="og:description" content="先把四个必做的打齐，再决定 FAQPage 要不要留。">
+<meta property="og:url" content="https://felixseo.com/article/schema-do-and-dont/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/schema-do-and-dont.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Schema 该做哪些、不该做哪些：四必做、一可选、四禁做 | Felix 出海营销实战笔记">
+<meta name="twitter:description" content="先把四个必做的打齐，再决定 FAQPage 要不要留。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/schema-do-and-dont.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Schema 该做哪些、不该做哪些：四必做、一可选、四禁做", "description": "先把四个必做的打齐，再决定 FAQPage 要不要留。", "datePublished": "2026-10-10", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/schema-do-and-dont/", "image": "https://felixseo.com/assets/og-default.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "SEO", "item": "https://felixseo.com/category/seo/"}, {"@type": "ListItem", "position": 3, "name": "Schema 该做哪些、不该做哪些：四必做、一可选、四禁做"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "FAQPage 现在还要不要加？", "acceptedAnswer": {"@type": "Answer", "text": "老页面上已经有的留着，新页可以不再新增。问答型富结果已经全面移除，markup 本身仍然合法，不报错也不受罚。它的剩余价值在帮机器理解页面和在 AI 引用时提供清晰的抽取单元，审计里缺它只算 P2。"}}, {"@type": "Question", "name": "Product 里的 price 能不能填 0？", "acceptedAnswer": {"@type": "Answer", "text": "不能。填 0 等于声明产品免费，既不是事实，也会拖垮整段标记的可信度。B2B 没有公开标价时，正确做法是省略 offers，或者在里面明确注明为询价，把力气放在型号、材质、标准这些真实规格字段上。"}}, {"@type": "Question", "name": "Organization 的 name 填品牌名还是法定名？", "acceptedAnswer": {"@type": "Answer", "text": "填法定名，品牌简称放 alternateName。两者分开的意义在于让目录、认证名录、社媒上对你的不同称呼能被认成同一家公司。填写内容要和页面、营业执照上的写法逐字一致，不一致就等于自己制造了两个实体。"}}, {"@type": "Question", "name": "加了 Schema 就能被 AI 引用吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能，官方明确说过不需要特殊的 schema.org 标记。把 10 多个类型全堆上去既不会提升引用，也更容易出错。真正影响引用的是页面上有没有可抽取的事实、数据和来源，标记只是把这些事实翻译得更清楚。"}}, {"@type": "Question", "name": "现在用什么工具验证结构化数据？", "acceptedAnswer": {"@type": "Answer", "text": "语法校验用 schema.org 的校验器。富结果测试工具已经不再覆盖问答型和步骤型项目，在那里验不出结果，不代表你的标记写错了。验完还要人工比对一遍：每个字段的内容在页面上是不是都看得见。"}}, {"@type": "Question", "name": "建站系统自动生成的 Schema 靠谱吗？", "acceptedAnswer": {"@type": "Answer", "text": "要逐项检查，不能默认它对。最常见的问题是自动标了页面上并不存在的内容，比如没有的评分和价格，这属于垃圾政策范围。检查方法是打开页面源码看生成了哪些类型，再逐个字段对照页面上看得见的文字。"}}]}]</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记<br><em>FIELD NOTES</em></span></a>
+    <nav class="nav"><a href="/category/seo/" class="on">SEO</a><a href="/category/geo/" class="">GEO</a><a href="/category/website/" class="">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <div class="header-right">
+      <a class="btn-primary" href="/consulting/">预约咨询</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.054 · SEO · 2026.10.10 · 10 MIN READ</p>
+  <h1 class="art-title">Schema 该做哪些、不该做哪些：四必做、一可选、四禁做</h1>
+  <figure class="art-hero"><img src="/assets/covers/schema-do-and-dont.jpg" alt="Schema 该做哪些、不该做哪些：四必做、一可选、四禁做" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">先把四个必做的打齐，再决定 FAQPage 要不要留。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>结构化数据只需要记三档：必做 4 个，Organization、Product、Article、BreadcrumbList；可选 1 个，FAQPage；禁做 4 件，承诺富结果、把 Schema 堆砌当 AI 手段、标记页面上不存在的内容、用已下线的工具去验证。标记必须和页面可见文本一致，这是唯一不能破的原则。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>结论：四个必做、一个可选、四个禁做</h2>
+<p>结构化数据这件事，比大多数人想的简单：必做的就 4 个，可选的只有 1 个，剩下 4 件是明确不该做的。把这张表记住，八成的争论都不用发生。</p>
+<p>它的作用是帮机器理解页面在讲什么，不是给页面开挂。这一点想清楚，后面所有取舍都顺理成章。</p>
+<div class="table-wrap"><table><thead><tr><th>分级</th><th>项目</th><th>要点</th></tr></thead><tbody><tr><td>必做</td><td>Organization</td><td>name 用法定名，品牌简称放 alternateName</td></tr><tr><td>必做</td><td>Product</td><td>B2B 没有标价时省略 offers 或注明询价，price 禁填 0</td></tr><tr><td>必做</td><td>Article</td><td>文章页配作者信息，作者要有一个可查的身份页</td></tr><tr><td>必做</td><td>BreadcrumbList</td><td>面包屑层级和页面上看得见的导航一致</td></tr><tr><td>可选</td><td>FAQPage</td><td>问答型富结果 2026-05-07 已全面移除；markup 可留、不报错不受罚，价值在内容理解与 AI 引用，新页可不再新增</td></tr><tr><td>禁做</td><td>承诺问答型或步骤型富结果</td><td>两类展示都已下线，承诺等于交付不了</td></tr><tr><td>禁做</td><td>把 Schema 堆砌当 AI 手段</td><td>官方点名不需要特殊的 schema.org 标记</td></tr><tr><td>禁做</td><td>标记页面上不存在的内容</td><td>属于垃圾政策打击范围</td></tr><tr><td>禁做</td><td>用富结果测试工具验已下线项目</td><td>改用 schema.org 的校验器</td></tr></tbody></table></div>
+<p>顺带说一句边界：平台或建站系统自动生成的标记也算数，你得去看它到底写了什么，而不是默认它是对的。</p>
+<h2 class="sec"><span class="sec-bar"></span>Organization：法定名进 name，品牌名进 alternateName</h2>
+<p>Organization 是四个必做里最值钱的一个，因为它定义的是「你是谁」。name 填法定英文名，品牌简称放 alternateName，两个字段分工不能颠倒。</p>
+<p>为什么要分这么细？因为海外买家、行业目录、社媒主页对你的称呼本来就不统一。你自己先把哪个是法定名、哪个是简称说清楚，机器才有机会把这些碎片认成同一家公司。</p>
+<p>字段定义直接看 <a href="https://schema.org/Organization">schema.org 的 Organization 文档</a> 就够了，不需要二手教程。要注意的是填进去的内容必须和页面上、营业执照上的写法逐字一致。</p>
+<p>最常见的错误是用品牌名当 name，把法定名藏起来不提。这会让你在目录、认证名录里的那个名字和官网对不上，白丢一批本可以互相印证的信号。</p>
+<h2 class="sec"><span class="sec-bar"></span>Product：没有标价时，offers 要么省略要么注明询价</h2>
+<p>B2B 产品页最大的问题是没有公开价格。处理方式只有两种：省略 offers，或者在 offers 里明确注明是询价，不要为了填满字段而编一个数。</p>
+<p>price 绝对不能填 0。填 0 的意思是「这个产品免费」，这既不是事实，也会让整段标记的可信度归零。</p>
+<p>真正该花力气的是规格字段：型号、材质、适用标准、产能、包装方式。这些是买家询盘前一定会确认的东西，也是页面上本来就该有的内容。</p>
+<p>还有一条纪律：标记里写的规格必须页面上看得见。把没写在页面上的参数塞进 JSON-LD，属于标记不存在的内容，是明确的垃圾政策范围。</p>
+<h2 class="sec"><span class="sec-bar"></span>Article 与 BreadcrumbList：两个最容易补齐的</h2>
+<p>这两个通常 10 分钟就能补完，但补齐率却很低。Article 用在文章页，关键是配上作者信息；BreadcrumbList 用在有层级的页面，关键是和页面上看得见的导航一致。</p>
+<p>Article 的作者字段不要写成一个通用账号。作者应该是一个有身份页、有职务、能被外部查证的人——这正是内容可信度里最难伪造的那部分。</p>
+<p>BreadcrumbList 的价值不只在搜索结果里显示路径，更在于它把站点的层级关系直白地告诉机器：这一页属于哪个品类，上一级是什么。</p>
+<p>这两项能不能落地，取决于建站系统能不能在页面级注入 JSON-LD。注入不了的话，先回头解决 <a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a> 那一层的问题，再谈标记。</p>
+<h2 class="sec"><span class="sec-bar"></span>FAQPage 还值不值得做：一条时间线说清楚</h2>
+<p>结论先给：老页面上已经有的 FAQPage 留着，新页面可以不再新增。它现在换不来搜索结果里的增强展示，但也不会让你受罚。</p>
+<div class="table-wrap"><table><thead><tr><th>时间</th><th>发生了什么</th><th>对你的影响</th></tr></thead><tbody><tr><td>2026-05-07</td><td>问答型富结果停止展示</td><td>别再拿它当卖点，也别写进验收指标</td></tr><tr><td>2026-06</td><td>相关测试工具与报表下线</td><td>验证要换工具，历史报表数据只能当参考</td></tr><tr><td>2026-08</td><td>相关接口停止返回数据</td><td>依赖它做监控的脚本要改掉</td></tr><tr><td>markup 本身</td><td>始终合法</td><td>已经加了的不必删，不报错也不受罚</td></tr></tbody></table></div>
+<p>留着它的理由只有两个：帮机器理解这一页在回答哪些问题，以及在 AI 引用场景里多一个结构清晰的抽取单元。这两个理由都不涉及富结果。</p>
+<p>做审计时我把缺 FAQPage 只记成 P2，也就是有空再补的一档。把它排在 Organization 和 Product 前面做，是优先级排错了。</p>
+<h2 class="sec"><span class="sec-bar"></span>四个禁做，每一个我都见人踩过</h2>
+<p>这四件事的共同点是：短期看不出损失，长期要么交付不了承诺，要么直接撞政策。</p>
+<ol class="steps"><li><strong>承诺问答型或步骤型富结果</strong>这两类展示都已经下线，方案里写了就是交付不了的承诺。Schema 能讲的只有内容理解和 AI 引用两件事。</li><li><strong>把 Schema 堆砌当 AI 手段</strong>官方明确说过不需要特殊的 schema.org 标记。把 10 多个类型全套上去，不会让 AI 更愿意引用你，只会让标记更容易出错。</li><li><strong>标记页面上不存在的内容</strong>页面上没有评分却标了评分，没有价格却标了价格，属于垃圾政策打击范围。<a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies">Google 的结构化数据政策</a> 把这条写得很直白。</li><li><strong>用富结果测试工具验已下线的项目</strong>工具不再覆盖那些项目，验不出结果不等于标记写错了。要校验语法，用 schema.org 的校验器。</li></ol>
+<h2 class="sec"><span class="sec-bar"></span>想被 AI 引用，Organization 还要补五个字段</h2>
+<p>如果目标不只是搜索结果，还包括被答案引擎引用，Organization 要补的是这 5 个字段：legalName、address、contactPoint、foundingDate、sameAs。</p>
+<p>sameAs 的验收线是 ≥5 条，指向你的 LinkedIn 公司页、行业目录收录页、社媒主页、中文站这类确实属于你的地址。它的作用是替机器把散落各处的你串成同一个实体。</p>
+<p>logo 用英文文件名的 https 直链。中文文件名和跳转链接在抓取时最容易出问题，这种小事踩一次要排查半天。</p>
+<p>实体统一这件事的收益不在单页，在整站。为什么它是 AI 引用的前提，我在 <a href="https://www.hudoo-tech.com/services/seo-solution/geo/">GEO 优化服务</a> 那条线里讲过更完整的逻辑。</p>
+<h2 class="sec"><span class="sec-bar"></span>唯一不能破的原则：标记和可见文本必须一致</h2>
+<p>所有规则最后都收敛到一条：结构化数据必须与页面可见文本一致。标记不是另写一份更好看的资料，是把页面上已有的事实翻译给机器听。</p>
+<p>这条原则也是自检的最好方法。逐个字段问一句：这句话在页面上看得见吗？看不见就删掉字段，或者把内容补到页面上去。</p>
+<p>顺序上我建议这样做：先补 Organization，再补 Product 和 BreadcrumbList，Article 随内容排期走，FAQPage 最后有空再说。</p>
+<p>把这套顺序跑完，通常只要 3 天，剩下的力气全部留给内容——这也是我在 <a href="https://www.hudoo-tech.com/cases/">客户案例</a> 里反复验证过的分配方式。</p>
+<blockquote><cite>— FELIX</cite></blockquote>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>FAQPage 现在还要不要加？</h3>
+<p>老页面上已经有的留着，新页可以不再新增。问答型富结果已经全面移除，markup 本身仍然合法，不报错也不受罚。它的剩余价值在帮机器理解页面和在 AI 引用时提供清晰的抽取单元，审计里缺它只算 P2。</p>
+<h3>Product 里的 price 能不能填 0？</h3>
+<p>不能。填 0 等于声明产品免费，既不是事实，也会拖垮整段标记的可信度。B2B 没有公开标价时，正确做法是省略 offers，或者在里面明确注明为询价，把力气放在型号、材质、标准这些真实规格字段上。</p>
+<h3>Organization 的 name 填品牌名还是法定名？</h3>
+<p>填法定名，品牌简称放 alternateName。两者分开的意义在于让目录、认证名录、社媒上对你的不同称呼能被认成同一家公司。填写内容要和页面、营业执照上的写法逐字一致，不一致就等于自己制造了两个实体。</p>
+<h3>加了 Schema 就能被 AI 引用吗？</h3>
+<p>不能，官方明确说过不需要特殊的 schema.org 标记。把 10 多个类型全堆上去既不会提升引用，也更容易出错。真正影响引用的是页面上有没有可抽取的事实、数据和来源，标记只是把这些事实翻译得更清楚。</p>
+<h3>现在用什么工具验证结构化数据？</h3>
+<p>语法校验用 schema.org 的校验器。富结果测试工具已经不再覆盖问答型和步骤型项目，在那里验不出结果，不代表你的标记写错了。验完还要人工比对一遍：每个字段的内容在页面上是不是都看得见。</p>
+<h3>建站系统自动生成的 Schema 靠谱吗？</h3>
+<p>要逐项检查，不能默认它对。最常见的问题是自动标了页面上并不存在的内容，比如没有的评分和价格，这属于垃圾政策范围。检查方法是打开页面源码看生成了哪些类型，再逐个字段对照页面上看得见的文字。</p>
+<div class="cta-box"><p class="eyebrow">HUDOO-TECH · SINCE 2018</p><p>想把实体、结构化数据和 AI 引用一次理顺？看看互旦的 GEO 优化服务怎么做。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/geo/">查看互旦 GEO 服务 →</a></div></div>
+<p class="eyebrow">相关文章</p>
+<div class="row"><div class="row-idx">No.001</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/how-to-choose-google-seo-agency/">外贸企业如何选谷歌SEO服务商？</a></h3>
+<p class="wp-block-paragraph">看案例、看报价拆项、看谈不谈 GEO，三步过滤掉大部分坑。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.003</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/google-seo-pricing-guide/">谷歌SEO代运营一年多少钱？</a></h3>
+<p class="wp-block-paragraph">别只看总价，看清每月到底交付什么。</p>
+</div></div></div>
+<div class="row"><div class="row-idx">No.028</div><div class="row-body"><div>
+<h3 class="wp-block-heading"><a href="/article/linkedin-algorithm-2026/">LinkedIn 2026 算法怎么决定谁能看到你的帖子</a></h3>
+<p class="wp-block-paragraph">粉丝数已经不决定触达，读得懂正文的模型在决定。</p>
+</div></div></div>
+<p class="note"><strong>专栏延伸与诊断专案：</strong>本文收录于 <a href="/category/seo/">谷歌 SEO 专栏</a>。进阶排查建议对照阅读：<a href="/archive/">外贸独立站请 SEO 顾问还是找代运营？三类介入模式对比</a> · <a href="/article/site-redesign-gsc-indexing-audit/">外贸独立站改版流量暴跌 &amp; GSC 未编入索引急救排查</a>。</p>
+  </div>
+  <div class="author-box">
+  <div class="author-mark">F</div>
+  <div class="author-info">
+    <p class="eyebrow">作者</p>
+    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
+    <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
+  </div>
+</div>
+  <section class="related"><h2 class="related-h">继续阅读 · SEO</h2><div class="rel-grid"><a class="rel-card" href="/article/alibaba-to-b2b-independent-site-roadmap/"><span class="rel-num">01</span><span class="rel-title">阿里国际站越来越卷、同行全在拼低价：外贸工厂转独立站与 LinkedIn 的第一年落地路线图</span></a><a class="rel-card" href="/article/anchor-text-distribution/"><span class="rel-num">02</span><span class="rel-title">外链锚文本该怎么配比：五组区间和一条不能碰的红线</span></a><a class="rel-card" href="/article/audit-b2b-website-delivery-and-seo-reports/"><span class="rel-num">03</span><span class="rel-title">外贸建站公司催付尾款、代运营月报全是「喜报」却没询盘？独立顾问教你 1 小时验出真假交付</span></a></div></section>
+  <div class="prev-next"><a class="pn pn-prev" href="/article/google-ads-stop-signals/"><span>上一篇</span>Google Ads 什么时候该停：B2B 账户的 7 个危险信号</a><a class="pn pn-next" href="/article/industrial-english-content/"><span>下一篇</span>工业品英文内容怎么写，才能让采购商看懂并愿意询盘</a></div>
+  <section class="latest">
+  <p class="eyebrow">LATEST</p>
+  <h2 class="sec"><span class="sec-bar"></span>最新文章</h2>
+  <ul class="lat-list"><li><a href="/article/anchor-text-distribution/"><span class="lat-num">No.087</span>外链锚文本该怎么配比：五组区间和一条不能碰的红线</a><span class="lat-date">2026.10.19</span></li><li><a href="/article/b2b-case-study-framework/"><span class="lat-num">No.086</span>B2B 出海案例研究怎么写，才能同时获得排名和信任</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/first-paragraph-direct-answer/"><span class="lat-num">No.085</span>首段直答三种写法：让 AI 直接摘走你的答案</a><span class="lat-date">2026.10.18</span></li><li><a href="/article/cnc-custom-manufacturing-b2b-seo-rfq/"><span class="lat-num">No.084</span>非标定制件（CNC 机加工 / 注塑模具 / 钣金）出海独立站怎么做？让海外工程师直接发图纸询价的页面架构</a><span class="lat-date">2026.10.18</span></li></ul>
+</section>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">SEO</a><a href="/category/geo/">GEO</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      <a href="/hudoo/">找互旦</a>
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>
