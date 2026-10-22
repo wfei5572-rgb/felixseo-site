@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路 | Felix</title>
+<title>改版后流量掉光、GSC 不收录：接手诊断时我先查的六处 | Felix</title>
 <meta name="description" content="外贸网站改版或换建站系统后自然流量断崖下跌，或者发了上百个页面 Google Search Console 却一直卡在「已抓取 &amp;#8211; 目前未编入索引」，90% 的根源不是内容写得少，而是 301 映射断链、Canonical 指向冲突或目录层级成了薄内容孤岛。">
 <link rel="canonical" href="https://felixseo.com/article/site-redesign-gsc-indexing-audit/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Felix 出海营销实战笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:title" content="外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路 | Felix">
+<meta property="og:title" content="改版后流量掉光、GSC 不收录：接手诊断时我先查的六处 | Felix">
 <meta property="og:description" content="外贸网站改版或换建站系统后自然流量断崖下跌，或者发了上百个页面 Google Search Console 却一直卡在「已抓取 &amp;#8211; 目前未编入索引」，90% 的根源不是内容写得少，而是 301 映射断链、Canonical 指向冲突或目录层级成了薄内容孤岛。">
 <meta property="og:url" content="https://felixseo.com/article/site-redesign-gsc-indexing-audit/">
 <meta property="og:image" content="https://felixseo.com/assets/covers/site-redesign-gsc-indexing-audit.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路 | Felix">
+<meta name="twitter:title" content="改版后流量掉光、GSC 不收录：接手诊断时我先查的六处 | Felix">
 <meta name="twitter:description" content="外贸网站改版或换建站系统后自然流量断崖下跌，或者发了上百个页面 Google Search Console 却一直卡在「已抓取 &amp;#8211; 目前未编入索引」，90% 的根源不是内容写得少，而是 301 映射断链、Canonical 指向冲突或目录层级成了薄内容孤岛。">
 <meta name="twitter:image" content="https://felixseo.com/assets/covers/site-redesign-gsc-indexing-audit.jpg">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路", "description": "外贸网站改版或换建站系统后自然流量断崖下跌，或者发了上百个页面 Google Search Console 却一直卡在「已抓取 &#8211; 目前未编入索引」，90% 的根源不是内容写得少，而是 301 映射断链、Canonical 指向冲突或目录层级成了薄内容孤岛。", "datePublished": "2026-10-18", "dateModified": "2026-10-19", "author": {"@type": "Person", "@id": "https://felixseo.com/about/#person", "name": "Felix", "url": "https://felixseo.com/about/", "sameAs": ["https://www.linkedin.com/in/felix-wang-7b2620383/"]}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/site-redesign-gsc-indexing-audit/", "image": "https://felixseo.com/assets/covers/site-redesign-gsc-indexing-audit.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "SEO", "item": "https://felixseo.com/category/seo/"}, {"@type": "ListItem", "position": 3, "name": "外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路"}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "改版后流量掉光、GSC 不收录：接手诊断时我先查的六处", "description": "外贸网站改版或换建站系统后自然流量断崖下跌，或者发了上百个页面 Google Search Console 却一直卡在「已抓取 &#8211; 目前未编入索引」，90% 的根源不是内容写得少，而是 301 映射断链、Canonical 指向冲突或目录层级成了薄内容孤岛。", "datePublished": "2026-10-18", "dateModified": "2026-10-19", "author": {"@type": "Person", "@id": "https://felixseo.com/about/#person", "name": "Felix", "url": "https://felixseo.com/about/", "sameAs": ["https://www.linkedin.com/in/felix-wang-7b2620383/"]}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/site-redesign-gsc-indexing-audit/", "image": "https://felixseo.com/assets/covers/site-redesign-gsc-indexing-audit.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "SEO", "item": "https://felixseo.com/category/seo/"}, {"@type": "ListItem", "position": 3, "name": "外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路"}]}]</script>
 </head>
 <body>
 <header class="site-header">
@@ -42,10 +42,10 @@
 <main>
 <article class="article wrap-narrow">
   <p class="art-meta">No.077 · SEO · 2026.10.18 · 7 MIN READ</p>
-  <h1 class="art-title">外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路</h1>
+  <h1 class="art-title">改版后流量掉光、GSC 不收录：接手诊断时我先查的六处</h1>
   <figure class="art-hero"><img src="/assets/covers/site-redesign-gsc-indexing-audit.jpg" alt="外贸独立站改版后流量掉光、GSC 长期「已抓取未编入索引」？1 小时技术诊断必查的 6 处断路" width="1200" height="630" fetchpriority="high"></figure>
   <p class="art-lede">外贸网站改版或换建站系统后自然流量断崖下跌，或者发了上百个页面 Google Search Console 却一直卡在「已抓取 &amp;#8211; 目前未编入索引」，90% 的根源不是内容写得少，而是 301 映射断链、Canonical 指向冲突或目录层级成了薄内容孤岛。</p>
-  <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
+  <p class="art-byline"><strong>Felix</strong>　<span>B2B 出海营销顾问</span></p>
   
   <div class="art-body">
 <p>外贸独立站改版后自然流量断崖式下跌，或者在 Google Search Console（GSC）里看到几百个页面长期卡在「已抓取 – 目前未编入索引（Crawled – currently not indexed）」，绝大多数时候不是因为“文章发得还不够多”，而是底层的技术信号断了：<strong>旧 URL 没有做逐条 301 映射、Canonical 标签指错了地方、或者新模板把产品分类页和参数页做成了高度雷同的空壳页</strong>。这类技术断路如果不先接通，后面再发多少篇内容都是在往漏水的桶里倒水。</p>
@@ -102,7 +102,7 @@
     <div class="foot-brand">
       <div class="foot-logo">Felix · 出海营销实战笔记</div>
       <p>写做过、验证过的事。</p>
-      <p class="foot-note">作者任职于<a href="/hudoo/">江苏互旦网络科技有限公司</a>，本站文章与观点仅代表个人。</p>
+      <p class="foot-note">本站为个人博客，由一线做 B2B 出海营销的从业者独立运营，文章与观点仅代表个人。</p>
       <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
     </div>
     <div class="foot-col">
@@ -113,7 +113,7 @@
       <div class="foot-head">02 / 页面</div>
       <a href="/about/">关于 Felix</a>
       <a href="/consulting/">一对一咨询</a>
-      <a href="/hudoo/">找互旦</a>
+      
       <a href="/archive/">全部文章</a>
       <a href="/privacy/">隐私政策</a>
     </div>
