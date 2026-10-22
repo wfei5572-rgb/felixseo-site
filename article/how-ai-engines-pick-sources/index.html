@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑 | Felix</title>
+<title>AI 引擎怎么挑引用来源：实测三类引擎的取源逻辑 | Felix</title>
 <meta name="description" content="同一个问题，三类引擎的取源路径完全不同。本文拆解 Google AIO、ChatGPT Search、Perplexity 各自怎么挑来源，自然排名与被引用已不是一回事。">
 <link rel="canonical" href="https://felixseo.com/article/how-ai-engines-pick-sources/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Felix 出海营销实战笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:title" content="AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑 | Felix">
+<meta property="og:title" content="AI 引擎怎么挑引用来源：实测三类引擎的取源逻辑 | Felix">
 <meta property="og:description" content="同一个问题，三类引擎的取源路径完全不同。本文拆解 Google AIO、ChatGPT Search、Perplexity 各自怎么挑来源，自然排名与被引用已不是一回事。">
 <meta property="og:url" content="https://felixseo.com/article/how-ai-engines-pick-sources/">
 <meta property="og:image" content="https://felixseo.com/assets/covers/how-ai-engines-pick-sources.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑 | Felix">
+<meta name="twitter:title" content="AI 引擎怎么挑引用来源：实测三类引擎的取源逻辑 | Felix">
 <meta name="twitter:description" content="同一个问题，三类引擎的取源路径完全不同。本文拆解 Google AIO、ChatGPT Search、Perplexity 各自怎么挑来源，自然排名与被引用已不是一回事。">
 <meta name="twitter:image" content="https://felixseo.com/assets/covers/how-ai-engines-pick-sources.jpg">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑", "description": "同一个问题，三类引擎的取源路径完全不同。", "datePublished": "2026-09-30", "dateModified": "2026-10-19", "author": {"@type": "Person", "name": "Felix", "url": "https://felixseo.com/about/"}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/how-ai-engines-pick-sources/", "image": "https://felixseo.com/assets/covers/how-ai-engines-pick-sources.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "GEO", "item": "https://felixseo.com/category/geo/"}, {"@type": "ListItem", "position": 3, "name": "AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI 引擎的引用来源和谷歌排名是一回事吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是一回事。Ahrefs 基于 86.3 万个关键词的研究显示，AI Overviews 引用页同时进自然前 10 的比例，从 2025 年 7 月的 76% 降到 2026 年的 38%。排名仍是入场券，但决定被不被引用的，是段落本身写得能不能被整段摘走。"}}, {"@type": "Question", "name": "ChatGPT 用的是谷歌的索引吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是。OpenAI 官方文档说明，ChatGPT Search 用自家的 OAI-SearchBot 建索引，检索时还会把一个问题扇出成多条子查询。这意味着 robots 里只放行 Googlebot 远远不够，这只爬虫被拦住，你在 ChatGPT 的答案里就是不存在。"}}, {"@type": "Question", "name": "排到自然第一就一定会被 AI 引用吗？", "acceptedAnswer": {"@type": "Answer", "text": "不一定。AirOps 2026 年的分析显示，自然第 1 名被 ChatGPT 引用的概率是前 20 名之外页面的 3.5 倍，这是概率被抬高，不是拿到通行证。被检索到的页面里最终只有约 15% 会被引用，剩下的差距要靠段落质量去补。"}}, {"@type": "Question", "name": "Perplexity 为什么总在引用 Reddit 和 LinkedIn？", "acceptedAnswer": {"@type": "Answer", "text": "第三方抽样研究观察到，它引用最多的是 Reddit、LinkedIn、NIH 这类站点，原因是这些站内容结构清晰、又被反复交叉印证。对出海企业的启发是：只靠官网自述很难挤进这个名单，得让第三方渠道也在说你。"}}, {"@type": "Question", "name": "这些引用比例的数字，能写进给老板的汇报里吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以写，但必须标明是第三方抽样研究并附上日期。这类数字逐月漂移，Semrush 就观察到一个搜索参数调整之后，Reddit 的引用份额一夜腰斩。把它当方向没问题，当成承诺或者考核指标，早晚要出事。"}}, {"@type": "Question", "name": "三类引擎要分别做三套优化吗？", "acceptedAnswer": {"@type": "Answer", "text": "不用三套，底座是同一套。爬虫放行、静态内容可读、段落能被单独摘走，这三件事三类引擎都吃。差别只在验收的侧重：Google 看索引与内容质量，ChatGPT 看段落粒度，Perplexity 看首屏给不给得出事实。"}}]}]</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "AI 引擎怎么挑引用来源：实测三类引擎的取源逻辑", "description": "同一个问题，三类引擎的取源路径完全不同。", "datePublished": "2026-09-30", "dateModified": "2026-10-19", "author": {"@type": "Person", "@id": "https://felixseo.com/about/#person", "name": "Felix", "url": "https://felixseo.com/about/", "sameAs": ["https://www.linkedin.com/in/felix-wang-7b2620383/"]}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/how-ai-engines-pick-sources/", "image": "https://felixseo.com/assets/covers/how-ai-engines-pick-sources.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "GEO", "item": "https://felixseo.com/category/geo/"}, {"@type": "ListItem", "position": 3, "name": "AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI 引擎的引用来源和谷歌排名是一回事吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是一回事。Ahrefs 基于 86.3 万个关键词的研究显示，AI Overviews 引用页同时进自然前 10 的比例，从 2025 年 7 月的 76% 降到 2026 年的 38%。排名仍是入场券，但决定被不被引用的，是段落本身写得能不能被整段摘走。"}}, {"@type": "Question", "name": "ChatGPT 用的是谷歌的索引吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是。OpenAI 官方文档说明，ChatGPT Search 用自家的 OAI-SearchBot 建索引，检索时还会把一个问题扇出成多条子查询。这意味着 robots 里只放行 Googlebot 远远不够，这只爬虫被拦住，你在 ChatGPT 的答案里就是不存在。"}}, {"@type": "Question", "name": "排到自然第一就一定会被 AI 引用吗？", "acceptedAnswer": {"@type": "Answer", "text": "不一定。AirOps 2026 年的分析显示，自然第 1 名被 ChatGPT 引用的概率是前 20 名之外页面的 3.5 倍，这是概率被抬高，不是拿到通行证。被检索到的页面里最终只有约 15% 会被引用，剩下的差距要靠段落质量去补。"}}, {"@type": "Question", "name": "Perplexity 为什么总在引用 Reddit 和 LinkedIn？", "acceptedAnswer": {"@type": "Answer", "text": "第三方抽样研究观察到，它引用最多的是 Reddit、LinkedIn、NIH 这类站点，原因是这些站内容结构清晰、又被反复交叉印证。对出海企业的启发是：只靠官网自述很难挤进这个名单，得让第三方渠道也在说你。"}}, {"@type": "Question", "name": "这些引用比例的数字，能写进给老板的汇报里吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以写，但必须标明是第三方抽样研究并附上日期。这类数字逐月漂移，Semrush 就观察到一个搜索参数调整之后，Reddit 的引用份额一夜腰斩。把它当方向没问题，当成承诺或者考核指标，早晚要出事。"}}, {"@type": "Question", "name": "三类引擎要分别做三套优化吗？", "acceptedAnswer": {"@type": "Answer", "text": "不用三套，底座是同一套。爬虫放行、静态内容可读、段落能被单独摘走，这三件事三类引擎都吃。差别只在验收的侧重：Google 看索引与内容质量，ChatGPT 看段落粒度，Perplexity 看首屏给不给得出事实。"}}]}]</script>
 </head>
 <body>
 <header class="site-header">
@@ -42,7 +42,7 @@
 <main>
 <article class="article wrap-narrow">
   <p class="art-meta">No.031 · GEO · 2026.09.30 · 11 MIN READ</p>
-  <h1 class="art-title">AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑</h1>
+  <h1 class="art-title">AI 引擎怎么挑引用来源：实测三类引擎的取源逻辑</h1>
   <figure class="art-hero"><img src="/assets/covers/how-ai-engines-pick-sources.jpg" alt="AI 引擎到底怎么挑引用来源：三类引擎的取源逻辑" width="1200" height="630" fetchpriority="high"></figure>
   <p class="art-lede">同一个问题，三类引擎的取源路径完全不同。</p>
   <p class="art-byline"><strong>Felix</strong>　<span>BDM · HUDOO-TECH</span></p>
