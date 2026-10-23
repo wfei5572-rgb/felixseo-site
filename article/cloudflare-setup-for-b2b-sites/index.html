@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑 | Felix</title>
+<meta name="description" content="B2B 站配 Cloudflare 免费版起步：只开 CDN 缓存、SSL Full strict、Brotli、Early Hints 四项。附缓存串台、Rocket Loader、Page Rule 三个必避的坑与上线后四项验收清单。">
+<link rel="canonical" href="https://felixseo.com/article/cloudflare-setup-for-b2b-sites/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑 | Felix">
+<meta property="og:description" content="B2B 站配 Cloudflare 免费版起步：只开 CDN 缓存、SSL Full strict、Brotli、Early Hints 四项。附缓存串台、Rocket Loader、Page Rule 三个必避的坑与上线后四项验收清单。">
+<meta property="og:url" content="https://felixseo.com/article/cloudflare-setup-for-b2b-sites/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/cloudflare-setup-for-b2b-sites.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑 | Felix">
+<meta name="twitter:description" content="B2B 站配 Cloudflare 免费版起步：只开 CDN 缓存、SSL Full strict、Brotli、Early Hints 四项。附缓存串台、Rocket Loader、Page Rule 三个必避的坑与上线后四项验收清单。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/cloudflare-setup-for-b2b-sites.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑", "description": "B2B 站配 Cloudflare 免费版起步：只开 CDN 缓存、SSL Full strict、Brotli、Early Hints 四项。附缓存串台、Rocket Loader、Page Rule 三个必避的坑与上线后四项验收清单。", "datePublished": "2026-10-23", "dateModified": "2026-10-23", "author": {"@type": "Person", "@id": "https://felixseo.com/about/#person", "name": "Felix", "url": "https://felixseo.com/about/", "sameAs": ["https://www.linkedin.com/in/felix-wang-7b2620383/"]}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/cloudflare-setup-for-b2b-sites/", "image": "https://felixseo.com/assets/covers/cloudflare-setup-for-b2b-sites.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "独立站", "item": "https://felixseo.com/category/website/"}, {"@type": "ListItem", "position": 3, "name": "Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "用了 Cloudflare 会不会影响 SEO？", "acceptedAnswer": {"@type": "Answer", "text": "配对了反而有利——速度提升本身就是排名信号；配错了有害——缓存错误会导致爬虫看到旧内容，或拦截了善意爬虫。另外注意 Robots 设置里不要开「阻止 AI 爬虫」类选项，GEO 需要 GPTBot 能进来。"}}, {"@type": "Question", "name": "国内团队访问自己网站变慢了怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "正常现象。你的站现在从欧美节点服务，国内打开慢是物理距离的回声。团队后台操作慢可以在 Cloudflare 用 WARP，或给管理员 IP 设规则绕过缓存；别为了国内访问体验把节点挪回亚洲，那是本末倒置。"}}, {"@type": "Question", "name": "换主机或换域名时 Cloudflare 怎么过渡？", "acceptedAnswer": {"@type": "Answer", "text": "顺序是：先在新主机把站搭好测通 → 在 Cloudflare 改 A 记录指向新 IP（TTL 设低）→ 观察 24 到 48 小时 → 确认无误后关旧主机。全程 SSL 证书先在源站配好再切，避免「灵活模式」混在中间产生循环重定向。"}}, {"@type": "Question", "name": "免费版的防护够用吗？", "acceptedAnswer": {"@type": "Answer", "text": "对 B2B 站够。DDoS 基础防护、JS 挑战、IP 封锁这些核心能力免费版都有。被定向攻击是极小概率事件，真遇到了再升级也不迟。"}}]}]</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"9fa667416b1e4d9f9d04412306973387"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main"></a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记</span></a>
+    <nav class="nav"><a href="/category/seo/" class="">谷歌SEO</a><a href="/category/geo/" class="">GEO优化</a><a href="/category/website/" class="on">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <a class="btn-head" href="/consulting/">预约咨询</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.091 · 独立站 · 2026.10.23 · 8 MIN READ</p>
+  <h1 class="art-title">Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑</h1>
+  <figure class="art-hero"><img src="/assets/covers/cloudflare-setup-for-b2b-sites.jpg" alt="Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">Cloudflare 是工具不是魔法——配错了比不用更糟。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>B2B 出海营销顾问</span></p>
+
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>B2B 站配 Cloudflare 的正确姿势是：免费版起步，只开四个功能——CDN 缓存、免费的 SSL、Brotli 压缩、Early Hints。先把静态资源（图片、JS、CSS）的缓存规则配好，HTML 保持不缓存，动态内容全部 Bypass。三个最常见的坑是：缓存规则没配导致动态内容被缓存（买家看到自己的询价表单内容变成了别人的缓存）、Page Rule 开太多把管理后台也缓存了、以及迷信 Rocket Loader 反而弄坏表单脚本。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>先搞清收益从哪来</h2>
+<p>CDN 对 B2B 站的价值链条是：访客请求 → 就近的 Cloudflare 节点响应静态资源 → 源站只扛动态 HTML 和表单提交。收益体现在三个数据上：TTFB 下降（首屏更快）、源站负载下降（主机可以选更便宜档位）、以及免费拿到的 SSL 和安全过滤。</p>
+<p>对主机在欧美的 B2B 站，CDN 的边际收益小于「主机位置选对」本身——源站跟着买家走是第一原则。Cloudflare 的作用是把这个基础再加固一层，以及给全球分散的访客（比如南美、中东、东南亚的买家）兜底速度。</p>
+<h2 class="sec"><span class="sec-bar"></span>四个必开功能与三个必避的坑</h2>
+<p><strong>必开的四项：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>功能</th><th>配置要点</th></tr></thead><tbody><tr><td>CDN 缓存</td><td>图片 / CSS / JS 缓存 1 个月；HTML 不缓存（默认行为，别动）</td></tr><tr><td>SSL/TLS</td><td>Full (strict) 模式——回源加密，浏览器小锁正常</td></tr><tr><td>Brotli</td><td>设置里一键开启，文本资源压缩率比 gzip 再高一截</td></tr><tr><td>Early Hints</td><td>免费，预加载关键资源，LCP 有感知提升</td></tr></tbody></table></div>
+<p><strong>三个必避的坑：</strong></p>
+<ol class="steps"><li><strong>缓存了不该缓存的</strong>出现「内容串台」——买家看到别人的询盘表单内容——百分之百是缓存规则越界。排查方法是在规则里明确 Bypass 所有动态路径，包括 /wp-admin、购物车、询盘确认页。</li><li><strong>Rocket Loader 乱开</strong>这个功能重排 JS 加载顺序，对老旧表单插件是灾难，典型症状是询盘表单点了没反应。B2B 站默认关闭，除非你逐项验证过。</li><li><strong>Page Rules 当万能药</strong>免费版只有几条规则额度，别拿它做实验田。每条规则想清楚再配，配完用无痕窗口实测前后台。</li></ol>
+<h2 class="sec"><span class="sec-bar"></span>免费版够不够</h2>
+<p>B2B 站的流量和攻击量级，免费版覆盖 95% 的需求。什么时候值得升级 Pro（月费 20 美金）：你要 Polish（图片自动优化与 WebP 转换）、WAF 自定义规则（站被扫得烦）、或移动端加速功能。判断标准很简单——升级要解决的具体问题是什么？答不上来就待在免费版。</p>
+<h2 class="sec"><span class="sec-bar"></span>上线后的四项验收动作</h2>
+<p>配置完别急着宣布完成，做这四个动作：</p>
+<ol class="steps"><li><strong>多地测速</strong>用 WebPageTest 选三个目标市场节点，对比开 CDN 前后的 TTFB 和 LCP。</li><li><strong>无痕窗口提交一次测试询盘</strong>确认表单、确认页、邮件通知全链路正常。</li><li><strong>登录后台改一条内容，前台刷新验证更新正常</strong>确认缓存没把动态内容锁住。</li><li><strong>观察一周 GSC 抓取统计</strong>确认 Googlebot 抓取没有异常波动。</li></ol>
+<p>第三项最容易被跳过也最致命——「网站更新后不生效」这类工单，八成是缓存配错。</p>
+<div class="cta-box"><p class="eyebrow">1-ON-1 CONSULTING · 588 CNY / HOUR</p><p>CDN 配错的表现很隐蔽：速度看似正常，但后台改不动、或某些地区看到旧内容。带着现在的缓存规则截图，约一小时把动态路径 Bypass、SSL 模式、压缩与预加载四项过一遍，当场判断要不要重配。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 站点配置诊断 →</a></div></div>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>用了 Cloudflare 会不会影响 SEO？</h3>
+<p>配对了反而有利——速度提升本身就是排名信号；配错了有害——缓存错误会导致爬虫看到旧内容，或拦截了善意爬虫。另外注意 Robots 设置里不要开「阻止 AI 爬虫」类选项，GEO 需要 GPTBot 能进来。</p>
+<h3>国内团队访问自己网站变慢了怎么办？</h3>
+<p>正常现象。你的站现在从欧美节点服务，国内打开慢是物理距离的回声。团队后台操作慢可以在 Cloudflare 用 WARP，或给管理员 IP 设规则绕过缓存；别为了国内访问体验把节点挪回亚洲，那是本末倒置。</p>
+<h3>换主机或换域名时 Cloudflare 怎么过渡？</h3>
+<p>顺序是：先在新主机把站搭好测通 → 在 Cloudflare 改 A 记录指向新 IP（TTL 设低）→ 观察 24 到 48 小时 → 确认无误后关旧主机。全程 SSL 证书先在源站配好再切，避免「灵活模式」混在中间产生循环重定向。</p>
+<h3>免费版的防护够用吗？</h3>
+<p>对 B2B 站够。DDoS 基础防护、JS 挑战、IP 封锁这些核心能力免费版都有。被定向攻击是极小概率事件，真遇到了再升级也不迟。</p>
+  </div>
+
+  <div class="related"><p class="related-h">继续阅读 · 独立站</p>
+    <div class="related-list">
+      <a class="rel-card" href="/article/wordpress-vs-shopify-vs-custom/"><p class="rel-meta">No.090 · 独立站</p><h3>独立站技术选型：WordPress vs Shopify vs 定制开发的决策树</h3><p>默认答案是 WordPress。内容营销为主选 WordPress，线上交易收款为主选 Shopify。</p></a>
+      <a class="rel-card" href="/article/core-web-vitals-b2b-site/"><p class="rel-meta">No.058 · 独立站</p><h3>Core Web Vitals 三条线：交付前我会卡住客户的几个数字</h3><p>官方只认三个指标，第四条是我们自己按住的补充线。</p></a>
+      <a class="rel-card" href="/article/ai-crawlers-static-html/"><p class="rel-meta">No.019 · GEO优化</p><h3>AI 爬虫读不到什么：我在客户站上实测出的五种情况</h3><p>它们下载 JS，但从不执行。</p></a>
+    </div>
+  </div>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">本站为个人博客，文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>
