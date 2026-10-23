@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>独立站技术选型：WordPress vs Shopify vs 定制开发的决策树 | Felix</title>
+<meta name="description" content="B2B 独立站选型的三个分叉：内容营销为主选 WordPress，线上交易收款为主选 Shopify，特殊业务流程才考虑定制开发。附三方案六维对照表与决策边界。">
+<link rel="canonical" href="https://felixseo.com/article/wordpress-vs-shopify-vs-custom/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="独立站技术选型：WordPress vs Shopify vs 定制开发的决策树 | Felix">
+<meta property="og:description" content="B2B 独立站选型的三个分叉：内容营销为主选 WordPress，线上交易收款为主选 Shopify，特殊业务流程才考虑定制开发。附三方案六维对照表与决策边界。">
+<meta property="og:url" content="https://felixseo.com/article/wordpress-vs-shopify-vs-custom/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/wordpress-vs-shopify-vs-custom.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="独立站技术选型：WordPress vs Shopify vs 定制开发的决策树 | Felix">
+<meta name="twitter:description" content="B2B 独立站选型的三个分叉：内容营销为主选 WordPress，线上交易收款为主选 Shopify，特殊业务流程才考虑定制开发。附三方案六维对照表与决策边界。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/wordpress-vs-shopify-vs-custom.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "独立站技术选型：WordPress vs Shopify vs 定制开发的决策树", "description": "B2B 独立站选型的三个分叉：内容营销为主选 WordPress，线上交易收款为主选 Shopify，特殊业务流程才考虑定制开发。附三方案六维对照表与决策边界。", "datePublished": "2026-10-23", "dateModified": "2026-10-23", "author": {"@type": "Person", "@id": "https://felixseo.com/about/#person", "name": "Felix", "url": "https://felixseo.com/about/", "sameAs": ["https://www.linkedin.com/in/felix-wang-7b2620383/"]}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/wordpress-vs-shopify-vs-custom/", "image": "https://felixseo.com/assets/covers/wordpress-vs-shopify-vs-custom.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "独立站", "item": "https://felixseo.com/category/website/"}, {"@type": "ListItem", "position": 3, "name": "独立站技术选型：WordPress vs Shopify vs 定制开发的决策树"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "WordPress 会不会不安全、很卡？", "acceptedAnswer": {"@type": "Answer", "text": "安全性和速度是运维问题，不是平台问题。装好缓存、配好 CDN、管住插件（十来个以内），Lighthouse 跑到 90+ 是常态。出事案例的共性是装了三十个插件、五年没更新、用了来路不明的主题——这不是 WordPress 的锅，是用法的锅。"}}, {"@type": "Question", "name": "现在用 AI 建站工具靠谱吗？", "acceptedAnswer": {"@type": "Answer", "text": "当原型演示可以，当生产环境不行。生成的站大多代码臃肿、SEO 基础缺失，后期改起来比重做还难；更关键的是你拿不到对代码和结构的完全控制，内容资产等于租的。AI 可以用在原型和文案环节，建站底座仍要选可长期持有的方案。"}}, {"@type": "Question", "name": "已有定制站，要不要推倒换 WordPress？", "acceptedAnswer": {"@type": "Answer", "text": "看投入产出。站还能正常跑、有排名基础，推倒重来等于烧掉 SEO 资产，正确做法是渐进迁移（旧 URL 全量 301）；只有当维护成本高到离谱、且当前站严重拖慢业务时，重做才划算。"}}, {"@type": "Question", "name": "选完技术，该找谁来做？", "acceptedAnswer": {"@type": "Answer", "text": "技术选型决定了筛选服务商的标准：WordPress 找懂 SEO 的建站方（看案例的 GSC 数据，不看设计图）；Shopify 找有 B2B 项目经验的（做过批发价、询盘表单的）；定制开发只找愿意交完整文档和代码所有权的。"}}]}]</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"9fa667416b1e4d9f9d04412306973387"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main"></a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记</span></a>
+    <nav class="nav"><a href="/category/seo/" class="">谷歌SEO</a><a href="/category/geo/" class="">GEO优化</a><a href="/category/website/" class="on">独立站</a><a href="/category/ads/" class="">广告投放</a><a href="/category/social/" class="">社媒运营</a><a href="/category/cases/" class="">案例复盘</a><a href="/category/ai/" class="">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <a class="btn-head" href="/consulting/">预约咨询</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.115 · 独立站 · 2026.10.23 · 9 MIN READ</p>
+  <h1 class="art-title">独立站技术选型：WordPress vs Shopify vs 定制开发的决策树</h1>
+  <figure class="art-hero"><img src="/assets/covers/wordpress-vs-shopify-vs-custom.jpg" alt="独立站技术选型：WordPress vs Shopify vs 定制开发的决策树" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">默认答案永远是 WordPress——因为 B2B 站的核心资产是内容和搜索流量。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>B2B 出海营销顾问</span></p>
+
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>B2B 独立站的技术选型，我的决策树只有三个分叉：内容营销为主选 WordPress（生态成熟、内容 SEO 控制力最强），线上交易收款为主选 Shopify（结账和合规省心），有特殊业务流程（在线配置器、经销商体系、复杂 RFQ 流）再考虑定制开发。默认答案永远是 WordPress。红线是别被「定制开发更高级」忽悠——B2B 站 90% 的需求 WordPress 生态免费覆盖，定制开发省下的「不够用」，将来会以十倍成本还回来。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>先想清楚：你的网站是「内容资产」还是「交易终端」</h2>
+<p>技术选型的所有争论，本质是对「网站是什么」的分歧。B2B 出海站的绝大多数——哪怕是带在线下单功能的——核心资产是内容：产品页、案例、指南，这些是搜索流量和询盘的来源。交易的临门一脚，B2B 里大多还是邮件、WhatsApp、合同，不是购物车。</p>
+<p>想通这一点，选型就简单了：谁的内容管理和 SEO 生态最强，选谁。这个答案在 2026 年依然是 WordPress——全球 40% 以上的网站用它，SEO 插件、主题、缓存方案的成熟度没有对手。</p>
+<h2 class="sec"><span class="sec-bar"></span>三个选项的真实对比</h2>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>WordPress</th><th>Shopify</th><th>定制开发</th></tr></thead><tbody><tr><td>内容 SEO 控制</td><td>完全自主</td><td>中等</td><td>完全自主</td></tr><tr><td>上线速度</td><td>1-2 周</td><td>1 周</td><td>2-6 个月</td></tr><tr><td>年成本（中小站）</td><td>低（主机+主题）</td><td>中（月费+插件抽成）</td><td>高（开发+维护）</td></tr><tr><td>特殊业务逻辑</td><td>插件/二开</td><td>App 生态有限</td><td>随意</td></tr><tr><td>供应商可替换性</td><td>极高</td><td>高</td><td>极低（被绑死）</td></tr><tr><td>数据所有权</td><td>完全</td><td>平台规则内</td><td>完全</td></tr></tbody></table></div>
+<p>注意最后一行：定制开发最大的隐性成本不是钱，是绑死——你的站变成某个开发团队的私有物，换人等于重做。B2B 站要经营 5 年 10 年，供应商可替换性是比功能更重要的选型标准。</p>
+<p>想把这份对照落到具体验收项上，可以对照 <a href="/article/cms-requirements-and-antipatterns/">《独立站 CMS 怎么选：15 条硬要求，客户踩过的 6 个反模式》</a>，那篇讲的是选定之后怎么验。</p>
+<h2 class="sec"><span class="sec-bar"></span>Shopify 什么时候是对的答案</h2>
+<p>三种情况我会改推 Shopify：产品目录规整、买家习惯在线支付下单（零售属性强的标品）；团队完全没有技术维护能力且预算允许月费；需要多币种收款和欧美合规结账流程且不想自己折腾。</p>
+<p>但注意一个边界：Shopify 的内容博客能做 SEO，但它的 URL 结构、标签体系、内容组织自由度都比 WordPress 差一档。B2B 站如果内容流量要占一半以上，选 Shopify 是在起跑线上让出半个身位。</p>
+<h2 class="sec"><span class="sec-bar"></span>定制开发的唯一正当场景</h2>
+<p>业务流程本身是你的护城河时：比如在线报价引擎（输入参数实时算价）、经销商专属价体系、和 ERP 深度打通的询盘流——这些 WordPress 和 Shopify 都要硬拗。</p>
+<p>即便如此，我的建议也是「定制业务模块 + 成熟 CMS 底座」：用 WordPress 做内容层，把特殊功能做成独立模块接入。全站定制开发是 2015 年的思路，2026 年还这么做，多半是被开发商的报价单带偏了。</p>
+<div class="cta-box"><p class="eyebrow">1-ON-1 CONSULTING · 588 CNY / HOUR</p><p>技术选型这一步定错，后面每个技术决策都要付利息。建站前想让人把方案把把关？带着需求文档和预算，约一小时把三个方案的成本、风险和迁移成本过一遍。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 技术选型咨询 →</a></div></div>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>WordPress 会不会「不安全、很卡」？</h3>
+<p>安全性和速度是运维问题，不是平台问题。我经手的 WordPress B2B 站，装好缓存、配好 CDN、管住插件（十来个以内），Lighthouse 跑到 90+ 是常态。出事案例的共性是：装了三十个插件、五年没更新、用了来路不明的主题——这不是 WordPress 的锅，是用法的锅。</p>
+<h3>现在用 AI 建站工具靠谱吗？</h3>
+<p>当原型演示可以，当生产环境不行。两个问题：一是生成的站大多代码臃肿、SEO 基础缺失，后期改起来比重做还难；二是你拿不到对代码和结构的完全控制，内容资产等于租的。AI 工具可以用在原型和文案环节，建站底座仍要选可长期持有的方案。</p>
+<h3>已有定制站，要不要推倒换 WordPress？</h3>
+<p>看投入产出：站如果还能正常跑、有排名基础，推倒重来等于烧掉 SEO 资产，做法是渐进迁移（旧 URL 全量 301）；只有当维护成本高到离谱、且当前站严重拖慢业务（改个电话都要找开发商排队两周）时，重做才划算。这个判断我帮客户做迁移审计时第一件事就是算这笔账。</p>
+<h3>选完技术，该找谁来做？</h3>
+<p>技术选型决定了筛选服务商的标准：WordPress 找懂 SEO 的建站方（看案例的 GSC 数据，不看设计图）；Shopify 找有 B2B 项目经验的（做过批发价、询盘表单的）；定制开发只找愿意交完整文档和代码所有权的。</p>
+  </div>
+
+  <div class="related"><p class="related-h">继续阅读 · 独立站</p>
+    <div class="related-list">
+      <a class="rel-card" href="/article/cms-requirements-and-antipatterns/"><p class="rel-meta">No.047 · 独立站</p><h3>独立站 CMS 怎么选：15 条硬要求，客户踩过的 6 个反模式</h3><p>能不能自己改 Title、canonical 和 301，比后台好不好看重要得多。</p></a>
+      <a class="rel-card" href="/article/independent-site-building-mistakes/"><p class="rel-meta">No.004 · 独立站</p><h3>外贸独立站建站，我见过中小企业踩得最惨的 5 个坑</h3><p>地基级的坑不是丑，是海外打不开、Google 读不懂、询盘接不住。</p></a>
+      <a class="rel-card" href="/article/choose-b2b-marketing-agency/"><p class="rel-meta">No.048 · 独立站</p><h3>怎么选 B2B 出海服务商：我审报价单用的一张检查表</h3><p>报价不是重点，交付物、验证方式和退出条款才是过滤关键。</p></a>
+    </div>
+  </div>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">本站为个人博客，文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>
