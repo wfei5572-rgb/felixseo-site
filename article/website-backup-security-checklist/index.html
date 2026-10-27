@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>备份与安全：网站被黑过一次后的教训清单 | Felix</title>
+<meta name="description" content="B2B 站安全遵循「恢复比防护更重要」：每日自动备份 + 异地保存 + 季度恢复演练。附最小安全配置清单、被攻击后的五步应急流程与四条 FAQ。">
+<link rel="canonical" href="https://felixseo.com/article/website-backup-security-checklist/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="备份与安全：网站被黑过一次后的教训清单 | Felix">
+<meta property="og:description" content="B2B 站安全遵循「恢复比防护更重要」：每日自动备份 + 异地保存 + 季度恢复演练。附最小安全配置清单、被攻击后的五步应急流程与四条 FAQ。">
+<meta property="og:url" content="https://felixseo.com/article/website-backup-security-checklist/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/website-backup-security-checklist.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="备份与安全：网站被黑过一次后的教训清单 | Felix">
+<meta name="twitter:description" content="B2B 站安全遵循「恢复比防护更重要」：每日自动备份 + 异地保存 + 季度恢复演练。附最小安全配置清单、被攻击后的五步应急流程与四条 FAQ。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/website-backup-security-checklist.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "备份与安全：网站被黑过一次后的教训清单", "description": "B2B 站安全遵循「恢复比防护更重要」：每日自动备份 + 异地保存 + 季度恢复演练。附最小安全配置清单、被攻击后的五步应急流程与四条 FAQ。", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "author": {"@type": "Person", "@id": "https://felixseo.com/about/#person", "name": "Felix", "url": "https://felixseo.com/about/", "sameAs": ["https://www.linkedin.com/in/felix-wang-7b2620383/"]}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/website-backup-security-checklist/", "image": "https://felixseo.com/assets/covers/website-backup-security-checklist.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "独立站", "item": "https://felixseo.com/category/website/"}, {"@type": "ListItem", "position": 3, "name": "备份与安全：网站被黑过一次后的教训清单"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "共享主机是不是一定不安全？", "acceptedAnswer": {"@type": "Answer", "text": "不是一定，但风险结构不同：一台服务器几百个站，邻居站被入侵可能横向影响你，且你无法控制主机层的安全策略。预算允许还是上独立服务器——不是共享主机必然出事，是你把自己放进了别人的风险池里。"}}, {"@type": "Question", "name": "装安全插件就够了吗？", "acceptedAnswer": {"@type": "Answer", "text": "不够。安全插件管的是已知攻击模式的拦截，管不住弱密码、过期插件、被盗的管理员会话这三类最常见的失陷原因。清单里「更新 + 双因素验证 + 异地备份」三件套，比任何单一安全插件都重要——插件是加分项，不是底座。"}}, {"@type": "Question", "name": "被挂马后谷歌标了「此网站可能有害」，怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "按应急流程恢复干净后，在 Google Search Console 的安全问题报告里提交复审，通常几天到两周解除。恢复速度决定排名影响：两周内恢复的站，排名波动小；拖一个月的，掉排名再爬回来是常态——又是恢复能力的账。"}}, {"@type": "Question", "name": "备份频率要不要更高（每小时）？", "acceptedAnswer": {"@type": "Answer", "text": "B2B 站的更新频率（每天几篇文章加询盘数据）用每日备份足够，询盘数据如果存数据库，可以额外单独每小时备份数据库。别为了用不上的目标花冤枉钱——先算「丢一天的数据」的真实代价：几篇文章可以重写，询盘记录 CRM 里通常有副本。"}}]}]</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"9fa667416b1e4d9f9d04412306973387"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main"></a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记</span></a>
+    <nav class="nav"><a href="/category/seo">谷歌SEO</a><a href="/category/geo">GEO优化</a><a href="/category/website" class="on">独立站</a><a href="/category/ads">广告投放</a><a href="/category/social">社媒运营</a><a href="/category/cases">案例复盘</a><a href="/category/ai">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <a class="btn-head" href="/consulting/">预约咨询</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.100 · 独立站 · 2026.10.27 · 8 MIN READ</p>
+  <h1 class="art-title">备份与安全：网站被黑过一次后的教训清单</h1>
+  <figure class="art-hero"><img src="/assets/covers/website-backup-security-checklist.jpg" alt="备份与安全：网站被黑过一次后的教训清单" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">恢复比防护更重要——备份存在同一台服务器上，等于没备份。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>B2B 出海营销顾问</span></p>
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>B2B 站的安全配置遵循「恢复比防护更重要」：自动每日备份 + 异地保存 + 每季度做一次真实恢复演练，这三件做完，绝大多数攻击都能从容应对；在此之上才是防护——插件及时更新、登录双重验证、WAF 拦截。我经手过被挂马的站，从发现到恢复用了 4 小时，靠的就是备份在手；而没备份的同行，同样的攻击恢复了两周，还丢了排名。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>为什么恢复能力优先于防护</h2>
+<p>安全圈的铁律是：没有攻不破的站。B2B 站的攻击面不小——共享主机的邻居被入侵会波及你，插件漏洞年年有，撞库攻击每天几万次扫描你的登录页。把预算全押在「不被攻破」上，迟早遇到黑天鹅。</p>
+<p>反过来，只要满足三个条件——备份是最近的、备份在站外、恢复流程验证过——任何攻击的损失都能压到小时级。SEO 资产（排名、索引）在及时恢复后几乎无损；拖两周才恢复的站，排名掉了再爬回来要几个月。这就是我说恢复比防护值钱的原因。</p>
+<h2 class="sec"><span class="sec-bar"></span>最小安全配置清单</h2>
+<div class="table-wrap"><table><thead><tr><th>层级</th><th>动作</th><th>成本</th></tr></thead><tbody><tr><td>备份</td><td>每日自动备份，保留 30 天，存异地（另一台服务器 / 云存储）</td><td>插件免费 + 存储约 5 美金/月</td></tr><tr><td>更新</td><td>核心 / 主题 / 插件 48 小时内更新（大版本观察一周）</td><td>时间成本</td></tr><tr><td>登录</td><td>强密码 + 双因素验证 + 登录尝试限制</td><td>免费插件</td></tr><tr><td>防护</td><td>Cloudflare 免费 WAF + 禁用 XML-RPC + 隐藏登录路径</td><td>免费</td></tr><tr><td>监测</td><td>文件变更告警（被改文件即时通知）</td><td>免费插件</td></tr></tbody></table></div>
+<p>两个执行要点。备份异地这条，用 UpdraftPlus 这类插件直接备份到 Google Drive 或 Dropbox，攻击者拿到你服务器权限也删不掉云上的副本。文件变更告警是防篡改的关键——很多站被挂马后几周才被发现，流量早被劫持完了。</p>
+<p>CDN 层的防护怎么配，我在 <a href="/article/cloudflare-setup-for-b2b-sites/">《Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑》</a>里讲过必开的四项与三个必避的坑，其中就包括缓存规则越界和后台被误缓存。</p>
+<h2 class="sec"><span class="sec-bar"></span>被攻击后的五步应急流程</h2>
+<p>愿用不上，但要有：</p>
+<ol class="steps"><li><strong>隔离</strong>通过主机面板或 Cloudflare 开启 Under Attack 模式，先阻断继续受损。</li><li><strong>取证</strong>截图、导出日志、确认入侵时间和方式（哪个插件、哪个账号）——不清除原因就恢复，等于请攻击者再来一次。</li><li><strong>恢复</strong>整站回滚到攻击前的最近备份，密码全部重置，包括数据库和主机面板里的所有账号。</li><li><strong>补洞</strong>修复入侵向量：更新或删除问题插件、删掉可疑账号、检查计划任务里有没有后门。</li><li><strong>观察</strong>恢复后两周内盯紧 GSC 的异常页面收录和日志里的异常流量。</li></ol>
+<p>整个流程我压缩成一张 A4 清单，贴在客户团队的运维手册第一页——出事时的第一反应不该是找「懂技术的人」，而是按清单执行。</p>
+<h2 class="sec"><span class="sec-bar"></span>每季度的恢复演练</h2>
+<p>备份不演练等于赌博。每季度做一次：从备份里恢复一个测试站，验证三件事——数据完整（最近的文章和询盘都在）、能正常跑（无报错）、能登录后台。演练 30 分钟，换的是真出事时不抓瞎的确定性。</p>
+<div class="cta-box"><p class="eyebrow">1-ON-1 CONSULTING · 588 CNY / HOUR</p><p>想把安全配置一次补齐？带着你现在的服务器与后台权限情况，约一小时把备份、更新、2FA、监测和应急流程过一遍，当场定出这周该先补哪一项。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 站点安全体检 →</a></div></div>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>共享主机是不是一定不安全？</h3>
+<p>不是一定，但风险结构不同：一台服务器几百个站，邻居站被入侵可能横向影响你，且你无法控制主机层的安全策略。预算允许还是上独立服务器——不是共享主机必然出事，是你把自己放进了别人的风险池里。</p>
+<h3>装安全插件就够了吗？</h3>
+<p>不够。安全插件管的是已知攻击模式的拦截，管不住弱密码、过期插件、被盗的管理员会话这三类最常见的失陷原因。清单里「更新 + 双因素验证 + 异地备份」三件套，比任何单一安全插件都重要——插件是加分项，不是底座。</p>
+<h3>被挂马后谷歌标了「此网站可能有害」，怎么办？</h3>
+<p>按应急流程恢复干净后，在 Google Search Console 的安全问题报告里提交复审，通常几天到两周解除。恢复速度决定排名影响：两周内恢复的站，排名波动小；拖一个月的，掉排名再爬回来是常态——又是恢复能力的账。</p>
+<h3>备份频率要不要更高（每小时）？</h3>
+<p>B2B 站的更新频率（每天几篇文章加询盘数据）用每日备份足够，询盘数据如果存数据库，可以额外单独每小时备份数据库。别为了用不上的目标花冤枉钱——先算「丢一天的数据」的真实代价：几篇文章可以重写，询盘记录 CRM 里通常有副本。</p>
+  </div>
+  <div class="related"><p class="related-h">继续阅读 · 独立站</p>
+    <div class="related-list">
+      <a class="rel-card" href="/article/cloudflare-setup-for-b2b-sites/"><p class="rel-meta">No.091 · 独立站</p><h3>Cloudflare 配置：B2B 站的 CDN 实际收益与三个坑</h3><p>免费版起步只开四项，三个坑必须避。</p></a>
+      <a class="rel-card" href="/article/website-p0-failures/"><p class="rel-meta">No.067 · 独立站</p><h3>独立站 P0 故障图鉴：验收时我会当场拦下的几类错误</h3><p>几个不报错也不上后台的故障，往往最致命。</p></a>
+      <a class="rel-card" href="/article/wordpress-vs-shopify-vs-custom/"><p class="rel-meta">No.090 · 独立站</p><h3>独立站技术选型：WordPress vs Shopify vs 定制开发的决策树</h3><p>默认答案是 WordPress，理由在开头那一段。</p></a>
+    </div>
+  </div>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">本站为个人博客，文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>
