@@ -10,7 +10,6 @@
   Cache-Control: public, max-age=3600, s-maxage=31536000
 
 /*
-  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=3600
   Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 # v20261029
