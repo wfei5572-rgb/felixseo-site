@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信息架构：首页、分类、产品的三层结构模板 | Felix</title>
+<meta name="description" content="B2B 独立站信息架构三层模板：首页分流、分类页按买家思维分组、产品页承接转化。附导航设计两个原则、点击深度控制与架构同 SEO 的对应关系，四条 FAQ。">
+<link rel="canonical" href="https://felixseo.com/article/site-information-architecture-template/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Felix 出海营销实战笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="信息架构：首页、分类、产品的三层结构模板 | Felix">
+<meta property="og:description" content="B2B 独立站信息架构三层模板：首页分流、分类页按买家思维分组、产品页承接转化。附导航设计两个原则、点击深度控制与架构同 SEO 的对应关系，四条 FAQ。">
+<meta property="og:url" content="https://felixseo.com/article/site-information-architecture-template/">
+<meta property="og:image" content="https://felixseo.com/assets/covers/site-information-architecture-template.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="信息架构：首页、分类、产品的三层结构模板 | Felix">
+<meta name="twitter:description" content="B2B 独立站信息架构三层模板：首页分流、分类页按买家思维分组、产品页承接转化。附导航设计两个原则、点击深度控制与架构同 SEO 的对应关系，四条 FAQ。">
+<meta name="twitter:image" content="https://felixseo.com/assets/covers/site-information-architecture-template.jpg">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Felix 出海营销实战笔记" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "信息架构：首页、分类、产品的三层结构模板", "description": "B2B 独立站信息架构三层模板：首页分流、分类页按买家思维分组、产品页承接转化。附导航设计两个原则、点击深度控制与架构同 SEO 的对应关系，四条 FAQ。", "datePublished": "2026-10-29", "dateModified": "2026-10-29", "author": {"@type": "Person", "@id": "https://felixseo.com/about/#person", "name": "Felix", "url": "https://felixseo.com/about/", "sameAs": ["https://www.linkedin.com/in/felix-wang-7b2620383/"]}, "publisher": {"@type": "Person", "name": "Felix"}, "mainEntityOfPage": "https://felixseo.com/article/site-information-architecture-template/", "image": "https://felixseo.com/assets/covers/site-information-architecture-template.jpg", "inLanguage": "zh-CN"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://felixseo.com/"}, {"@type": "ListItem", "position": 2, "name": "独立站", "item": "https://felixseo.com/category/website/"}, {"@type": "ListItem", "position": 3, "name": "信息架构：首页、分类、产品的三层结构模板"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "产品很多（几百个 SKU）站不住三层怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "层数不变，变的是分类逻辑：两层分类（能力 × 行业）交叉放不下的产品，用「系列」做产品页的聚合变体——/cnc-machining/aluminum-parts/ 一个页面挂多个规格变体，而不是每个规格一个页面。几百个 SKU 真正需要独立页面的可能只有几十个，其余用变体、筛选器、参数表解决。"}}, {"@type": "Question", "name": "多语言站架构要重新设计吗？", "acceptedAnswer": {"@type": "Answer", "text": "不重新设计，复制结构再本地化分组逻辑——德国买家找供应商的思路和美国人未必一样，比如对认证的分组权重更高；分类名称和顺序可以按市场调整，但三层骨架保留。骨架统一保证 hreflang 能一一对应，内容本地化交给各市场的词库。"}}, {"@type": "Question", "name": "导航里要不要放博客？", "acceptedAnswer": {"@type": "Answer", "text": "放一个「资源 / Insights」入口足够，不必给每篇博客导航位置。博客的价值在于承接搜索流量和内链，不是导航分流——导航位置给分类页和产品体系，这是流量资产的主航道。"}}, {"@type": "Question", "name": "老站架构乱了，怎么评估改不改？", "acceptedAnswer": {"@type": "Answer", "text": "看两个数据：GSC 里的抓取深度分布（大量重要页面在 4 层以下），以及站内搜索的热门查询（买家找不到才会搜站内）。两个都超标，重构进计划；都不超标，修修补补即可——架构重构牵动 URL，成本不小。"}}]}]</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"9fa667416b1e4d9f9d04412306973387"}'></script>
+</head>
+<body>
+<a class="skip-link" href="#main"></a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="/"><span class="logo-name">Felix</span><span class="logo-sub">出海营销实战笔记</span></a>
+    <nav class="nav"><a href="/category/seo">谷歌SEO</a><a href="/category/geo">GEO优化</a><a href="/category/website" class="on">独立站</a><a href="/category/ads">广告投放</a><a href="/category/social">社媒运营</a><a href="/category/cases">案例复盘</a><a href="/category/ai">AI 营销</a><a href="/about/" class="">关于 Felix</a></nav>
+    <a class="btn-head" href="/consulting/">预约咨询</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">首页</a><a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a><a href="/about/">关于 Felix</a><a href="/consulting/">预约咨询</a><a href="/archive/">全部文章</a>
+</div>
+<main>
+<article class="article wrap-narrow">
+  <p class="art-meta">No.103 · 独立站 · 2026.10.29 · 8 MIN READ</p>
+  <h1 class="art-title">信息架构：首页、分类、产品的三层结构模板</h1>
+  <figure class="art-hero"><img src="/assets/covers/site-information-architecture-template.jpg" alt="信息架构：首页、分类、产品的三层结构模板" width="1200" height="630" fetchpriority="high"></figure>
+  <p class="art-lede">你熟悉的是公司，买家熟悉的是他自己的问题。</p>
+  <p class="art-byline"><strong>Felix</strong>　<span>B2B 出海营销顾问</span></p>
+  <div class="art-body">
+<div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>B2B 独立站的信息架构用三层就够用：首页（我是谁、为什么信我、带我去哪）→ 分类页（按买家思维分组，不按公司内部分组）→ 产品页（参数 + 证据 + 询盘）。判断架构好坏只有一个标准：第一次来的买家能否在 3 次点击内找到任何他想看的东西，并在每一层都知道下一步该点什么。红线是按「关于我们 / 新闻中心 / 产品中心」这种公司内部视角组织导航。</p></div>
+<h2 class="sec"><span class="sec-bar"></span>三层各自的任务</h2>
+<p><strong>首页不是百科，是分流器。</strong>首屏说清「你是谁、给谁服务、凭什么信」，第二屏给通往分类的入口，第三屏给信任证据（案例、证书、客户），全程不超过五屏。首页的任务是让买家在 30 秒内确定「来对地方了」，然后把他递送到正确的分类页——把首页做成「什么都有」的兜底页，等于没有首页。</p>
+<p><strong>分类页是 B2B 站被低估的枢纽。</strong>按什么分组是架构的灵魂：按买家行业（医疗 / 汽车 / 消费电子）分组，或按工艺与能力分组（CNC / 钣金 / 注塑）——选择标准是哪一种是买家找供应商时的真实思路。分类页要承担「解释这个类别 + 筛选具体产品」两个任务，只放产品缩略图的分类页，是浪费了 SEO 和转化的双重机会。</p>
+<p><strong>产品页是终端转化页。</strong>参数表、能力边界、相关案例、FAQ、询盘表单——结构固定。产品页本身怎么写，我在 <a href="/article/b2b-product-page-seo/">《B2B 产品页 SEO 模板：改过 200 个产品页后的写法》</a>里拆过。</p>
+<h2 class="sec"><span class="sec-bar"></span>导航设计的两个原则</h2>
+<p><strong>第一，导航词汇用买家的词。</strong>导航里的「解决方案」在 B2B 里往往太虚——改成「按行业」或「按工艺」，或者直接写买家搜的词。检查方法：把导航词翻译成英文搜一遍，有搜索量说明买家真的这么叫；零搜索量的内部术语，从导航里撤掉。</p>
+<p><strong>第二，点击深度控制在三层。</strong>从首页到任何一个产品页，点击不超过 3 次。超过三层的站（产品藏在四级分类下），要么扁平化分类，要么用站内搜索和面包屑补位——但更根本的解法是把分类体系本身做浅：B2B 产品线再复杂，两层分类也装得下，装不下通常是分组逻辑错了。</p>
+<h2 class="sec"><span class="sec-bar"></span>架构和 SEO 的互相成全</h2>
+<p>三层结构恰好对应 SEO 的词库分层：首页卡品牌词，分类页卡类别买手词（比如 medical device components），产品页卡具体产品词。架构做对了，SEO 的页面规划就是顺水推舟；架构错了（比如所有产品堆在一个「产品中心」平铺列表下），SEO 就要替架构还债——用内链硬造层级，事倍功半。</p>
+<p>架构阶段就引入 SEO 视角的另一个收益：URL 结构随架构一次定型（/capabilities/cnc-machining/ 这种语义化路径），后期改版不用动 URL——URL 稳定是排名资产。改版时怎么保住 URL 映射，我在那篇 GSC 未收录急救里讲过。</p>
+<div class="cta-box"><p class="eyebrow">1-ON-1 CONSULTING · 588 CNY / HOUR</p><p>架构拿不准，或者买家在站内搜不到东西？带着你现在的导航结构和一份产品清单，约一小时把分组逻辑、点击深度和 URL 规划过一遍，当场定出第一层该怎么改。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 信息架构评审 →</a></div></div>
+<h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
+<h3>产品很多（几百个 SKU）站不住三层怎么办？</h3>
+<p>层数不变，变的是分类逻辑：两层分类（能力 × 行业）交叉放不下的产品，用「系列」做产品页的聚合变体——/cnc-machining/aluminum-parts/ 一个页面挂多个规格变体，而不是每个规格一个页面。几百个 SKU 真正需要独立页面的可能只有几十个，其余用变体、筛选器、参数表解决。</p>
+<h3>多语言站架构要重新设计吗？</h3>
+<p>不重新设计，复制结构再本地化分组逻辑——德国买家找供应商的思路和美国人未必一样，比如对认证的分组权重更高；分类名称和顺序可以按市场调整，但三层骨架保留。骨架统一保证 hreflang 能一一对应，内容本地化交给各市场的词库。多语言站该用目录还是子域名，我在 <a href="/article/multilingual-site-seo/">《多语言独立站 SEO：hreflang 与翻译质量怎么选》</a>里讲过。</p>
+<h3>导航里要不要放博客？</h3>
+<p>放一个「资源 / Insights」入口足够，不必给每篇博客导航位置。博客的价值在于承接搜索流量和内链，不是导航分流——导航位置给分类页和产品体系，这是流量资产的主航道。</p>
+<h3>老站架构乱了，怎么评估改不改？</h3>
+<p>看两个数据：GSC 里的抓取深度分布（大量重要页面在 4 层以下），以及站内搜索的热门查询（买家找不到才会搜站内）。两个都超标，重构进计划；都不超标，修修补补即可——架构重构牵动 URL，成本不小。</p>
+  </div>
+  <div class="related"><p class="related-h">继续阅读 · 独立站</p>
+    <div class="related-list">
+      <a class="rel-card" href="/article/wordpress-vs-shopify-vs-custom/"><p class="rel-meta">No.090 · 独立站</p><h3>独立站技术选型：WordPress vs Shopify vs 定制开发的决策树</h3><p>默认答案是 WordPress，理由在开头那一段。</p></a>
+      <a class="rel-card" href="/article/b2b-product-page-seo/"><p class="rel-meta">No.027 · 独立站</p><h3>B2B 产品页 SEO 模板：改过 200 个产品页后的写法</h3><p>规格表要翻译成价值，不是罗列参数。</p></a>
+      <a class="rel-card" href="/article/independent-site-building-mistakes/"><p class="rel-meta">No.004 · 独立站</p><h3>外贸独立站建站，我见过中小企业踩得最惨的 5 个坑</h3><p>地基级的坑不是丑，是海外打不开、读不懂、接不住。</p></a>
+    </div>
+  </div>
+</article>
+</main>
+<section class="subscribe" id="subscribe">
+  <div class="wrap sub-in">
+    <div>
+      <p class="eyebrow">STAY IN LOOP</p>
+      <h2>订阅 Felix 的实战笔记</h2>
+      <p class="sub-desc">新文章发布时第一时间知道。加微信备注「订阅」，或复制微信号稍后添加。</p>
+    </div>
+    <div class="sub-actions">
+      <button class="btn-primary copy-wechat" data-wechat="13606211527">复制微信号</button>
+      <a class="btn-ghost" href="/feed.xml">RSS 订阅</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo">Felix · 出海营销实战笔记</div>
+      <p>写做过、验证过的事。</p>
+      <p class="foot-note">本站为个人博客，文章与观点仅代表个人。</p>
+      <p class="foot-contact">微信 / 电话 · 136 0621 1527 <button class="copy-link copy-wechat" data-wechat="13606211527">复制</button></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">01 / 专栏</div>
+      <a href="/category/seo/">谷歌SEO</a><a href="/category/geo/">GEO优化</a><a href="/category/website/">独立站</a><a href="/category/ads/">广告投放</a><a href="/category/social/">社媒运营</a><a href="/category/cases/">案例复盘</a><a href="/category/ai/">AI 营销</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-head">02 / 页面</div>
+      <a href="/about/">关于 Felix</a>
+      <a href="/consulting/">一对一咨询</a>
+      
+      <a href="/archive/">全部文章</a>
+      <a href="/privacy/">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <span>© 2026 Felix</span>
+    <span class="foot-mono">FELIX.BLOG&nbsp;&nbsp;&nbsp;EST. 2026</span>
+  </div>
+</footer>
+<button class="totop" id="toTop" aria-label="回到订阅">订阅</button>
+<div class="toast" id="toast">微信号已复制</div>
+<script src="/assets/site.js" defer></script>
+<!-- v20261021 --></body>
+</html>
