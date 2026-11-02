@@ -76,7 +76,7 @@
 <p>Vercel 与 MERJ 追踪 5 亿次 GPTBot 抓取的分析发现，OpenAI、Anthropic、Perplexity 的爬虫下载 JS 但从不执行，只有 Gemini 沿用 Googlebot 渲染。五类内容因此变成透明的：</p>
 <ol class="steps"><li><strong>脚本生成的关键数字</strong>首页滚动到「30000 平方米」的计数器，静态 HTML 里是 0，爬虫读到的规模就是零。</li><li><strong>PDF 与图片里的关键内容</strong>AI 引用不了图片里的文字。规格书只有 PDF 一个版本，等于这份规格不存在。</li><li><strong>被截图化的表格</strong>表格本是最易抽取的结构，截图化等于自己把这个优势废掉。</li><li><strong>弹窗与懒加载后置的正文</strong>有分析显示 LLM 引用的 44.2% 来自页面前 30% 文本，正文被挤到后面等于弃权。</li><li><strong>多语言半成品</strong>hreflang 声明了西班牙语，点进去还是英文，这种页在目标市场上是负资产。</li></ol>
 <p>验收：禁掉 JS 看首屏——关键数字、规格表、联系方式必须在静态 HTML 前 30% 里。机制见 <a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">Google JavaScript SEO 文档</a>。</p>
-<p>站是外包建的、动效多，这一闸返工成本会超预期。建站时就把「关键事实进静态 HTML」写进需求，这也是我们做<a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a>的默认口径。</p>
+<p>站是外包建的、动效多，这一闸返工成本会超预期。建站时就把「关键事实进静态 HTML」写进需求，这也是我们做<a href="/consulting/">独立站搭建</a>的默认口径。</p>
 <h2 class="sec"><span class="sec-bar"></span>闸 3 六件套：让每一页都有 AI 拿得走的最小单元</h2>
 <p>第三闸是内容层，目标是让每页都有 AI 拿得走的最小单元。本质是把好内容写清楚，不是为 AI 写八股——分块式改写已被官方点名无效。</p>
 <div class="table-wrap"><table><thead><tr><th>件</th><th>做什么</th><th>执行口径</th></tr></thead><tbody><tr><td>① 首段直答</td><td>主谓宾直接回答核心问题</td><td>40-60 词；有分析显示 LLM 引用 44.2% 来自前 30% 文本</td></tr><tr><td>② Quick Facts</td><td>给出可独立引用的数据点</td><td>3-5 条，每条带数字、日期与来源</td></tr><tr><td>③ 对比表格</td><td>一切对比信息表格化</td><td>至少 1 张真表格，禁止用截图替代</td></tr><tr><td>④ 数据 + 来源</td><td>用带单位的事实说话</td><td>≥5 个带单位数据点、≥3 个权威来源，均给可点链接</td></tr><tr><td>⑤ Quotable 句</td><td>留给别人直接摘走</td><td>≥3 条，固定格式：结论句 + 机构 + 年份</td></tr><tr><td>⑥ Q&amp;A 模块</td><td>回答买家真会问的问题</td><td>6 个 FAQ，首句即答案，不铺垫不设问</td></tr></tbody></table></div>
@@ -88,7 +88,7 @@
 <p>第四闸解决的是「你是谁」。AI 先要确认你是一个可识别的实体，才谈得上把你写进答案——名字对不齐，证据就没法互相印证。</p>
 <ol class="steps"><li><strong>法定名与简称</strong>锁定一个法定英文名加一个品牌简称，官网、LinkedIn、平台店铺、目录、新闻稿逐字一致。验收是全渠道一致率 100%，不是「差不多」。</li><li><strong>NAP 三要素</strong>名称、地址、电话在每个渠道完全相同，电话统一用 E.164 格式；做一张 NAP 基准表，改一处全渠道同步。</li><li><strong>Organization Schema</strong>补齐 legalName、address、contactPoint、foundingDate、sameAs，logo 用英文文件名的 https 直链。验收是 sameAs ≥5 条。</li><li><strong>作者实名</strong>署名用真实姓名加职务，配团队页；禁止 gmail 地址、禁止「admin」。验收是 0 篇匿名署名。</li><li><strong>站群与域名</strong>老站、区域站、平台店铺全部单向指向主站；品牌词结果前 3 应是主站、LinkedIn 和官方店铺。</li></ol>
 <p>字段名照着 <a href="https://schema.org/Organization">Schema.org Organization</a> 抄就行。但反方向也要提醒：官方说过不需要特殊的 schema.org 标记，标记页面上不存在的内容属于垃圾政策打击对象。</p>
-<p>最容易翻车的是英文名：官网写 Co., Ltd.、LinkedIn 写 Group、目录里挂着注册初期的旧名——三份材料对 AI 就是三家公司。我们在<a href="https://www.hudoo-tech.com/cases/">客户案例</a>里反复看到，名字对齐后信源才开始互证。</p>
+<p>最容易翻车的是英文名：官网写 Co., Ltd.、LinkedIn 写 Group、目录里挂着注册初期的旧名——三份材料对 AI 就是三家公司。我们在<a href="/consulting/">同类项目复盘</a>里反复看到，名字对齐后信源才开始互证。</p>
 <h2 class="sec"><span class="sec-bar"></span>闸 5 站外信源：得有第三方在替你说话</h2>
 <p>第五闸最慢，也最值钱：得有第三方替你说话。官网上的自我介绍，在这套体系里权重最低。</p>
 <p>Ahrefs 2025 年对 7.5 万个品牌的研究显示，品牌网络提及与 AIO 品牌可见度的相关系数是 0.66，外链只有 0.22；Ahrefs 2025 年 12 月的另一项研究（覆盖 ChatGPT、AI Mode 与 AI Overviews）显示，YouTube 品牌提及的相关系数约 0.74，是所测信号里最强的单项。原文自己提醒：相关不等于因果。</p>
@@ -113,7 +113,7 @@
 <p>官方有两个现成数据源。Google Search Console 的「Generative AI」表现报告，官方公告是 2026 年 6 月 3 日发布、8 月 31 日全量，有展示、页面、国家、设备，没有点击与查询。Bing Webmaster Tools 的「AI Performance」2026 年 2 月 10 日公测，给 Copilot 引用次数。</p>
 <p>剩下靠手工：同一个问题集每月重跑 ChatGPT、Perplexity、Gemini，每题记录三档——出现、被引、提及。问题集不许改，改了就没有对比价值。</p>
 <p>两条纪律：单次问答不做定论，只报固定问题集的月度对比；引用变化比排名慢，按季度看趋势。</p>
-<p>报表上最常见的困惑是「展示涨了、点击跌了」，这要按 AI 吸收去拆解，不是内容变差。做<a href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">谷歌 SEO 服务</a>时我们也双轨看：排名报表管存量，引用份额报表管增量。</p>
+<p>报表上最常见的困惑是「展示涨了、点击跌了」，这要按 AI 吸收去拆解，不是内容变差。做<a href="/consulting/">谷歌 SEO 咨询</a>时我们也双轨看：排名报表管存量，引用份额报表管增量。</p>
 <p>终审环节，有的团队会用一套多维评分表做最后一道卡。价值不在分数，在于强制每页都过一遍同样的问题。</p>
 <blockquote><cite>— FELIX</cite></blockquote>
 <h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
@@ -129,7 +129,7 @@
 <p>前两闸一周内能清完，后三闸按季度看。引用变化比排名慢，单月波动说明不了什么，正确做法是拿同一个问题集每月重跑，按季度对比出现率、被引率和提及率。</p>
 <h3>一篇文章要写多长才容易被 AI 引用？</h3>
 <p>长度不是决定因素，可引用的最小单元才是。一种常见的执行口径是支柱页 2500-4000 词、常规文章 1500-2000 词，但真正起作用的是每个 H2 摘出来单独读也成立——被选中的是一段，不是整篇。</p>
-<div class="cta-box"><p class="eyebrow">团队承接 · 可先看服务范围</p><p>想知道自己卡在哪一道闸？先看看互旦的 GEO 优化服务说明。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/geo/">查看互旦 GEO 服务 →</a></div></div>
+<div class="cta-box"><p class="eyebrow">一对一咨询 · 588 CNY / HOUR</p><p>想知道自己卡在哪一道闸？先看看我的 GEO 优化服务说明。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 GEO 诊断 →</a></div></div>
 <p class="eyebrow">相关文章</p>
 <div class="row"><div class="row-idx">No.002</div><div class="row-body"><div>
 <h3 class="wp-block-heading"><a href="/article/what-is-geo/">什么是GEO？</a></h3>
@@ -149,7 +149,7 @@
   <div class="author-mark">F</div>
   <div class="author-info">
     <p class="eyebrow">作者</p>
-    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <div class="author-name">Felix <span class="author-role">B2B 出海营销顾问</span></div>
     <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
     <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
   </div>

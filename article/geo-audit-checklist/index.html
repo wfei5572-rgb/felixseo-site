@@ -60,7 +60,7 @@
 <p>四类分别对应五道闸的后四道：抓取对应闸 1（抓取准入）加闸 2（可读可渲染），内容对应闸 3，实体对应闸 4，证据对应闸 5。</p>
 <div class="table-wrap"><table><thead><tr><th>审计层</th><th>自问的问题</th><th>不合格的典型样子</th><th>修正方式</th></tr></thead><tbody><tr><td>实体</td><td>官网、LinkedIn、行业目录写的公司名和产品名是不是一个词</td><td>三个平台三种英文缩写，谁都对不上谁</td><td>统一组织和品牌资料</td></tr><tr><td>产品</td><td>产品解决什么问题、边界在哪</td><td>只有一句「品质卓越」，没有场景和边界</td><td>补定义、场景、边界</td></tr><tr><td>内容六件套</td><td>首段是不是答案，表格有没有替代截图</td><td>开头三句都在讲「我们成立于……致力于……」</td><td>补答案段、结构、FAQ</td></tr><tr><td>证据</td><td>案例、认证、作者信息能不能被验证</td><td>案例只有一句话，没写行业、场景和结果边界</td><td>补案例、认证、第三方信源</td></tr><tr><td>抓取</td><td>禁用 JS 刷新页面，核心数字还在不在</td><td>价格和规格靠 JS 渲染，静态源码里是空的</td><td>技术与链接检查</td></tr></tbody></table></div>
 <p>产品这一行是我加的实操补充，不在五道闸框架内，但落地时同样要过一遍。</p>
-<p>内容和抓取这两层，站内已经各自拆过一篇：六件套的具体写法看<a href="/article/six-piece-citable-content/">这篇</a>，抓取的坑看<a href="/article/ai-crawlers-static-html/">这篇</a>。抓取问题十有八九牵连到建站技术选型，这也是<a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a>要先解决的基本功。</p>
+<p>内容和抓取这两层，站内已经各自拆过一篇：六件套的具体写法看<a href="/article/six-piece-citable-content/">这篇</a>，抓取的坑看<a href="/article/ai-crawlers-static-html/">这篇</a>。抓取问题十有八九牵连到建站技术选型，这也是<a href="/consulting/">独立站搭建</a>要先解决的基本功。</p>
 <p>证据这一层对应的是<a href="/article/offsite-signal-four-tiers/">站外信源四级渠道</a>，实体这一层的字段级操作对应<a href="/article/schema-do-and-dont/">Schema 该做哪些</a>，都不在这篇重讲。</p>
 <h2 class="sec"><span class="sec-bar"></span>基线怎么测：10 个真实问题，先摸清现状</h2>
 <p>动手改之前，先测基线。选 10 个买家真会搜、真会问 AI 的问题，记录 AI 现在怎么回答、引用了谁、哪里说错了。</p>
@@ -77,7 +77,7 @@
 <p><a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide">谷歌官方文档</a>（针对谷歌搜索的生成式 AI 功能）写明：可以忽略把内容「分块」这类做法，也不需要为生成式 AI 搜索采用特定写法，审计时别把这两件事列进待办。</p>
 <p><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content">谷歌官方文档</a>给的内容自评问题里，最常被漏掉的一条是「有没有清楚的信源、专业度证据、作者或站点背景说明」——很多官网连一个能点进去的作者页都没有。</p>
 <p>这是谷歌官方文档的原话（面向谷歌搜索），我把它放在审计第一条。</p>
-<p>我们审计客户的<a href="https://www.hudoo-tech.com/cases/">客户案例</a>时，作者页和 About 页缺失是我见过最多的问题之一。</p>
+<p>我们审计客户的<a href="/consulting/">同类项目复盘</a>时，作者页和 About 页缺失是我见过最多的问题之一。</p>
 <blockquote><cite>— FELIX</cite></blockquote>
 <h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
 <h3>GEO 审计能保证被 AI 推荐吗？</h3>
@@ -92,7 +92,7 @@
 <p>先看两个维度：页面在谷歌搜索结果里排名靠不靠前，证据薄弱的程度有多严重。一篇 2024 年发表的 KDD 论文在模拟引擎实验里发现，补引用来源、数据、引语这三类改法对排名靠后的页面帮助更大，我的做法是优先改这批页面。</p>
 <h3>应该监测哪些 AI 搜索入口？</h3>
 <p>优先监测你的目标市场买家实际会用的 AI 搜索工具，而不是把所有平台都测一遍。不同引擎的取源逻辑不一样，固定问题、固定周期地记录，才能看出真实变化，而不是单次问答的偶然结果。</p>
-<div class="cta-box"><p class="eyebrow">团队承接 · 可先看服务范围</p><p>GEO 审计想找人一起系统过一遍？先看互旦的 GEO 优化服务，我们从实体和证据两层开始做起。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/geo/">查看互旦 GEO 优化服务 →</a></div></div>
+<div class="cta-box"><p class="eyebrow">一对一咨询 · 588 CNY / HOUR</p><p>GEO 审计想找人一起系统过一遍？可预约一次一对一，从实体和证据两层开始做起。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 GEO 诊断 →</a></div></div>
 <p class="eyebrow">相关文章</p>
 <div class="row"><div class="row-idx">No.045</div><div class="row-body"><div>
 <h3 class="wp-block-heading"><a href="/article/measure-ai-citation/">怎么测量自己有没有被 AI 引用</a></h3>
@@ -112,7 +112,7 @@
   <div class="author-mark">F</div>
   <div class="author-info">
     <p class="eyebrow">作者</p>
-    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <div class="author-name">Felix <span class="author-role">B2B 出海营销顾问</span></div>
     <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
     <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
   </div>

@@ -52,16 +52,16 @@
 <div class="answer"><div class="answer-label">一句话答案 / TL;DR</div><p>Core Web Vitals 官方只定义三个指标：LCP ≤2.5 秒、INP ≤200 毫秒、CLS ≤0.1；TTFB ≤800 毫秒不在官方名单里，是我们自己加的第四条内部阈值。B2B独立站先保三项全绿，TTFB是前面三项的地基，地基不稳，三项大概率也绿不了。</p></div>
 <h2 class="sec"><span class="sec-bar"></span>先说结论：官方定义的是三条线，我们多盯的是第四条</h2>
 <p>谷歌官方的 Core Web Vitals 只有三个指标：最大内容绘制 LCP、交互到下一次绘制 INP、累计布局偏移 CLS。<a href="https://developers.google.com/search/docs/appearance/core-web-vitals">谷歌官方文档</a>把这三项称作 Core Web Vitals 本体，首字节时间 TTFB 不在这个名单里。</p>
-<p>互旦的技术SEO底座标准里，TTFB 也有一条硬阈值，只是它不算官方三条线。原因不复杂：TTFB 是前面三项的地基，服务器吐出第一个字节都要 800 毫秒以上，LCP 和 INP 大概率也好不了。</p>
+<p>我给客户的技术 SEO 底座标准里，TTFB 也有一条硬阈值，只是它不算官方三条线。原因不复杂：TTFB 是前面三项的地基，服务器吐出第一个字节都要 800 毫秒以上，LCP 和 INP 大概率也好不了。</p>
 <p>四条线放在一张表里看最直观，第四列专门标出官方地位，免得对外措辞时把 TTFB 也说成 Core Web Vitals 的一部分。</p>
-<p>这个区分不是抠字眼。给客户或老板汇报时，把 TTFB 说成官方 Core Web Vitals 的一部分，一旦对方去查文档，专业度直接掉分——这也是为什么审计报告里，我坚持四条线分两栏写，一栏标官方，一栏标互旦内部补充。</p>
+<p>这个区分不是抠字眼。给客户或老板汇报时，把 TTFB 说成官方 Core Web Vitals 的一部分，一旦对方去查文档，专业度直接掉分——这也是为什么审计报告里，我坚持四条线分两栏写，一栏标官方，一栏标我的内部补充。</p>
 <p>见过不少服务商的报告把四条线混在一起说「Core Web Vitals 四项指标」，读起来没毛病，一被追问哪三项是官方定义就露怯。这种细节判断力，比任何一张漂亮的图表都更能说明写报告的人有没有亲手做过审计。</p>
-<div class="table-wrap"><table><thead><tr><th>指标</th><th>阈值</th><th>官方是否算 Core Web Vitals</th><th>衡量什么</th></tr></thead><tbody><tr><td>LCP（最大内容绘制）</td><td>≤2.5 秒</td><td>是</td><td>首屏最大元素画完要多久</td></tr><tr><td>INP（交互到下一次绘制）</td><td>≤200 毫秒</td><td>是</td><td>点一下之后，多久能看到反应</td></tr><tr><td>CLS（累计布局偏移）</td><td>≤0.1</td><td>是</td><td>加载过程里，元素跳来跳去有多厉害</td></tr><tr><td>TTFB（首字节时间）</td><td>≤800 毫秒</td><td>否，互旦内部补充阈值</td><td>服务器收到请求后，多久吐出第一个字节</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>指标</th><th>阈值</th><th>官方是否算 Core Web Vitals</th><th>衡量什么</th></tr></thead><tbody><tr><td>LCP（最大内容绘制）</td><td>≤2.5 秒</td><td>是</td><td>首屏最大元素画完要多久</td></tr><tr><td>INP（交互到下一次绘制）</td><td>≤200 毫秒</td><td>是</td><td>点一下之后，多久能看到反应</td></tr><tr><td>CLS（累计布局偏移）</td><td>≤0.1</td><td>是</td><td>加载过程里，元素跳来跳去有多厉害</td></tr><tr><td>TTFB（首字节时间）</td><td>≤800 毫秒</td><td>否，我内部补充阈值</td><td>服务器收到请求后，多久吐出第一个字节</td></tr></tbody></table></div>
 <h2 class="sec"><span class="sec-bar"></span>LCP ≤2.5 秒：B2B 产品页最容易被这三样拖垮</h2>
 <p>LCP 卡在移动端首屏那个最大的元素上，B2B独立站几乎都是同一批凶手：没压缩的工厂实拍大图、自动播放的产品演示视频、加载慢的 PDF 规格书缩略图。</p>
 <p>这条我在《<a href="/article/cms-requirements-and-antipatterns/">独立站CMS怎么选</a>》里从系统能力角度提过一次——图片能不能自动压缩 WebP 是 CMS 的硬要求之一。换个角度看：就算 CMS 达标，运营团队自己传的原图不压缩，照样能把 LCP 拖慢两三秒。</p>
 <p>第三方脚本也常被忽略：在线客服插件、访客分析代码，只要挂在首屏渲染路径上，都会把 LCP 往后拖。把这类脚本的加载时机改到主要内容画完之后，比换一台更贵的服务器管用得多。</p>
-<p>这类性能项我们做<a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a>时会直接列进验收清单，不留给上线之后再补课。</p>
+<p>这类性能项我们做<a href="/consulting/">独立站搭建</a>时会直接列进验收清单，不留给上线之后再补课。</p>
 <p>排查顺序我一般固定：先用 Lighthouse 的 LCP 元素定位功能看清楚拖后腿的到底是哪一张图或哪一段视频，再决定是压缩、延迟加载，还是干脆换成静态封面图加点击播放。</p>
 <p>不看清元素就直接全站压图，经常压错地方。</p>
 <p>首屏之内能看到的图片，我一般要求控制在 3 张以内，多出来的全部延迟加载。</p>
@@ -91,7 +91,7 @@
 <p>检查节奏也值得固定下来：field data 是滚动窗口内真实访客数据的汇总，改完代码不会立刻反映在报告里，要等新一批真实访问数据积累够了才看得出趋势。</p>
 <p>上线当天就去查 Search Console 说「改完还是不达标」，多半是数据还没更新，不是修复没生效。</p>
 <p>这四条线本身不产生询盘，但决定内容能不能被完整看到——技术底座没清完不投内容的判断逻辑，我在《<a href="/article/technical-seo-five-pillars/">技术底座五项</a>》里写过一次，CWV 是清完底座之后的下一关。</p>
-<p>把它和内容排期放进同一张表，是互旦<a href="https://www.hudoo-tech.com/solutions/b2b-solution/">B2B 出海解决方案</a>里最省钱的一个动作。</p>
+<p>把它和内容排期放进同一张表，我<a href="/consulting/">我的 B2B 出海思路</a>里最省钱的一个动作。</p>
 <blockquote><cite>— FELIX</cite></blockquote>
 <h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
 <h3>LCP、INP、CLS 和 TTFB 到底哪几个才是官方的 Core Web Vitals？</h3>
@@ -106,7 +106,7 @@
 <p>没有统一答案，取决于站的病灶：图片站多半先卡 LCP，交互复杂的筛选和表单页多半卡 INP。用 Search Console 的分组报告先找出哪一类页面集中不过线，再决定优先级，不要凭感觉猜。</p>
 <h3>没有专门的技术团队，怎么低成本先测一遍？</h3>
 <p>打开 PageSpeed Insights，输入首页和一个典型产品页的网址就能看到四项数据和具体建议——这是 lab data，单次模拟测试，马上就有结果。有 Search Console 权限的话，再看 CWV 报告里的分组结果，那是 field data，反映的是真实访客的大盘情况，两步搭配着看才靠谱。</p>
-<div class="cta-box"><p class="eyebrow">团队承接 · 可先看服务范围</p><p>想先摸底自己独立站的 Core Web Vitals 现状？看看互旦的谷歌 SEO 服务怎么做技术审计。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">查看互旦 SEO 服务 →</a></div></div>
+<div class="cta-box"><p class="eyebrow">一对一咨询 · 588 CNY / HOUR</p><p>想先摸底自己独立站的 Core Web Vitals 现状？可预约一次一对一，把谷歌 SEO 这件事怎么做理清楚。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 SEO 诊断 →</a></div></div>
 <p class="eyebrow">相关文章</p>
 <div class="row"><div class="row-idx">No.004</div><div class="row-body"><div>
 <h3 class="wp-block-heading"><a href="/article/independent-site-building-mistakes/">外贸独立站建站，中小企业最容易踩的10个坑</a></h3>
@@ -126,7 +126,7 @@
   <div class="author-mark">F</div>
   <div class="author-info">
     <p class="eyebrow">作者</p>
-    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <div class="author-name">Felix <span class="author-role">B2B 出海营销顾问</span></div>
     <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
     <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
   </div>

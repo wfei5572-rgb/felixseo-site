@@ -83,16 +83,16 @@
 <p>这一条我说得很绝对：拿不出旧新地址映射表，改版就不要上线。旧地址上攒了几年的信任和入链，是 301 这一步搬过去的，不是自动继承的。</p>
 <p><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects">Google 的 301 重定向文档</a> 把做法写得很细，难点从来不在技术，在工程管理：几千条地址一一对应，谁来出这张表、谁来验收。</p>
 <p>我验收 301 只看三件事：旧地址访问后是不是 301 到内容对应的新页，有没有一批被粗暴地全部指向首页，跳转链有没有超过两跳。</p>
-<p>改版这件事的完整清单不止 301，还牵涉模板和字段能不能改，这部分和 <a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a> 的验收口径是同一套，最好在立项时就合并成一张表。</p>
+<p>改版这件事的完整清单不止 301，还牵涉模板和字段能不能改，这部分和 <a href="/consulting/">独立站搭建</a> 的验收口径是同一套，最好在立项时就合并成一张表。</p>
 <h2 class="sec"><span class="sec-bar"></span>P0 故障图鉴：审计永远先查这六项</h2>
 <p>接一个新站，我永远先查这 6 项。它们的共同点是：命中任何一项，做再多内容和外链都是白费。</p>
 <div class="table-wrap"><table><thead><tr><th>P0 故障</th><th>怎么自查</th><th>为什么必须先修</th></tr></thead><tbody><tr><td>改版不做 301</td><td>拿 3 条旧地址直接访问，看是不是 404</td><td>旧地址攒的信任清零，且没有补救窗口</td></tr><tr><td>根路径 404</td><td>直接打开主域名首页</td><td>首页就打不开，后面所有优化没有载体</td></tr><tr><td>SSL 证书过期</td><td>看浏览器地址栏是否报不安全</td><td>海外买家看到警告页会直接关掉</td></tr><tr><td>AI 爬虫被 403</td><td>用检索型爬虫的 UA 去请求首页</td><td>答案引擎连页面都取不到，谈不上被引用</td></tr><tr><td>软 404</td><td>抽一批空分类页，看返回码是不是 200</td><td>大量空页面以 200 进索引，稀释整站质量</td></tr><tr><td>全站无 H1</td><td>随机抽 5 页数 h1 数量</td><td>每页都少一个最基本的主题信号</td></tr></tbody></table></div>
-<p>这 6 项里，SSL 证书过期是最容易被忽略的一项——它不是 SEO 问题，是生意问题，整站在到期那一刻对所有访客不可用，询盘也会跟着断。更多故障排查案例见 <a href="https://www.hudoo-tech.com/cases/">客户案例</a>。</p>
+<p>这 6 项里，SSL 证书过期是最容易被忽略的一项——它不是 SEO 问题，是生意问题，整站在到期那一刻对所有访客不可用，询盘也会跟着断。更多故障排查案例见 <a href="/consulting/">同类项目复盘</a>。</p>
 <h2 class="sec"><span class="sec-bar"></span>CWV 阈值：官方三项 + 内部一项，和一个不该写进报告的说法</h2>
-<p>底座清完，才轮到性能。Core Web Vitals 官方只定义三个指标：最大内容绘制 ≤2.5 秒、交互到下一次绘制 ≤200 毫秒、累计布局偏移 ≤0.1；首字节时间 ≤800 毫秒不在官方名单里，是互旦交付标准里补充的第四条内部阈值。</p>
+<p>底座清完，才轮到性能。Core Web Vitals 官方只定义三个指标：最大内容绘制 ≤2.5 秒、交互到下一次绘制 ≤200 毫秒、累计布局偏移 ≤0.1；首字节时间 ≤800 毫秒不在官方名单里，是我交付标准里补充的第四条内部阈值。</p>
 <p>内部目标我按三项全绿来定，不追求满分。交互响应现在只看 INP；那个已经被 INP 取代的旧交互响应指标，不要再出现在任何报告里，写了等于自曝知识没更新。</p>
 <p>还有一个说法要单独提醒：所谓「CWV 综合评分制」属于第三方观察、未经官方确认，我不会把它写进任何正式报告或方案里。</p>
-<p>顺序我再强调一次：P0 未清不投内容。把底座和内容节奏放进同一张排期表，是 <a href="https://www.hudoo-tech.com/solutions/b2b-solution/">B2B 出海解决方案</a> 里最省钱的一个动作。</p>
+<p>顺序我再强调一次：P0 未清不投内容。把底座和内容节奏放进同一张排期表，是 <a href="/consulting/">我的 B2B 出海思路</a> 里最省钱的一个动作。</p>
 <blockquote><cite>— FELIX</cite></blockquote>
 <h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
 <h3>robots.txt 要不要放行 AI 爬虫？</h3>
@@ -107,7 +107,7 @@
 <p>要做到旧地址一对一指向内容对应的新页，而不是全部指向首页。跳转链控制在两跳以内，映射表在上线前准备好并逐条抽验。拿不出这张表就不要改版，旧地址的信任一旦断掉没有补救窗口。</p>
 <h3>Core Web Vitals 不达标会掉排名吗？</h3>
 <p>它是页面体验层面的信号，但通常不是排名波动的首要原因，P0 级故障才是。阈值可以按最大内容绘制 2.5 秒、累计布局偏移 0.1 这条线去盯，目标是三项达标而不是满分。所谓综合评分制未经官方确认，别写进报告。</p>
-<div class="cta-box"><p class="eyebrow">团队承接 · 可先看服务范围</p><p>想先把技术底座和 P0 故障排查一遍？看看互旦的谷歌 SEO 服务怎么做审计。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">查看互旦 SEO 服务 →</a></div></div>
+<div class="cta-box"><p class="eyebrow">一对一咨询 · 588 CNY / HOUR</p><p>想先把技术底座和 P0 故障排查一遍？可预约一次一对一，把谷歌 SEO 这件事怎么做理清楚。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 SEO 诊断 →</a></div></div>
 <p class="eyebrow">相关文章</p>
 <div class="row"><div class="row-idx">No.004</div><div class="row-body"><div>
 <h3 class="wp-block-heading"><a href="/article/independent-site-building-mistakes/">外贸独立站建站，中小企业最容易踩的10个坑</a></h3>
@@ -127,7 +127,7 @@
   <div class="author-mark">F</div>
   <div class="author-info">
     <p class="eyebrow">作者</p>
-    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <div class="author-name">Felix <span class="author-role">B2B 出海营销顾问</span></div>
     <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
     <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
   </div>

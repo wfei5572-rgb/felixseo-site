@@ -69,7 +69,7 @@
 <p>这两个通常 10 分钟就能补完，但补齐率却很低。Article 用在文章页，关键是配上作者信息；BreadcrumbList 用在有层级的页面，关键是和页面上看得见的导航一致。</p>
 <p>Article 的作者字段不要写成一个通用账号。作者应该是一个有身份页、有职务、能被外部查证的人——这正是内容可信度里最难伪造的那部分。</p>
 <p>BreadcrumbList 的价值不只在搜索结果里显示路径，更在于它把站点的层级关系直白地告诉机器：这一页属于哪个品类，上一级是什么。</p>
-<p>这两项能不能落地，取决于建站系统能不能在页面级注入 JSON-LD。注入不了的话，先回头解决 <a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a> 那一层的问题，再谈标记。</p>
+<p>这两项能不能落地，取决于建站系统能不能在页面级注入 JSON-LD。注入不了的话，先回头解决 <a href="/consulting/">独立站搭建</a> 那一层的问题，再谈标记。</p>
 <h2 class="sec"><span class="sec-bar"></span>FAQPage 还值不值得做：一条时间线说清楚</h2>
 <p>结论先给：老页面上已经有的 FAQPage 留着，新页面可以不再新增。它现在换不来搜索结果里的增强展示，但也不会让你受罚。</p>
 <div class="table-wrap"><table><thead><tr><th>时间</th><th>发生了什么</th><th>对你的影响</th></tr></thead><tbody><tr><td>2026-05-07</td><td>问答型富结果停止展示</td><td>别再拿它当卖点，也别写进验收指标</td></tr><tr><td>2026-06</td><td>相关测试工具与报表下线</td><td>验证要换工具，历史报表数据只能当参考</td></tr><tr><td>2026-08</td><td>相关接口停止返回数据</td><td>依赖它做监控的脚本要改掉</td></tr><tr><td>markup 本身</td><td>始终合法</td><td>已经加了的不必删，不报错也不受罚</td></tr></tbody></table></div>
@@ -82,12 +82,12 @@
 <p>如果目标不只是搜索结果，还包括被答案引擎引用，Organization 要补的是这 5 个字段：legalName、address、contactPoint、foundingDate、sameAs。</p>
 <p>sameAs 的验收线是 ≥5 条，指向你的 LinkedIn 公司页、行业目录收录页、社媒主页、中文站这类确实属于你的地址。它的作用是替机器把散落各处的你串成同一个实体。</p>
 <p>logo 用英文文件名的 https 直链。中文文件名和跳转链接在抓取时最容易出问题，这种小事踩一次要排查半天。</p>
-<p>实体统一这件事的收益不在单页，在整站。为什么它是 AI 引用的前提，我在 <a href="https://www.hudoo-tech.com/services/seo-solution/geo/">GEO 优化服务</a> 那条线里讲过更完整的逻辑。</p>
+<p>实体统一这件事的收益不在单页，在整站。为什么它是 AI 引用的前提，我在 <a href="/consulting/">GEO 咨询</a> 那条线里讲过更完整的逻辑。</p>
 <h2 class="sec"><span class="sec-bar"></span>唯一不能破的原则：标记和可见文本必须一致</h2>
 <p>所有规则最后都收敛到一条：结构化数据必须与页面可见文本一致。标记不是另写一份更好看的资料，是把页面上已有的事实翻译给机器听。</p>
 <p>这条原则也是自检的最好方法。逐个字段问一句：这句话在页面上看得见吗？看不见就删掉字段，或者把内容补到页面上去。</p>
 <p>顺序上我建议这样做：先补 Organization，再补 Product 和 BreadcrumbList，Article 随内容排期走，FAQPage 最后有空再说。</p>
-<p>把这套顺序跑完，通常只要 3 天，剩下的力气全部留给内容——这也是我在 <a href="https://www.hudoo-tech.com/cases/">客户案例</a> 里反复验证过的分配方式。</p>
+<p>把这套顺序跑完，通常只要 3 天，剩下的力气全部留给内容——这也是我在 <a href="/consulting/">同类项目复盘</a> 里反复验证过的分配方式。</p>
 <blockquote><cite>— FELIX</cite></blockquote>
 <h2 class="sec"><span class="sec-bar"></span>常见问题</h2>
 <h3>FAQPage 现在还要不要加？</h3>
@@ -102,7 +102,7 @@
 <p>语法校验用 schema.org 的校验器。富结果测试工具已经不再覆盖问答型和步骤型项目，在那里验不出结果，不代表你的标记写错了。验完还要人工比对一遍：每个字段的内容在页面上是不是都看得见。</p>
 <h3>建站系统自动生成的 Schema 靠谱吗？</h3>
 <p>要逐项检查，不能默认它对。最常见的问题是自动标了页面上并不存在的内容，比如没有的评分和价格，这属于垃圾政策范围。检查方法是打开页面源码看生成了哪些类型，再逐个字段对照页面上看得见的文字。</p>
-<div class="cta-box"><p class="eyebrow">团队承接 · 可先看服务范围</p><p>想把实体、结构化数据和 AI 引用一次理顺？看看互旦的 GEO 优化服务怎么做。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/geo/">查看互旦 GEO 服务 →</a></div></div>
+<div class="cta-box"><p class="eyebrow">一对一咨询 · 588 CNY / HOUR</p><p>想把实体、结构化数据和 AI 引用一次理顺？可预约一次一对一，把 GEO 优化这件事怎么做理清楚。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 GEO 诊断 →</a></div></div>
 <p class="eyebrow">相关文章</p>
 <div class="row"><div class="row-idx">No.001</div><div class="row-body"><div>
 <h3 class="wp-block-heading"><a href="/article/how-to-choose-google-seo-agency/">外贸企业如何选谷歌SEO服务商？</a></h3>
@@ -122,7 +122,7 @@
   <div class="author-mark">F</div>
   <div class="author-info">
     <p class="eyebrow">作者</p>
-    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <div class="author-name">Felix <span class="author-role">B2B 出海营销顾问</span></div>
     <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
     <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
   </div>

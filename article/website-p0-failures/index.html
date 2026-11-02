@@ -77,7 +77,7 @@
 <p>海外买家看到浏览器的不安全警告页，多半直接关掉，不会给你解释的机会。</p>
 <p>这三项还有一个共同点：出事那一刻通常是外部合作方交接的空窗期——建站公司项目验收完就撤了，续费和证书这类长期运维的事，压根没写进任何一份交付文档里。</p>
 <p>这类故障的共同模式：不是技术做不到，是没人签收过这份责任。</p>
-<p>更多独立站运维与改版的做法，可以看互旦的<a href="https://www.hudoo-tech.com/cases/">客户案例</a>。</p>
+<p>更多独立站运维与改版的做法，可以看我的<a href="/consulting/">同类项目复盘</a>。</p>
 <h2 class="sec"><span class="sec-bar"></span>多个 P0 同时出现时，先救哪个</h2>
 <p>出问题的时候很少只有一项。判断优先级，我只看两条：影响面有多大，修复窗口有多急。</p>
 <p>根路径 404 和 SSL 证书过期影响的是 100% 的访客，谁来了都打不开，永远排第一。AI 爬虫被 403 和软 404 只影响机器和特定路径，人类访客大多感觉不到，可以往后放一格。</p>
@@ -88,11 +88,11 @@
 <p>时间维度也不能忽略：根路径 404 这种故障改起来通常几分钟就能修完，麻烦的是没人发现它，拖上几天都不奇怪；而软 404 这种慢性病，就算发现了，靠人工一条条改也得花上好几周。</p>
 <p>判断先救哪个，修复难度和发现难度要分开算。</p>
 <h2 class="sec"><span class="sec-bar"></span>怎么把这六项焊进发布流程，而不是等审计发现</h2>
-<p>把六项检查焊进流程，比事后审计便宜得多。建站验收阶段就该覆盖模板能不能生成 H1、301 能不能批量管理，这部分和互旦做<a href="https://www.hudoo-tech.com/services/website-solution/">独立站建设</a>时的验收口径是同一套动作，立项时合并成一张表最省事。</p>
+<p>把六项检查焊进流程，比事后审计便宜得多。建站验收阶段就该覆盖模板能不能生成 H1、301 能不能批量管理，这部分和我<a href="/consulting/">独立站搭建</a>时的验收口径是同一套动作，立项时合并成一张表最省事。</p>
 <p>上线前固定跑一遍两类爬虫 UA 的访问测试，再跑一次全站 404 和 H1 扫描，比等到流量掉了才回头查，成本低得多。</p>
 <p>这六项检查花的时间不长，一次全套跑下来通常半天以内就能出结果，但前提是它被排进了发布清单，而不是「有空的时候抽查一下」。排期表里没有它的位置，它就永远排不上。</p>
 <p>我一般把这 6 条自查动作整理成一张固定清单，每次改版或换模板前，逐条打勾再上线。</p>
-<p>证书和域名续费的责任人要写进合同或运维 SOP——这是互旦交付标准。续期责任不明确时，修复本身往往很快，拖时间的是先要弄清谁该负责。</p>
+<p>证书和域名续费的责任人要写进合同或运维 SOP——这是我给客户的交付标准。续期责任不明确时，修复本身往往很快，拖时间的是先要弄清谁该负责。</p>
 <p>P0 清完不代表能立刻发内容，中间还有一层性能关卡：Core Web Vitals 的 LCP 定在 2.5 秒以内，这条线和它的另外两条我在《<a href="/article/core-web-vitals-b2b-site/">Core Web Vitals</a>》里拆过——P0 是地基，CWV 是地基上的第一层装修。</p>
 <p>内容该不该开始投，判断标准还是那条：P0 一天没清完，就一天不投内容。完整的五项技术底座自查表格，我在《<a href="/article/technical-seo-five-pillars/">技术底座五项</a>》里给过一遍，这篇算是它的救火手册。</p>
 <blockquote><cite>— FELIX</cite></blockquote>
@@ -109,7 +109,7 @@
 <p>多数证书服务商会发到期提醒邮件，但邮件经常被当垃圾邮件或发到没人看的邮箱，等于没有预警。稳妥的做法是把续期状态接进自己的监控系统，而不是依赖服务商单方面的邮件通知。</p>
 <h3>P0 故障和日常的 SEO 优化，谁该负责修？</h3>
 <p>日常 SEO 优化可以是内容或运营团队的事，但 P0 故障涉及服务器、DNS、证书和爬虫规则，必须有明确的技术或运维责任人。最容易出事的恰恰是这两拨人都以为对方在管的时候。</p>
-<div class="cta-box"><p class="eyebrow">团队承接 · 可先看服务范围</p><p>想先摸底自己的独立站有没有踩中这六项 P0？看看互旦的谷歌 SEO 服务怎么做技术审计。</p><div class="btn-row"><a class="btn" href="https://www.hudoo-tech.com/services/seo-solution/google-seo/">查看互旦 SEO 服务 →</a></div></div>
+<div class="cta-box"><p class="eyebrow">一对一咨询 · 588 CNY / HOUR</p><p>想先摸底自己的独立站有没有踩中这六项 P0？可预约一次一对一，把谷歌 SEO 这件事怎么做理清楚。</p><div class="btn-row"><a class="btn" href="/consulting/">预约 1 对 1 SEO 诊断 →</a></div></div>
 <p class="eyebrow">相关文章</p>
 <div class="row"><div class="row-idx">No.004</div><div class="row-body"><div>
 <h3 class="wp-block-heading"><a href="/article/independent-site-building-mistakes/">外贸独立站建站，中小企业最容易踩的10个坑</a></h3>
@@ -133,7 +133,7 @@
   <div class="author-mark">F</div>
   <div class="author-info">
     <p class="eyebrow">作者</p>
-    <div class="author-name">Felix <span class="author-role">BDM · 互旦科技</span></div>
+    <div class="author-name">Felix <span class="author-role">B2B 出海营销顾问</span></div>
     <p>专注外贸独立站出海营销打法，做 B2B 与 B2C 出海整合营销策略。这里只写做过、验证过的事。</p>
     <p class="author-links"><a href="/about/">关于 Felix</a> · <a href="/consulting/">一对一咨询</a></p>
   </div>
